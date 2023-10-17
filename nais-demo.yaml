@@ -13,13 +13,13 @@ spec:
     cpuThresholdPercentage: 90
   port: 3000
   liveness:
-    path: /oppfolgingsplan-lps-demo/api/isAlive
+    path: api/isAlive
     initialDelay: 20
     timeout: 5
     periodSeconds: 5
     failureThreshold: 30
   readiness:
-    path: /oppfolgingsplan-lps-demo/api/isReady
+    path: api/isReady
     initialDelay: 20
     periodSeconds: 5
     timeout: 5
