@@ -1,11 +1,5 @@
 "use client";
-import {
-  Button,
-  Checkbox,
-  CheckboxGroup,
-  Textarea,
-  TextField,
-} from "@navikt/ds-react";
+import { Button, Checkbox, CheckboxGroup, Textarea } from "@navikt/ds-react";
 import NextLink from "next/link";
 import { Side } from "@/components/Side";
 import React from "react";
@@ -22,15 +16,15 @@ export default function Page() {
           <Checkbox value="LEGE">Lege</Checkbox>
         </CheckboxGroup>
 
-        <TextField
+        <Textarea
           label="Har dere behov for bistand fra NAV?"
           description="Eksempelvis something"
         />
-        <TextField label="Er det behov for noen avklaringer fra sykmelder?" />
+        <Textarea label="Har dere behov for avklaringer fra sykmelder?" />
 
         <Textarea
           label="Utfyllende opplysninger"
-          description="Dersom det er behov for å gi mer opplysninger kan dere skrive det her."
+          description="Dersom det er behov for å gi mer opplysninger"
         />
       </>
 
