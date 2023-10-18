@@ -1,13 +1,13 @@
 FROM gcr.io/distroless/nodejs:18 as runtime
 
-WORKDIR /app
+ENV NODE_ENV production
 
-COPY package.json /app/
-COPY .next /app/
-COPY public /app/public/
+COPY /next.config.js ./
+COPY /next-logger.config.js ./
+COPY /.next ./.next
+COPY /public ./public
+COPY /node_modules ./node_modules
 
-EXPOSE 3000
+ENV PORT=8080
 
-ENV NODE_ENV=production
-
-CMD [ "npm", "start" ]
+CMD ["./node_modules/next/dist/bin/next", "start"]
