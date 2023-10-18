@@ -1,11 +1,12 @@
-import { Heading, TextField } from "@navikt/ds-react";
+"use client";
+import { Button, TextField } from "@navikt/ds-react";
+import NextLink from "next/link";
+import { Side } from "@/components/Side";
+import React from "react";
 
-export const InfoOmBedriften = () => {
+export default function Page() {
   return (
-    <>
-      <Heading size="medium" level={"2"}>
-        Informasjon om bedriften
-      </Heading>
+    <Side pageHeader="Informasjon om bedriften" activeStep={3}>
       <TextField label="Bedriftens navn" defaultValue="Virksomhet 123 AS" />
       <TextField
         label="Bedriftens virksomhetsnummer"
@@ -17,6 +18,12 @@ export const InfoOmBedriften = () => {
         label="Nærmeste leders telefonnummer"
         defaultValue="99999999"
       />
-    </>
+
+      <NextLink href={"/kommunikasjon"} passHref>
+        <Button variant="primary" className="w-36 mt-4">
+          Neste
+        </Button>
+      </NextLink>
+    </Side>
   );
-};
+}
