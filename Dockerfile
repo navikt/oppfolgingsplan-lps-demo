@@ -3,7 +3,6 @@ FROM gcr.io/distroless/nodejs:18 as runtime
 ENV NODE_ENV production
 
 COPY /next.config.js ./
-COPY /next-logger.config.js ./
 COPY /.next ./.next
 COPY /public ./public
 COPY /node_modules ./node_modules
