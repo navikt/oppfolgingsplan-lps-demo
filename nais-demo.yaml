@@ -34,4 +34,4 @@ spec:
       cpu: 200m
       memory: 256Mi
   ingresses:
-    - https://oppfolgingsplan.lps.demo.ekstern.dev.nav.no
+    - https://demo.ekstern.dev.nav.no/oppfolgingsplan-lps
