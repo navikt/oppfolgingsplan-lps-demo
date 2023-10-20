@@ -4,7 +4,8 @@ import { FormPage, Step } from "@/components/FormPage";
 import { Controller, useForm } from "react-hook-form";
 import { useGlobalState } from "@/state/appState";
 import { MedvirkningFormFields } from "@/types/FormType";
-import { ConfirmationPanel } from "@navikt/ds-react";
+import { BodyLong, ConfirmationPanel } from "@navikt/ds-react";
+import { FormSummary } from "@/components/summary/FormSummary";
 
 export default function Page() {
   const { globalFormState, globalFormStateDispatch } = useGlobalState();
@@ -24,11 +25,14 @@ export default function Page() {
 
   return (
     <FormPage
-      pageHeader="Oppsummering og innsending todo"
+      pageHeader="Send inn oppfølgingsplanen"
       activeStep={Step.innsending}
       onSubmit={handleSubmit(submitForm)}
     >
-      <div>Oppsummering av svarene dine her.. TODO</div>
+      <BodyLong size="large" textColor="subtle">
+        Se over at alt stemmer, og send inn planen når du er klar.
+      </BodyLong>
+      <FormSummary />
 
       <Controller
         name="sykmeldtHarMedvirket"

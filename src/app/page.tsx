@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { ArbeidsoppgaveFormFields } from "@/types/FormType";
 import { useGlobalState } from "@/state/appState";
 import { useRouter } from "next/navigation";
+import { fieldTexts } from "@/text/fieldTexts";
 
 export default function Home() {
   const router = useRouter();
@@ -36,19 +37,19 @@ export default function Home() {
         Arbeidssituasjon
       </Heading>
       <TextField
-        label="Hvilken stilling har den sykmeldte?"
+        label={fieldTexts.arbeidsoppgaveTexts.stilling}
         {...register("stilling", { required: "Feltet er påkrevd" })}
         defaultValue={globalFormState.arbeidsoppgaveFields.stilling}
         error={errors.stilling?.message}
       />
       <Textarea
-        label="Hvilke arbeidsoppgaver har den sykmeldte har til vanlig?"
+        label={fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaver}
         {...register("arbeidsoppgaver", { required: "Feltet er påkrevd" })}
         defaultValue={globalFormState.arbeidsoppgaveFields.arbeidsoppgaver}
         error={errors.arbeidsoppgaver?.message}
       />
       <Textarea
-        label="Er det noen arbeidsoppgaver som ikke lenger kan utføres på grunn av sykdom?"
+        label={fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaverikkeutfores}
         defaultValue={
           globalFormState.arbeidsoppgaveFields.arbeidsoppgaverikkeutfores
         }

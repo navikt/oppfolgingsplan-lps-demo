@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useGlobalState } from "@/state/appState";
 import { useForm } from "react-hook-form";
 import { TilretteleggingFormFields } from "@/types/FormType";
+import { fieldTexts } from "@/text/fieldTexts";
 
 export default function Page() {
   const router = useRouter();
@@ -31,14 +32,14 @@ export default function Page() {
       onSubmit={handleSubmit(storeGlobalData)}
     >
       <Textarea
-        label="Har det blitt forsøkt tilrettelegging på et tidligere tidspunkt?"
+        label={fieldTexts.tilretteleggingTexts.tidligereTilrettelegging}
         {...register("tidligereTilrettelegging")}
         defaultValue={
           globalFormState.tilretteleggingFormFields.tidligereTilrettelegging
         }
       />
       <Textarea
-        label="Hvilken tilrettelegging blir gjort per i dag?"
+        label={fieldTexts.tilretteleggingTexts.tilretteleggingIDag}
         {...register("tilretteleggingIDag", { required: "Feltet er påkrevd" })}
         defaultValue={
           globalFormState.tilretteleggingFormFields.tilretteleggingIDag
@@ -46,7 +47,7 @@ export default function Page() {
         error={errors.tilretteleggingIDag?.message}
       />
       <Textarea
-        label="Har dere fremtidige planer for tilrettelegging som ikke blir gjort i dag?"
+        label={fieldTexts.tilretteleggingTexts.fremtidigTilrettelegging}
         {...register("fremtidigTilrettelegging")}
         defaultValue={
           globalFormState.tilretteleggingFormFields.fremtidigTilrettelegging

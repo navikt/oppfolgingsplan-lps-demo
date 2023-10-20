@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useGlobalState } from "@/state/appState";
 import { Controller, useForm } from "react-hook-form";
 import { KommunikasjonFormFields } from "@/types/FormType";
+import { fieldTexts } from "@/text/fieldTexts";
 
 export default function Page() {
   const router = useRouter();
@@ -38,7 +39,7 @@ export default function Page() {
         control={control}
         render={({ field: { onChange, onBlur, value, ref } }) => (
           <CheckboxGroup
-            legend="Hvem vil du dele planen med?"
+            legend={fieldTexts.kommunikasjonTexts.mottaker}
             onBlur={onBlur}
             onChange={onChange}
             error={errors.mottaker?.message}
@@ -52,13 +53,13 @@ export default function Page() {
       />
 
       <Textarea
-        label="Har dere behov for bistand fra NAV?"
+        label={fieldTexts.kommunikasjonTexts.bistandFraNav}
         description="For eksempel.."
         {...register("bistandFraNav")}
         defaultValue={globalFormState.kommunikasjonFormFields.bistandFraNav}
       />
       <Textarea
-        label="Har dere behov for avklaringer fra sykmelder?"
+        label={fieldTexts.kommunikasjonTexts.avklaringSykmelder}
         {...register("avklaringSykmelder")}
         defaultValue={
           globalFormState.kommunikasjonFormFields.avklaringSykmelder
@@ -66,7 +67,7 @@ export default function Page() {
       />
 
       <Textarea
-        label="Utfyllende opplysninger"
+        label={fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger}
         description="Dersom det er behov for å gi mer opplysninger"
         {...register("utfyllendeOpplysninger")}
         defaultValue={

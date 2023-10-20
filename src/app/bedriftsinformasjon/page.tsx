@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { VirksomhetFormFields } from "@/types/FormType";
 import { useRouter } from "next/navigation";
 import { useGlobalState } from "@/state/appState";
+import { fieldTexts } from "@/text/fieldTexts";
 
 export default function Page() {
   const router = useRouter();
@@ -31,25 +32,25 @@ export default function Page() {
       onSubmit={handleSubmit(storeGlobalData)}
     >
       <TextField
-        label="Bedriftens navn"
+        label={fieldTexts.bedriftsinformasjonTexts.virksomhetsnavn}
         {...register("virksomhetsnavn", { required: "Feltet er påkrevd" })}
         defaultValue={globalFormState.virksomhetFormFields.virksomhetsnavn}
         error={errors.virksomhetsnavn?.message}
       />
       <TextField
-        label="Bedriftens virksomhetsnummer"
+        label={fieldTexts.bedriftsinformasjonTexts.virksomhetsnummer}
         {...register("virksomhetsnummer", { required: "Feltet er påkrevd" })}
         defaultValue={globalFormState.virksomhetFormFields.virksomhetsnummer}
         error={errors.virksomhetsnummer?.message}
       />
       <TextField
-        label="Nærmeste leders fornavn"
+        label={fieldTexts.bedriftsinformasjonTexts.narmestelederfornavn}
         {...register("narmestelederfornavn", { required: "Feltet er påkrevd" })}
         defaultValue={globalFormState.virksomhetFormFields.narmestelederfornavn}
         error={errors.narmestelederfornavn?.message}
       />
       <TextField
-        label="Nærmeste leders etternavn"
+        label={fieldTexts.bedriftsinformasjonTexts.narmestelederetternavn}
         {...register("narmestelederetternavn", {
           required: "Feltet er påkrevd",
         })}
@@ -59,7 +60,7 @@ export default function Page() {
         error={errors.narmestelederetternavn?.message}
       />
       <TextField
-        label="Nærmeste leders telefonnummer"
+        label={fieldTexts.bedriftsinformasjonTexts.narmesteledertelefonnummer}
         {...register("narmesteledertelefonnummer", {
           required: "Feltet er påkrevd",
         })}
