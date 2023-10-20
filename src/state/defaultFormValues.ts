@@ -7,11 +7,11 @@ export const defaultFormValues: OppfolgingsplanFormFields = {
     arbeidsoppgaverikkeutfores: "",
   },
   virksomhetFormFields: {
-    virksomhetsnavn: "",
-    virksomhetsnummer: "",
-    narmestelederfornavn: "",
-    narmestelederetternavn: "",
-    narmesteledertelefonnummer: "",
+    virksomhetsnavn: "Svele",
+    virksomhetsnummer: "9999999999",
+    narmestelederfornavn: "Ståle",
+    narmestelederetternavn: "Svelesen",
+    narmesteledertelefonnummer: "99999999",
   },
   kommunikasjonFormFields: {
     mottaker: [],
