@@ -15,7 +15,8 @@
     "postcss-import": "^15.1.0",
     "prettier": "^3.0.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.47.0"
   },
   "devDependencies": {
     "@types/node": "^20",

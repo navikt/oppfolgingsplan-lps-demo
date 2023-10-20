@@ -1,4 +1,5 @@
 import "./globals.css";
+import { FormStateProvider } from "@/state/appState";
 
 export default function RootLayout({
   children,
@@ -18,7 +19,7 @@ export default function RootLayout({
           role="main"
           className="flex min-h-screen flex-col items-center"
         >
-          {children}
+          <FormStateProvider>{children}</FormStateProvider>
         </main>
       </body>
     </html>

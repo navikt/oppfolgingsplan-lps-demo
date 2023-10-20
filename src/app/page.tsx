@@ -1,32 +1,59 @@
 "use client";
 
-import {
-  BodyLong,
-  Button,
-  Heading,
-  Textarea,
-  TextField,
-} from "@navikt/ds-react";
-import NextLink from "next/link";
+import { BodyLong, Heading, Textarea, TextField } from "@navikt/ds-react";
 import React from "react";
-import { Side } from "@/components/Side";
+import { FormPage, Step } from "@/components/FormPage";
+import { useForm } from "react-hook-form";
+import { ArbeidsoppgaveFormFields } from "@/types/FormType";
+import { useGlobalState } from "@/state/appState";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  const { globalFormState, globalFormStateDispatch } = useGlobalState();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ArbeidsoppgaveFormFields>();
+
+  const storeGlobalData = (data: ArbeidsoppgaveFormFields) => {
+    globalFormStateDispatch({
+      ...globalFormState,
+      arbeidsoppgaveFields: { ...data },
+    });
+    router.push("/tilrettelegging");
+  };
+
   return (
-    <Side pageHeader="Oppfølgingsplan for Kari Normann" activeStep={1}>
+    <FormPage
+      pageHeader="Oppfølgingsplan for Kari Normann"
+      activeStep={Step.arbeidsoppgaver}
+      onSubmit={handleSubmit(storeGlobalData)}
+    >
       <BodyLong textColor="subtle">Fødselsnummer: 123456789</BodyLong>
       <Heading size="medium" level={"2"}>
         Arbeidssituasjon
       </Heading>
-      <TextField label="Hvilken stilling har den sykmeldte?" />
-      <Textarea label="Hvilke arbeidsoppgaver har den sykmeldte har til vanlig?" />
-      <Textarea label="Er det noen arbeidsoppgaver som ikke lenger kan utføres på grunn av sykdom?" />
-
-      <NextLink href={"/tilrettelegging"} passHref>
-        <Button variant="primary" className="w-36 mt-4">
-          Neste
-        </Button>
-      </NextLink>
-    </Side>
+      <TextField
+        label="Hvilken stilling har den sykmeldte?"
+        {...register("stilling", { required: "Feltet er påkrevd" })}
+        defaultValue={globalFormState.arbeidsoppgaveFields.stilling}
+        error={errors.stilling?.message}
+      />
+      <Textarea
+        label="Hvilke arbeidsoppgaver har den sykmeldte har til vanlig?"
+        {...register("arbeidsoppgaver", { required: "Feltet er påkrevd" })}
+        defaultValue={globalFormState.arbeidsoppgaveFields.arbeidsoppgaver}
+        error={errors.arbeidsoppgaver?.message}
+      />
+      <Textarea
+        label="Er det noen arbeidsoppgaver som ikke lenger kan utføres på grunn av sykdom?"
+        defaultValue={
+          globalFormState.arbeidsoppgaveFields.arbeidsoppgaverikkeutfores
+        }
+        {...register("arbeidsoppgaverikkeutfores")}
+      />
+    </FormPage>
   );
 }
