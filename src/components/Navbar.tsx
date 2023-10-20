@@ -8,7 +8,7 @@ interface Props {
 
 export const Navbar = ({ activeStep }: Props) => {
   return (
-    <div className="pt-12 pb-12">
+    <div className="hidden md:flex mb-8 mt-8 items-center self-center">
       <Stepper
         aria-labelledby="stepper-heading"
         activeStep={activeStep}

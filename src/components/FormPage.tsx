@@ -28,9 +28,9 @@ export const FormPage = ({
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="flex max-w-4xl flex-col w-full">
         <Navbar activeStep={activeStep} />
-        <div className="flex max-w-5xl w-full justify-between flex-col gap-8 bg-slate-100 p-24">
+        <div className="flex w-full justify-between flex-col gap-8 bg-slate-100 p-8 lg:p-24">
           <Heading size="large" level={"1"}>
             {pageHeader}
           </Heading>
