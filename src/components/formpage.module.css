@@ -1,0 +1,16 @@
+/*flex w-full justify-between flex-col gap-8 bg-slate-100 p-8 lg:p-24*/
+
+.formpage {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: rgba(38, 55, 89, 0.06);
+  padding: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .formpage {
+    padding: 4rem;
+  }
+}

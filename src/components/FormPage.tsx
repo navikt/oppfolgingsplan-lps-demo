@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import React, { FormEventHandler, ReactNode } from "react";
 import { Button, Heading } from "@navikt/ds-react";
 import { FormProvider, useForm } from "react-hook-form";
+import styles from "./formpage.module.css";
 
 export enum Step {
   arbeidsoppgaver = 1,
@@ -30,7 +31,7 @@ export const FormPage = ({
     <FormProvider {...methods}>
       <form onSubmit={onSubmit} className="flex max-w-4xl flex-col w-full">
         <Navbar activeStep={activeStep} />
-        <div className="flex w-full justify-between flex-col gap-8 bg-slate-100 p-8 lg:p-24">
+        <div className={styles.formpage}>
           <Heading size="large" level={"1"}>
             {pageHeader}
           </Heading>

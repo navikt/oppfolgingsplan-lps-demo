@@ -1,0 +1,11 @@
+.lpsHeader {
+  background: var(--a-deepblue-100);
+  display: none;
+  padding: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .lpsHeader {
+    display: flex;
+  }
+}

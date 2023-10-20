@@ -1,5 +1,6 @@
 import "./globals.css";
 import { FormStateProvider } from "@/state/appState";
+import { LpsHeader } from "@/components/lpsheader/LpsHeader";
 
 export default function RootLayout({
   children,
@@ -14,6 +15,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="bg-bg-subtle">
+        <LpsHeader />
         <main
           id="maincontent"
           role="main"
