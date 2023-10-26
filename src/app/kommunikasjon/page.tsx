@@ -54,7 +54,7 @@ export default function Page() {
 
       <Textarea
         label={fieldTexts.kommunikasjonTexts.bistandFraNav}
-        description="For eksempel.."
+        description="For eksempel om dere ønsker et dialogmøte i regi av NAV, eller har behov for hjelpemidler"
         {...register("bistandFraNav")}
         defaultValue={globalFormState.kommunikasjonFormFields.bistandFraNav}
       />

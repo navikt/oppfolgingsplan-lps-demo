@@ -19,7 +19,7 @@ export const fieldTexts = {
     kommunikasjonTexts: {
         mottaker: "Hvem vil du dele planen med?",
         bistandFraNav: "Har dere behov for bistand fra NAV?",
-        avklaringSykmelder: "Har dere behov for avklaringer fra sykmelder?",
+        avklaringSykmelder: "Har dere behov for å gi informasjon til fastlegen?",
         utfyllendeOpplysninger: "Utfyllende opplysninger",
     },
 }
