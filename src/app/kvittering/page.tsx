@@ -2,7 +2,8 @@
 import {BodyLong, GuidePanel, Heading} from "@navikt/ds-react";
 import React from "react";
 import { useGlobalState } from "@/state/appState";
-import { usePDF } from "@react-pdf/renderer";
+// @ts-ignore
+import { usePDF } from "@react-pdf/renderer/lib/react-pdf.browser.es.js";
 import { PdfPlan } from "@/components/pdf/PdfPlan";
 import { FilePdfIcon } from "@navikt/aksel-icons";
 
