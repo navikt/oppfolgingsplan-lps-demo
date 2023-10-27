@@ -4,10 +4,12 @@ import { FormPage, Step } from "@/components/FormPage";
 import { Controller, useForm } from "react-hook-form";
 import { useGlobalState } from "@/state/appState";
 import { MedvirkningFormFields } from "@/types/FormType";
-import { BodyLong, ConfirmationPanel } from "@navikt/ds-react";
+import {Alert, BodyLong, ConfirmationPanel} from "@navikt/ds-react";
 import { FormSummary } from "@/components/summary/FormSummary";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
+  const router = useRouter();
   const { globalFormState, globalFormStateDispatch } = useGlobalState();
   const {
     handleSubmit,
@@ -20,7 +22,7 @@ export default function Page() {
       ...globalFormState,
       medvirkningFormFields: { ...data },
     });
-    console.log(globalFormState);
+    router.push("/kvittering");
   };
 
   return (
@@ -32,6 +34,7 @@ export default function Page() {
       <BodyLong size="large" textColor="subtle">
         Se over at alt stemmer, og send inn planen når du er klar.
       </BodyLong>
+      <Alert variant="info">Dette er kun en test, planen blir ikke sendt inn på ekte!</Alert>
       <FormSummary />
 
       <Controller

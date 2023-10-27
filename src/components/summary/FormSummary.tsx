@@ -28,7 +28,7 @@ export const FormSummary = () => {
         </Accordion.Item>
         <Accordion.Item>
           <Accordion.Header>
-            Kommunikasjon med NAV og sykmelder
+            Kommunikasjon med NAV og fastlege
           </Accordion.Header>
           <Accordion.Content>
             <KommunikasjonSummary />

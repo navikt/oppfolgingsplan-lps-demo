@@ -1,3 +1,9 @@
+@media print {
+  .lpsHeader {
+    display: none;
+  }
+}
+
 .lpsHeader {
   background: var(--a-deepblue-100);
   display: none;

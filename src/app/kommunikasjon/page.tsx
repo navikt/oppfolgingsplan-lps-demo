@@ -28,7 +28,7 @@ export default function Page() {
 
   return (
     <FormPage
-      pageHeader="Kommunikasjon med NAV og sykmelder"
+      pageHeader="Kommunikasjon med NAV og fastlege"
       activeStep={Step.kommunikasjon}
       onSubmit={handleSubmit(storeGlobalData)}
     >
