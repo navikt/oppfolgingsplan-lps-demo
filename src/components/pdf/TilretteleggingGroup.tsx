@@ -1,3 +1,4 @@
+"use client";
 import {FieldGroup} from "@/components/pdf/FieldGroup";
 import {FieldItem} from "@/components/pdf/FieldItem";
 import {fieldTexts} from "@/text/fieldTexts";
