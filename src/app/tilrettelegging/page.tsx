@@ -7,6 +7,7 @@ import { useGlobalState } from "@/state/appState";
 import { useForm } from "react-hook-form";
 import { TilretteleggingFormFields } from "@/types/FormType";
 import { fieldTexts } from "@/text/fieldTexts";
+import {optionalText} from "@/text/textUtils";
 
 export default function Page() {
   const router = useRouter();
@@ -32,7 +33,7 @@ export default function Page() {
       onSubmit={handleSubmit(storeGlobalData)}
     >
       <Textarea
-        label={fieldTexts.tilretteleggingTexts.tidligereTilrettelegging}
+        label={optionalText(fieldTexts.tilretteleggingTexts.tidligereTilrettelegging)}
         {...register("tidligereTilrettelegging")}
         defaultValue={
           globalFormState.tilretteleggingFormFields.tidligereTilrettelegging
@@ -47,7 +48,7 @@ export default function Page() {
         error={errors.tilretteleggingIDag?.message}
       />
       <Textarea
-        label={fieldTexts.tilretteleggingTexts.fremtidigTilrettelegging}
+        label={optionalText(fieldTexts.tilretteleggingTexts.fremtidigTilrettelegging)}
         {...register("fremtidigTilrettelegging")}
         defaultValue={
           globalFormState.tilretteleggingFormFields.fremtidigTilrettelegging

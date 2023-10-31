@@ -2,7 +2,7 @@ export const fieldTexts = {
     arbeidsoppgaveTexts: {
         stilling: "Hvilken stilling har arbeidstaker?",
         arbeidsoppgaver: "Hvilke arbeidsoppgaver har arbeidstaker til vanlig?",
-        arbeidsoppgaverikkeutfores: "Er det noen arbeidsoppgaver som arbeidstaker ikke kan utføre på grunn av sykdom?"
+        arbeidsoppgaverikkeutfores: "Er det noen arbeidsoppgaver som ikke kan utføres på grunn av sykdom?"
     },
     tilretteleggingTexts: {
         tidligereTilrettelegging: "Hva har blitt forsøkt av tilrettelegging tidligere?",

@@ -7,6 +7,7 @@ import { useGlobalState } from "@/state/appState";
 import { Controller, useForm } from "react-hook-form";
 import { KommunikasjonFormFields } from "@/types/FormType";
 import { fieldTexts } from "@/text/fieldTexts";
+import {optionalText} from "@/text/textUtils";
 
 export default function Page() {
   const router = useRouter();
@@ -53,13 +54,13 @@ export default function Page() {
       />
 
       <Textarea
-        label={fieldTexts.kommunikasjonTexts.bistandFraNav}
+        label={optionalText(fieldTexts.kommunikasjonTexts.bistandFraNav)}
         description="For eksempel om dere ønsker et dialogmøte i regi av NAV, eller har behov for hjelpemidler"
         {...register("bistandFraNav")}
         defaultValue={globalFormState.kommunikasjonFormFields.bistandFraNav}
       />
       <Textarea
-        label={fieldTexts.kommunikasjonTexts.avklaringSykmelder}
+        label={optionalText(fieldTexts.kommunikasjonTexts.avklaringSykmelder)}
         {...register("avklaringSykmelder")}
         defaultValue={
           globalFormState.kommunikasjonFormFields.avklaringSykmelder
@@ -67,7 +68,7 @@ export default function Page() {
       />
 
       <Textarea
-        label={fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger}
+        label={optionalText(fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger)}
         description="Dersom det er behov for å gi mer opplysninger"
         {...register("utfyllendeOpplysninger")}
         defaultValue={

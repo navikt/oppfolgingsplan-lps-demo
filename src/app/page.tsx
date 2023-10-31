@@ -8,6 +8,7 @@ import { ArbeidsoppgaveFormFields } from "@/types/FormType";
 import { useGlobalState } from "@/state/appState";
 import { useRouter } from "next/navigation";
 import { fieldTexts } from "@/text/fieldTexts";
+import {optionalText} from "@/text/textUtils";
 
 export default function Home() {
   const router = useRouter();
@@ -49,7 +50,7 @@ export default function Home() {
         error={errors.arbeidsoppgaver?.message}
       />
       <Textarea
-        label={fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaverikkeutfores}
+        label={optionalText(fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaverikkeutfores)}
         defaultValue={
           globalFormState.arbeidsoppgaveFields.arbeidsoppgaverikkeutfores
         }
