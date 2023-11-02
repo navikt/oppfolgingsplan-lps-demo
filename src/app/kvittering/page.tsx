@@ -1,5 +1,5 @@
 "use client";
-import {BodyLong, GuidePanel, Heading} from "@navikt/ds-react";
+import { BodyLong, GuidePanel, Heading } from "@navikt/ds-react";
 import React from "react";
 import { useGlobalState } from "@/state/appState";
 // @ts-ignore
@@ -15,13 +15,22 @@ export default function Page() {
 
   return (
     <div className="max-w-4xl pt-12">
-      <Heading spacing size={"large"} level={"1"}>Tusen takk for hjelpen!</Heading>
+      <Heading spacing size={"large"} level={"1"}>
+        Tusen takk for hjelpen!
+      </Heading>
 
       <GuidePanel poster>
         <BodyLong spacing>
           Takk for at du er med å teste ny oppfølgingsplan! Dersom du ønsker å
           hjelpe oss videre setter vi stor pris på om du laster ned og deler
           utfylt plan med oss.
+        </BodyLong>
+
+        <BodyLong spacing>
+          Du kan sende planen til:{" "}
+          <a href="mailto:team-esyfo@nav.no?Subject=Oppfølgingsplan">
+            team-esyfo@nav.no
+          </a>
         </BodyLong>
         <a
           href={instance.url!}
