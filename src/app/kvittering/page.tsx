@@ -21,13 +21,16 @@ export default function Page() {
 
       <GuidePanel poster>
         <BodyLong spacing>
-          Takk for at du er med å teste ny oppfølgingsplan! Dersom du ønsker å
-          hjelpe oss videre setter vi stor pris på om du laster ned og deler
-          utfylt plan med oss.
+          Takk for at du er med å teste ny oppfølgingsplan!
         </BodyLong>
 
         <BodyLong spacing>
-          Du kan sende planen til:{" "}
+          Vi ønsker å lage oppfølgingsplanen så god som mulig! Send oss gjerne forbedringsforslag, ris eller
+          ros på e-post. Vi setter også stor pris på om du laster ned og deler utfylt plan med oss, slik at vi får et bedre inntrykk av hvordan en utfylt plan ser ut.
+        </BodyLong>
+
+        <BodyLong spacing>
+          Du kan sende e-post til:{" "}
           <a href="mailto:team-esyfo@nav.no?Subject=Oppfølgingsplan">
             team-esyfo@nav.no
           </a>
