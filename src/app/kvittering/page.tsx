@@ -25,8 +25,11 @@ export default function Page() {
         </BodyLong>
 
         <BodyLong spacing>
-          Vi ønsker å lage oppfølgingsplanen så god som mulig! Send oss gjerne forbedringsforslag, ris eller
-          ros på e-post. Vi setter også stor pris på om du laster ned og deler utfylt plan med oss, slik at vi får et bedre inntrykk av hvordan en utfylt plan ser ut.
+          Vi ønsker å lage oppfølgingsplanen så god som mulig! Send oss gjerne
+          forbedringsforslag, ris eller ros på e-post. Vi setter også stor pris
+          på om du laster ned og deler utfylt plan med oss, slik at vi får et
+          bedre inntrykk av hvordan en utfylt plan ser ut. Husk å ikke legg ved
+          informasjon om faktiske personer.
         </BodyLong>
 
         <BodyLong spacing>
