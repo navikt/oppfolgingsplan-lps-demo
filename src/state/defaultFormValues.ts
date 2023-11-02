@@ -7,8 +7,6 @@ export const defaultFormValues: OppfolgingsplanFormFields = {
     arbeidsoppgaverikkeutfores: "",
   },
   oppfolgingsansvarligFormFields: {
-    virksomhetsnavn: "Svele",
-    virksomhetsnummer: "9999999999",
     fornavn: "Ståle",
     etternavn: "Svelesen",
     telefonnummer: "99999999",
