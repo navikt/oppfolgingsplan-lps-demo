@@ -9,12 +9,10 @@ export const fieldTexts = {
         tilretteleggingIDag: "Hvilken tilrettelegging blir gjort i dag?",
         fremtidigTilrettelegging: "Har dere fremtidige planer for tilrettelegging?",
     },
-    bedriftsinformasjonTexts: {
-        virksomhetsnavn: "Bedriftens navn",
-        virksomhetsnummer: "Bedriftens virksomhetsnummer",
-        narmestelederfornavn: "Leders fornavn",
-        narmestelederetternavn: "Leders etternavn",
-        narmesteledertelefonnummer: "Leders telefonnummer",
+    oppfolgingsansvarligTexts: {
+        fornavn: "Fornavn",
+        etternavn: "Etternavn",
+        telefonnummer: "Telefonnummer",
     },
     kommunikasjonTexts: {
         mottaker: "Hvem vil du dele planen med?",

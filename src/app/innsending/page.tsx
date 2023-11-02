@@ -46,7 +46,7 @@ export default function Page() {
         control={control}
         render={({ field: { onChange, onBlur, value, ref } }) => (
           <ConfirmationPanel
-            label="Ja, arbeidstaker har medvirket til oppfølgingsplanen."
+            label="Ja, arbeidstaker har medvirket til utforming av oppfølgingsplanen."
             onBlur={onBlur}
             onChange={onChange}
             error={errors.sykmeldtHarMedvirket?.message}

@@ -29,8 +29,8 @@ export const KommunikasjonGroup = ({ globalFormState }: Props) => {
         value={globalFormState.kommunikasjonFormFields.utfyllendeOpplysninger}
       />
       <FieldItem
-        label="Har arbeidstaker medvirket til oppfølgingsplanen?"
-        value="Ja, arbeidstaker har medvirket til oppfølgingsplanen."
+        label="Har arbeidstaker medvirket til utforming av oppfølgingsplanen?"
+        value="Ja, arbeidstaker har medvirket til utforming av oppfølgingsplanen."
       />
     </FieldGroup>
   );

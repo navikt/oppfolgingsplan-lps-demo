@@ -4,7 +4,7 @@ import { Document, Font, Page, StyleSheet, View } from "@react-pdf/renderer";
 import { OppfolgingsplanFormFields } from "@/types/FormType";
 import { ArbeidsoppgaverGroup } from "@/components/pdf/ArbeidsoppgaverGroup";
 import { TilretteleggingGroup } from "@/components/pdf/TilretteleggingGroup";
-import { VirksomhetGroup } from "@/components/pdf/VirksomhetGroup";
+import { KontaktpersonGroup } from "@/components/pdf/KontaktpersonGroup";
 import { KommunikasjonGroup } from "@/components/pdf/KommunikasjonGroup";
 import { PlanHeaderGroup } from "@/components/pdf/PlanHeaderGroup";
 
@@ -50,7 +50,7 @@ export const PdfPlan = ({ globalFormState }: Props) => {
           <PlanHeaderGroup />
           <ArbeidsoppgaverGroup globalFormState={globalFormState} />
           <TilretteleggingGroup globalFormState={globalFormState} />
-          <VirksomhetGroup globalFormState={globalFormState} />
+          <KontaktpersonGroup globalFormState={globalFormState} />
           <KommunikasjonGroup globalFormState={globalFormState} />
         </View>
       </Page>

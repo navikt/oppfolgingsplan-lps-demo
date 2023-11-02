@@ -4,12 +4,10 @@ export type ArbeidsoppgaveFormFields = {
   arbeidsoppgaverikkeutfores: string;
 };
 
-export type VirksomhetFormFields = {
-  virksomhetsnavn: string;
-  virksomhetsnummer: string;
-  narmestelederfornavn: string;
-  narmestelederetternavn: string;
-  narmesteledertelefonnummer: string;
+export type OppfolgingsansvarligFormFields = {
+  fornavn: string;
+  etternavn: string;
+  telefonnummer: string;
 };
 
 export type KommunikasjonFormFields = {
@@ -31,7 +29,7 @@ export type MedvirkningFormFields = {
 
 export type OppfolgingsplanFormFields = {
   arbeidsoppgaveFields: ArbeidsoppgaveFormFields;
-  virksomhetFormFields: VirksomhetFormFields;
+  oppfolgingsansvarligFormFields: OppfolgingsansvarligFormFields;
   kommunikasjonFormFields: KommunikasjonFormFields;
   tilretteleggingFormFields: TilretteleggingFormFields;
   medvirkningFormFields: MedvirkningFormFields;

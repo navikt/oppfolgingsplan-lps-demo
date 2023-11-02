@@ -1,7 +1,7 @@
 import { Accordion } from "@navikt/ds-react";
 import { ArbeidsoppgaverSummary } from "@/components/summary/ArbeidsoppgaverSummary";
 import { TilretteleggingSummary } from "@/components/summary/TilretteleggingSummary";
-import { BedriftsinformasjonSummary } from "@/components/summary/BedriftsinformasjonSummary";
+import { KontaktpersonSummary } from "@/components/summary/KontaktpersonSummary";
 import { KommunikasjonSummary } from "@/components/summary/KommunikasjonSummary";
 
 export const FormSummary = () => {
@@ -21,9 +21,9 @@ export const FormSummary = () => {
           </Accordion.Content>
         </Accordion.Item>
         <Accordion.Item>
-          <Accordion.Header>Informasjon om bedriften</Accordion.Header>
+          <Accordion.Header>Kontaktperson</Accordion.Header>
           <Accordion.Content>
-            <BedriftsinformasjonSummary />
+            <KontaktpersonSummary />
           </Accordion.Content>
         </Accordion.Item>
         <Accordion.Item>

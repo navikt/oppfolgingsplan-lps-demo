@@ -21,7 +21,7 @@ export const Navbar = ({ activeStep }: Props) => {
         <Stepper.Step unsafe_index={1}>Tilrettelegging</Stepper.Step>
       </Link>
       <Link href={`/bedriftsinformasjon`} passHref={true} legacyBehavior>
-        <Stepper.Step unsafe_index={2}>Info om bedriften</Stepper.Step>
+        <Stepper.Step unsafe_index={2}>Kontaktperson</Stepper.Step>
       </Link>
       <Link href={`/kommunikasjon`} passHref={true} legacyBehavior>
         <Stepper.Step unsafe_index={3}>Kommunikasjon</Stepper.Step>
