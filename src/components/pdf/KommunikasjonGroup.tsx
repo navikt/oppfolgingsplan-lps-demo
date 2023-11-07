@@ -30,7 +30,11 @@ export const KommunikasjonGroup = ({ globalFormState }: Props) => {
       />
       <FieldItem
         label="Har arbeidstaker medvirket til utforming av oppfølgingsplanen?"
-        value="Ja, arbeidstaker har medvirket til utforming av oppfølgingsplanen."
+        value={
+          globalFormState.medvirkningFormFields.sykmeldtHarMedvirket
+            ? "Ja"
+            : "Nei"
+        }
       />
     </FieldGroup>
   );

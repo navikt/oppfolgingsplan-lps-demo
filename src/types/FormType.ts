@@ -24,7 +24,7 @@ export type TilretteleggingFormFields = {
 }
 
 export type MedvirkningFormFields = {
-    sykmeldtHarMedvirket: boolean;
+    sykmeldtHarMedvirket: boolean | null;
 }
 
 export type OppfolgingsplanFormFields = {

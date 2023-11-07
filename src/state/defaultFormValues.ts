@@ -23,6 +23,6 @@ export const defaultFormValues: OppfolgingsplanFormFields = {
     fremtidigTilrettelegging: "",
   },
   medvirkningFormFields: {
-    sykmeldtHarMedvirket: false
+    sykmeldtHarMedvirket: null
   }
 };

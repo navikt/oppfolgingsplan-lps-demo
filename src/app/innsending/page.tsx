@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
-import { FormPage, Step } from "@/components/FormPage";
-import { Controller, useForm } from "react-hook-form";
-import { useGlobalState } from "@/state/appState";
-import { MedvirkningFormFields } from "@/types/FormType";
-import {Alert, BodyLong, ConfirmationPanel} from "@navikt/ds-react";
-import { FormSummary } from "@/components/summary/FormSummary";
-import { useRouter } from "next/navigation";
+import {FormPage, Step} from "@/components/FormPage";
+import {Controller, useForm} from "react-hook-form";
+import {useGlobalState} from "@/state/appState";
+import {MedvirkningFormFields} from "@/types/FormType";
+import {Alert, BodyLong, Heading, Radio, RadioGroup} from "@navikt/ds-react";
+import {FormSummary} from "@/components/summary/FormSummary";
+import {useRouter} from "next/navigation";
 
 export default function Page() {
   const router = useRouter();
@@ -34,30 +34,45 @@ export default function Page() {
       <BodyLong size="large" textColor="subtle">
         Se over at alt stemmer, og send inn planen når du er klar.
       </BodyLong>
-      <Alert variant="info">Dette er kun en test, planen blir ikke sendt inn på ekte!</Alert>
+      <Alert variant="info" className="mb-4">
+        Dette er kun en test, planen blir ikke sendt inn på ekte!
+      </Alert>
       <FormSummary />
 
-      <Controller
-        name="sykmeldtHarMedvirket"
-        defaultValue={
-          globalFormState.medvirkningFormFields.sykmeldtHarMedvirket
-        }
-        rules={{ required: "Du må bekrefte medvirkning" }}
-        control={control}
-        render={({ field: { onChange, onBlur, value, ref } }) => (
-          <ConfirmationPanel
-            label="Ja, arbeidstaker har medvirket til utforming av oppfølgingsplanen."
-            onBlur={onBlur}
-            onChange={onChange}
-            error={errors.sykmeldtHarMedvirket?.message}
-            ref={ref}
-            value={value}
-          >
-            For å kunne sende inn må du bekrefte at arbeidstaker har medvirket
-            til oppfølgingsplanen
-          </ConfirmationPanel>
-        )}
-      />
+      <div className="mt-4">
+        <Heading size="small">
+          Har arbeidstaker medvirket til utforming av oppfølgingsplanen?
+        </Heading>
+        <Controller
+          name="sykmeldtHarMedvirket"
+          defaultValue={
+            globalFormState.medvirkningFormFields.sykmeldtHarMedvirket
+          }
+          rules={{
+            validate: (value: boolean | null) => {
+              if (value == null) {
+                return "Du må oppgi om arbeidstaker har medvirket eller ikke.";
+              }
+              return true;
+            },
+          }}
+          control={control}
+          render={({ field: { onChange, onBlur, value, ref } }) => (
+            <RadioGroup
+              legend="Har arbeidstaker medvirket til utforming av oppfølgingsplanen?"
+              hideLegend={true}
+              onBlur={onBlur}
+              onChange={onChange}
+              error={errors.sykmeldtHarMedvirket?.message}
+              ref={ref}
+              value={value}
+            >
+              <Radio value={true}>Ja</Radio>
+              <Radio value={false}>Nei</Radio>
+            </RadioGroup>
+          )}
+        />
+      </div>
     </FormPage>
   );
 }
