@@ -36,6 +36,20 @@ export default function Page() {
 
   const mottakerValue = watch("mottaker");
 
+  const hasSelectedSendTilLege = () => {
+    if (!mottakerValue) {
+      return globalFormState.kommunikasjonFormFields.mottaker?.includes("LEGE");
+    }
+    return mottakerValue?.includes("LEGE");
+  };
+
+  const hasSelectedSendTilNAV = () => {
+    if (!mottakerValue) {
+      return globalFormState.kommunikasjonFormFields.mottaker?.includes("NAV");
+    }
+    return mottakerValue?.includes("NAV");
+  };
+
   return (
     <FormPage
       pageHeader="Informasjon til NAV og fastlege"
@@ -62,7 +76,7 @@ export default function Page() {
         )}
       />
 
-      {mottakerValue?.includes("LEGE") && (
+      {hasSelectedSendTilLege() && (
         <Textarea
           label={optionalText(fieldTexts.kommunikasjonTexts.beskjedTilFastlege)}
           {...register("beskjedTilFastlege")}
@@ -72,7 +86,7 @@ export default function Page() {
         />
       )}
 
-      {mottakerValue?.includes("NAV") && (
+      {hasSelectedSendTilNAV() && (
         <>
           <RadioGroup
             legend={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}

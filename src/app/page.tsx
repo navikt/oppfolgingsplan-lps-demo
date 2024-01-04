@@ -32,6 +32,16 @@ export default function Home() {
 
   const tidligereTilretteleggingJaNeiValue = watch("tidligereTilrettelegging");
 
+  const hasSelectedTidligereTilrettelegging = () => {
+    if (!tidligereTilretteleggingJaNeiValue) {
+      return (
+        globalFormState.jobbOgMuligheterFormFields.tidligereTilrettelegging ===
+        true
+      );
+    }
+    return tidligereTilretteleggingJaNeiValue === true;
+  };
+
   return (
     <FormPage
       pageHeader="Oppfølgingsplan for Kari Normann"
@@ -111,7 +121,7 @@ export default function Home() {
         )}
       />
 
-      {tidligereTilretteleggingJaNeiValue === true && (
+      {hasSelectedTidligereTilrettelegging() && (
         <Textarea
           label={
             fieldTexts.tilretteleggingTexts.tidligereTilretteleggingBeskrivelse
@@ -120,7 +130,8 @@ export default function Home() {
             required: "Feltet er påkrevd",
           })}
           defaultValue={
-            globalFormState.jobbOgMuligheterFormFields.tidligereTilretteleggingBeskrivelse
+            globalFormState.jobbOgMuligheterFormFields
+              .tidligereTilretteleggingBeskrivelse
           }
           error={errors.tidligereTilretteleggingBeskrivelse?.message}
         />
