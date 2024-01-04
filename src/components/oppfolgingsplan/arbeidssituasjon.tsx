@@ -30,7 +30,6 @@ export const Arbeidssituasjon = ({ register, errors }: Props) => {
       />
       <Textarea
         label={fieldTexts.oppfolgingsplanTexts.arbeidsoppgaverSomKanUtfores}
-        description="Hva ville vært bra for den sykmeldte på jobben slik hen har det nå?"
         {...register("arbeidsoppgaverSomKanUtfores", {
           required: "Feltet er påkrevd",
         })}

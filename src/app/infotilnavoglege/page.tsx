@@ -49,14 +49,14 @@ export default function Page() {
   };
 
   const hasSelectedSendTilLege = () => {
-    if (!mottakerValue) {
+    if (mottakerValue === null || mottakerValue === undefined) {
       return globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes("LEGE");
     }
     return mottakerValue?.includes("LEGE");
   };
 
   const hasSelectedSendTilNAV = () => {
-    if (!mottakerValue) {
+    if (mottakerValue === null || mottakerValue === undefined) {
       return globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes("NAV");
     }
     return mottakerValue?.includes("NAV");
@@ -142,14 +142,16 @@ export default function Page() {
 
           {hasSelectedTrengerHjelpFraNAV() && (
             <Textarea
-              label={optionalText(
-                fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAVBeskrivelse,
-              )}
-              {...register("trengerHjelpFraNavBeskrivelse")}
+              label={
+                fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAVBeskrivelse}
+              {...register("trengerHjelpFraNavBeskrivelse", {
+                required: "Feltet er påkrevd",
+              })}
               defaultValue={
                 globalFormState.infoTilNavOgLegeFormFields
                   .trengerHjelpFraNavBeskrivelse
               }
+              error={errors.trengerHjelpFraNavBeskrivelse?.message}
             />
           )}
         </>
