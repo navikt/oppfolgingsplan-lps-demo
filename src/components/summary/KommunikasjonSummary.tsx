@@ -2,6 +2,7 @@ import { VStack } from "@navikt/ds-react";
 import { SummaryField } from "@/components/summary/SummaryField";
 import { fieldTexts } from "@/text/fieldTexts";
 import { useGlobalState } from "@/state/appState";
+import { booleanToJaNei } from "@/text/textUtils";
 
 export const KommunikasjonSummary = () => {
   const { globalFormState } = useGlobalState();
@@ -14,11 +15,9 @@ export const KommunikasjonSummary = () => {
         />
         <SummaryField
           fieldName={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}
-          fieldValue={
-            globalFormState.kommunikasjonFormFields.trengerHjelpFraNav === true
-              ? "Ja"
-              : "Nei"
-          }
+          fieldValue={booleanToJaNei(
+            globalFormState.kommunikasjonFormFields.trengerHjelpFraNav,
+          )}
         />
         <SummaryField
           fieldName={
@@ -41,14 +40,39 @@ export const KommunikasjonSummary = () => {
             globalFormState.kommunikasjonFormFields.utfyllendeOpplysninger
           }
         />
-      </VStack>
-      <VStack gap="4">
+
         <SummaryField
-          fieldName={fieldTexts.kommunikasjonTexts.navn}
+          fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
           fieldValue={globalFormState.kommunikasjonFormFields.kontaktpersonNavn}
         />
         <SummaryField
-          fieldName={fieldTexts.kommunikasjonTexts.telefonnummer}
+          fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
+          fieldValue={
+            globalFormState.kommunikasjonFormFields.kontaktpersonTelefonnummer
+          }
+        />
+        <SummaryField
+          fieldName={fieldTexts.kommunikasjonTexts.harSykmeldtMedvirket}
+          fieldValue={booleanToJaNei(
+            globalFormState.kommunikasjonFormFields.sykmeldtHarMedvirket,
+          )}
+        />
+        <SummaryField
+          fieldName={
+            fieldTexts.kommunikasjonTexts.sykmeldtHarIkkeMedvirketBegrunnelse
+          }
+          fieldValue={
+            globalFormState.kommunikasjonFormFields
+              .sykmeldtHarIkkeMedvirketBegrunnelse
+          }
+        />
+
+        <SummaryField
+          fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
+          fieldValue={globalFormState.kommunikasjonFormFields.kontaktpersonNavn}
+        />
+        <SummaryField
+          fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
           fieldValue={
             globalFormState.kommunikasjonFormFields.kontaktpersonTelefonnummer
           }

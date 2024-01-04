@@ -5,6 +5,7 @@ import {
   Radio,
   RadioGroup,
   Textarea,
+  TextField,
 } from "@navikt/ds-react";
 import { FormPage, Step } from "@/components/FormPage";
 import React from "react";
@@ -36,6 +37,16 @@ export default function Page() {
 
   const mottakerValue = watch("mottaker");
   const trengerHjelpFraNavValue = watch("trengerHjelpFraNav");
+  const sykmeldtHarMedvirketValue = watch("sykmeldtHarMedvirket");
+
+  const sykmeldtHarIkkeMedvirket = () => {
+    if (sykmeldtHarMedvirketValue === null) {
+      return (
+        globalFormState.kommunikasjonFormFields.sykmeldtHarMedvirket === false
+      );
+    }
+    return sykmeldtHarMedvirketValue === false;
+  };
 
   const hasSelectedSendTilLege = () => {
     if (!mottakerValue) {
@@ -143,6 +154,72 @@ export default function Page() {
           )}
         </>
       )}
+
+      <Controller
+        name="sykmeldtHarMedvirket"
+        defaultValue={
+          globalFormState.kommunikasjonFormFields.sykmeldtHarMedvirket
+        }
+        rules={{
+          validate: (value: boolean | null) => {
+            if (value == null) {
+              return "Du må oppgi om arbeidstaker har medvirket eller ikke.";
+            }
+            return true;
+          },
+        }}
+        control={control}
+        render={({ field: { onChange, onBlur, value, ref } }) => (
+          <RadioGroup
+            legend={fieldTexts.kommunikasjonTexts.harSykmeldtMedvirket}
+            onBlur={onBlur}
+            onChange={onChange}
+            error={errors.sykmeldtHarMedvirket?.message}
+            ref={ref}
+            value={value}
+          >
+            <Radio value={true}>Ja</Radio>
+            <Radio value={false}>Nei</Radio>
+          </RadioGroup>
+        )}
+      />
+
+      {sykmeldtHarIkkeMedvirket() && (
+        <Textarea
+          label={
+            fieldTexts.kommunikasjonTexts.sykmeldtHarIkkeMedvirketBegrunnelse
+          }
+          {...register("sykmeldtHarIkkeMedvirketBegrunnelse", {
+            required: "Feltet er påkrevd",
+          })}
+          defaultValue={
+            globalFormState.kommunikasjonFormFields
+              .sykmeldtHarIkkeMedvirketBegrunnelse
+          }
+          error={errors.sykmeldtHarIkkeMedvirketBegrunnelse?.message}
+        />
+      )}
+
+      <TextField
+          label={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
+          description="Den som har ansvaret for å følge opp den sykmeldte, som for eksempel nærmeste leder eller kontaktperson hos HR"
+          {...register("kontaktpersonNavn", {
+            required: "Feltet er påkrevd",
+          })}
+          defaultValue={globalFormState.kommunikasjonFormFields.kontaktpersonNavn}
+          error={errors.kontaktpersonNavn?.message}
+      />
+
+      <TextField
+          label={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
+          {...register("kontaktpersonTelefonnummer", {
+            required: "Feltet er påkrevd",
+          })}
+          defaultValue={
+            globalFormState.kommunikasjonFormFields.kontaktpersonTelefonnummer
+          }
+          error={errors.kontaktpersonTelefonnummer?.message}
+      />
 
       <Textarea
         label={optionalText(

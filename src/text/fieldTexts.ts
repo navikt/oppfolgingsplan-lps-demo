@@ -11,12 +11,14 @@ export const fieldTexts = {
         muligheterForTilrettelegging: "Hvilke muligheter finnes det for tilrettelegging som dere ikke gjør i dag?",
     },
     kommunikasjonTexts: {
-        mottaker: "Hvem vil du dele planen med?",
+        mottaker: "Hvem vil dere sende planen til?",
         trengerDereHjelpFraNAV: "Trenger dere hjelp fra NAV?",
         trengerDereHjelpFraNAVBeskrivelse: "Hva trenger dere hjelp fra NAV med?",
         beskjedTilFastlege: "Beskjed til fastlegen",
         utfyllendeOpplysninger: "Utfyllende opplysninger",
-        navn: "Navn",
-        telefonnummer: "Telefonnummer",
+        kontaktpersonNavn: "Kontaktperson sitt navn",
+        kontaktpersonTelefonnummer: "Kontaktperson sitt telefonnummer",
+        harSykmeldtMedvirket: "Har arbeidstaker medvirket til utforming av oppfølgingsplanen?",
+        sykmeldtHarIkkeMedvirketBegrunnelse: "Beskriv hvorfor sykmeldt ikke har medvirket til utforming av oppfølgingsplanen"
     },
 }

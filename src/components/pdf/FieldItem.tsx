@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
 
 interface Props {
   label: string;
-  value: string;
+  value: string | null;
 }
 
 export const FieldItem = ({ label, value }: Props) => {

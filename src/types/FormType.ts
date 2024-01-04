@@ -16,15 +16,11 @@ export type KommunikasjonFormFields = {
     utfyllendeOpplysninger: string;
     kontaktpersonNavn: string;
     kontaktpersonTelefonnummer: string;
-};
-
-
-export type MedvirkningFormFields = {
     sykmeldtHarMedvirket: boolean | null;
-}
+    sykmeldtHarIkkeMedvirketBegrunnelse: string;
+};
 
 export type OppfolgingsplanFormFields = {
     jobbOgMuligheterFormFields: JobbOgMuligheterFormFields;
     kommunikasjonFormFields: KommunikasjonFormFields;
-    medvirkningFormFields: MedvirkningFormFields;
 };

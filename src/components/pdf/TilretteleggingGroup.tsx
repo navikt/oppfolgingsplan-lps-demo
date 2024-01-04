@@ -4,6 +4,7 @@ import { FieldItem } from "@/components/pdf/FieldItem";
 import { fieldTexts } from "@/text/fieldTexts";
 import React from "react";
 import { OppfolgingsplanFormFields } from "@/types/FormType";
+import {booleanToJaNei} from "@/text/textUtils";
 
 interface Props {
   globalFormState: OppfolgingsplanFormFields;
@@ -14,11 +15,8 @@ export const TilretteleggingGroup = ({ globalFormState }: Props) => {
     <FieldGroup heading="Tilrettelegging">
       <FieldItem
         label={fieldTexts.tilretteleggingTexts.tidligereTilretteleggingJaNei}
-        value={
-          globalFormState.jobbOgMuligheterFormFields
-            .tidligereTilrettelegging === true
-            ? "Ja"
-            : "Nei"
+        value={booleanToJaNei(globalFormState.jobbOgMuligheterFormFields
+            .tidligereTilrettelegging)
         }
       />
 

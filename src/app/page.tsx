@@ -50,7 +50,7 @@ export default function Home() {
     >
       <OppfolgingsplanPeriod />
 
-      <Heading size="medium" level={"2"}>
+      <Heading size="medium" level={"2"} className="mt-4">
         Arbeidssituasjon
       </Heading>
 
@@ -86,7 +86,7 @@ export default function Home() {
         error={errors.arbeidsoppgaverSomIkkeKanUtfores?.message}
       />
 
-      <Heading size="medium" level={"2"}>
+      <Heading size="medium" level={"2"} className="mt-4">
         Tilrettelegging
       </Heading>
 
