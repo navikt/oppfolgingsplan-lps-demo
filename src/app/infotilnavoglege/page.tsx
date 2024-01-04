@@ -40,7 +40,7 @@ export default function Page() {
   const sykmeldtHarMedvirketValue = watch("sykmeldtHarMedvirket");
 
   const sykmeldtHarIkkeMedvirket = () => {
-    if (sykmeldtHarMedvirketValue === null) {
+    if (sykmeldtHarMedvirketValue === null || sykmeldtHarMedvirketValue === undefined) {
       return (
         globalFormState.kommunikasjonFormFields.sykmeldtHarMedvirket === false
       );
