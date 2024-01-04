@@ -6,25 +6,41 @@ import { useGlobalState } from "@/state/appState";
 export const KommunikasjonSummary = () => {
   const { globalFormState } = useGlobalState();
   return (
-    <VStack gap="4">
-      <SummaryField
-        fieldName={fieldTexts.kommunikasjonTexts.mottaker}
-        fieldValue={globalFormState.kommunikasjonFormFields.mottaker.toString()}
-      />
-      <SummaryField
-        fieldName={fieldTexts.kommunikasjonTexts.bistandFraNav}
-        fieldValue={globalFormState.kommunikasjonFormFields.bistandFraNav}
-      />
-      <SummaryField
-        fieldName={fieldTexts.kommunikasjonTexts.avklaringSykmelder}
-        fieldValue={globalFormState.kommunikasjonFormFields.avklaringSykmelder}
-      />
-      <SummaryField
-        fieldName={fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger}
-        fieldValue={
-          globalFormState.kommunikasjonFormFields.utfyllendeOpplysninger
-        }
-      />
-    </VStack>
+    <>
+      <VStack gap="4">
+        <SummaryField
+          fieldName={fieldTexts.kommunikasjonTexts.mottaker}
+          fieldValue={globalFormState.kommunikasjonFormFields.mottaker.toString()}
+        />
+        <SummaryField
+          fieldName={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}
+          fieldValue={globalFormState.kommunikasjonFormFields.bistandFraNav}
+        />
+        <SummaryField
+          fieldName={fieldTexts.kommunikasjonTexts.beskjedTilFastlege}
+          fieldValue={
+            globalFormState.kommunikasjonFormFields.beskjedTilFastlege
+          }
+        />
+        <SummaryField
+          fieldName={fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger}
+          fieldValue={
+            globalFormState.kommunikasjonFormFields.utfyllendeOpplysninger
+          }
+        />
+      </VStack>
+      <VStack gap="4">
+        <SummaryField
+          fieldName={fieldTexts.kommunikasjonTexts.navn}
+          fieldValue={globalFormState.kommunikasjonFormFields.kontaktpersonNavn}
+        />
+        <SummaryField
+          fieldName={fieldTexts.kommunikasjonTexts.telefonnummer}
+          fieldValue={
+            globalFormState.kommunikasjonFormFields.kontaktpersonTelefonnummer
+          }
+        />
+      </VStack>
+    </>
   );
 };

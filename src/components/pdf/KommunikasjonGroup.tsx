@@ -17,12 +17,12 @@ export const KommunikasjonGroup = ({ globalFormState }: Props) => {
         value={globalFormState.kommunikasjonFormFields.mottaker.toString()}
       />
       <FieldItem
-        label={fieldTexts.kommunikasjonTexts.bistandFraNav}
+        label={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}
         value={globalFormState.kommunikasjonFormFields.bistandFraNav}
       />
       <FieldItem
-        label={fieldTexts.kommunikasjonTexts.avklaringSykmelder}
-        value={globalFormState.kommunikasjonFormFields.avklaringSykmelder}
+        label={fieldTexts.kommunikasjonTexts.beskjedTilFastlege}
+        value={globalFormState.kommunikasjonFormFields.beskjedTilFastlege}
       />
       <FieldItem
         label={fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger}

@@ -9,17 +9,17 @@ export const ArbeidsoppgaverSummary = () => {
   return (
     <VStack gap="4">
       <SummaryField
-        fieldName={fieldTexts.arbeidsoppgaveTexts.stilling}
-        fieldValue={globalFormState.arbeidsoppgaveFields.stilling}
+        fieldName={fieldTexts.arbeidsoppgaveTexts.typiskArbeidshverdag}
+        fieldValue={globalFormState.jobbOgMuligheterFormFields.typiskArbeidshverdag}
       />
       <SummaryField
-        fieldName={fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaver}
-        fieldValue={globalFormState.arbeidsoppgaveFields.arbeidsoppgaver}
+        fieldName={fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaverSomKanUtfores}
+        fieldValue={globalFormState.jobbOgMuligheterFormFields.arbeidsoppgaverSomKanUtfores}
       />
       <SummaryField
-        fieldName={fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaverikkeutfores}
+        fieldName={fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaverSomIkkeKanUtfores}
         fieldValue={
-          globalFormState.arbeidsoppgaveFields.arbeidsoppgaverikkeutfores
+          globalFormState.jobbOgMuligheterFormFields.arbeidsoppgaverSomIkkeKanUtfores
         }
       />
     </VStack>

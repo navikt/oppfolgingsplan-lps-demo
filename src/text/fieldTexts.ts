@@ -1,23 +1,22 @@
 export const fieldTexts = {
     arbeidsoppgaveTexts: {
-        stilling: "Hvilken stilling har arbeidstaker?",
-        arbeidsoppgaver: "Hvilke arbeidsoppgaver har arbeidstaker til vanlig?",
-        arbeidsoppgaverikkeutfores: "Er det noen arbeidsoppgaver som ikke kan utføres på grunn av sykdom?"
+        typiskArbeidshverdag: "Hvordan ser en typisk arbeidshverdag ut?",
+        arbeidsoppgaverSomKanUtfores: "Hvilke arbeidsoppgaver kan utføres til tross for sykdom?",
+        arbeidsoppgaverSomIkkeKanUtfores: "Hvilke arbeidsoppgaver kan ikke utføres på grunn av sykdom?"
     },
     tilretteleggingTexts: {
-        tidligereTilrettelegging: "Hva har blitt forsøkt av tilrettelegging tidligere?",
-        tilretteleggingIDag: "Hvilken tilrettelegging blir gjort i dag?",
-        fremtidigTilrettelegging: "Har dere fremtidige planer for tilrettelegging?",
-    },
-    oppfolgingsansvarligTexts: {
-        fornavn: "Fornavn",
-        etternavn: "Etternavn",
-        telefonnummer: "Telefonnummer",
+        tidligereTilretteleggingJaNei: "Har dere forsøkt tilrettelegging på arbeidsplassen tidligere?",
+        tidligereTilretteleggingBeskrivelse: "Evaluer tidligere tilrettelegging. Hva har fungert, og hva har ikke fungert?",
+        tilretteleggingIDennePerioden: "Hvilken tilrettelegging skal dere gjøre i denne perioden?",
+        muligheterForTilrettelegging: "Hvilke muligheter finnes det for tilrettelegging som dere ikke gjør i dag?",
     },
     kommunikasjonTexts: {
         mottaker: "Hvem vil du dele planen med?",
-        bistandFraNav: "Har dere behov for bistand fra NAV?",
-        avklaringSykmelder: "Har dere behov for å gi informasjon til fastlegen?",
+        trengerDereHjelpFraNAV: "Trenger dere hjelp fra NAV?",
+        trengerDereHjelpFraNAVBeskrivelse: "Hva trenger dere hjelp fra NAV med?",
+        beskjedTilFastlege: "Beskjed til fastlegen",
         utfyllendeOpplysninger: "Utfyllende opplysninger",
+        navn: "Navn",
+        telefonnummer: "Telefonnummer",
     },
 }

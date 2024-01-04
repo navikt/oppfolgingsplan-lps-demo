@@ -19,11 +19,11 @@ export const TilretteleggingGroup = ({ globalFormState }: Props) => {
         }
       />
       <FieldItem
-        label={fieldTexts.tilretteleggingTexts.tilretteleggingIDag}
+        label={fieldTexts.tilretteleggingTexts.tilretteleggingIDennePerioden}
         value={globalFormState.tilretteleggingFormFields.tilretteleggingIDag}
       />
       <FieldItem
-        label={fieldTexts.tilretteleggingTexts.fremtidigTilrettelegging}
+        label={fieldTexts.tilretteleggingTexts.muligheterForTilrettelegging}
         value={
           globalFormState.tilretteleggingFormFields.fremtidigTilrettelegging
         }

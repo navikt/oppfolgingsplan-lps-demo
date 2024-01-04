@@ -5,11 +5,9 @@ import { FormProvider, useForm } from "react-hook-form";
 import styles from "./formpage.module.css";
 
 export enum Step {
-  arbeidsoppgaver = 1,
-  tilrettelegging = 2,
-  bedriftsinfo = 3,
-  kommunikasjon = 4,
-  innsending = 5,
+  oppfolgingsplan = 1,
+  infoTilNavOgLege = 2,
+  innsending = 3,
 }
 
 interface Props {
@@ -37,7 +35,7 @@ export const FormPage = ({
           </Heading>
           {children}
           <div className="flex flex-row gap-8">
-            {activeStep !== Step.arbeidsoppgaver && (
+            {activeStep !== Step.oppfolgingsplan && (
               <Button
                 variant="secondary"
                 type="button"
@@ -48,7 +46,7 @@ export const FormPage = ({
               </Button>
             )}
             <Button variant="primary" className="w-fit mt-4">
-              {activeStep === 5 ? "Send inn oppfølgingsplanen" : "Neste"}
+              {activeStep === 3 ? "Send inn oppfølgingsplanen" : "Neste"}
             </Button>
           </div>
         </div>

@@ -1,36 +1,31 @@
-export type ArbeidsoppgaveFormFields = {
-  stilling: string;
-  arbeidsoppgaver: string;
-  arbeidsoppgaverikkeutfores: string;
-};
-
-export type OppfolgingsansvarligFormFields = {
-  fornavn: string;
-  etternavn: string;
-  telefonnummer: string;
+export type JobbOgMuligheterFormFields = {
+    typiskArbeidshverdag: string;
+    arbeidsoppgaverSomKanUtfores: string;
+    arbeidsoppgaverSomIkkeKanUtfores: string;
+    tidligereTilrettelegging: boolean | null;
+    tidligereTilretteleggingBeskrivelse: string;
+    tilretteleggingIDennePerioden: string;
+    muligheterForTilrettelegging: string;
 };
 
 export type KommunikasjonFormFields = {
-  mottaker: string[];
-  bistandFraNav: string;
-  avklaringSykmelder: string;
-  utfyllendeOpplysninger: string;
+    mottaker: string[];
+    bistandFraNav: string;
+    beskjedTilFastlege: string;
+    trengerHjelpFraNav: boolean | null;
+    trengerHjelpFraNavBeskrivelse: string | null;
+    utfyllendeOpplysninger: string;
+    kontaktpersonNavn: string;
+    kontaktpersonTelefonnummer: string;
 };
 
-export type TilretteleggingFormFields = {
-    tidligereTilrettelegging: string;
-    tilretteleggingIDag: string;
-    fremtidigTilrettelegging: string;
-}
 
 export type MedvirkningFormFields = {
     sykmeldtHarMedvirket: boolean | null;
 }
 
 export type OppfolgingsplanFormFields = {
-  arbeidsoppgaveFields: ArbeidsoppgaveFormFields;
-  oppfolgingsansvarligFormFields: OppfolgingsansvarligFormFields;
-  kommunikasjonFormFields: KommunikasjonFormFields;
-  tilretteleggingFormFields: TilretteleggingFormFields;
-  medvirkningFormFields: MedvirkningFormFields;
+    jobbOgMuligheterFormFields: JobbOgMuligheterFormFields;
+    kommunikasjonFormFields: KommunikasjonFormFields;
+    medvirkningFormFields: MedvirkningFormFields;
 };

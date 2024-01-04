@@ -13,16 +13,16 @@ export const ArbeidsoppgaverGroup = ({ globalFormState }: Props) => {
   return (
     <FieldGroup heading="Arbeidsoppgaver">
       <FieldItem
-        label={fieldTexts.arbeidsoppgaveTexts.stilling}
-        value={globalFormState.arbeidsoppgaveFields.stilling}
+        label={fieldTexts.arbeidsoppgaveTexts.typiskArbeidshverdag}
+        value={globalFormState.jobbOgMuligheterFormFields.typiskArbeidshverdag}
       />
       <FieldItem
-        label={fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaver}
-        value={globalFormState.arbeidsoppgaveFields.arbeidsoppgaver}
+        label={fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaverSomKanUtfores}
+        value={globalFormState.jobbOgMuligheterFormFields.arbeidsoppgaverSomKanUtfores}
       />
       <FieldItem
-        label={fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaverikkeutfores}
-        value={globalFormState.arbeidsoppgaveFields.arbeidsoppgaverikkeutfores}
+        label={fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaverSomIkkeKanUtfores}
+        value={globalFormState.jobbOgMuligheterFormFields.arbeidsoppgaverSomIkkeKanUtfores}
       />
     </FieldGroup>
   );

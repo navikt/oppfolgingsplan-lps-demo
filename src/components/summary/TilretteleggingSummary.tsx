@@ -8,21 +8,39 @@ export const TilretteleggingSummary = () => {
   return (
     <VStack gap="4">
       <SummaryField
-        fieldName={fieldTexts.tilretteleggingTexts.tidligereTilrettelegging}
+        fieldName={
+          fieldTexts.tilretteleggingTexts.tidligereTilretteleggingJaNei
+        }
         fieldValue={
-          globalFormState.tilretteleggingFormFields.tidligereTilrettelegging
+          globalFormState.jobbOgMuligheterFormFields
+            .tidligereTilrettelegging === true
+            ? "Ja"
+            : "Nei"
         }
       />
       <SummaryField
-        fieldName={fieldTexts.tilretteleggingTexts.tilretteleggingIDag}
+        fieldName={
+          fieldTexts.tilretteleggingTexts.tidligereTilretteleggingBeskrivelse
+        }
         fieldValue={
-          globalFormState.tilretteleggingFormFields.tilretteleggingIDag
+          globalFormState.jobbOgMuligheterFormFields
+            .tidligereTilretteleggingBeskrivelse
         }
       />
       <SummaryField
-        fieldName={fieldTexts.tilretteleggingTexts.fremtidigTilrettelegging}
+        fieldName={
+          fieldTexts.tilretteleggingTexts.tilretteleggingIDennePerioden
+        }
         fieldValue={
-          globalFormState.tilretteleggingFormFields.fremtidigTilrettelegging
+          globalFormState.jobbOgMuligheterFormFields
+            .tilretteleggingIDennePerioden
+        }
+      />
+      <SummaryField
+        fieldName={fieldTexts.tilretteleggingTexts.muligheterForTilrettelegging}
+        fieldValue={
+          globalFormState.jobbOgMuligheterFormFields
+            .muligheterForTilrettelegging
         }
       />
     </VStack>
