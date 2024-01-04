@@ -14,7 +14,20 @@ export const KommunikasjonSummary = () => {
         />
         <SummaryField
           fieldName={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}
-          fieldValue={globalFormState.kommunikasjonFormFields.bistandFraNav}
+          fieldValue={
+            globalFormState.kommunikasjonFormFields.trengerHjelpFraNav === true
+              ? "Ja"
+              : "Nei"
+          }
+        />
+        <SummaryField
+          fieldName={
+            fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAVBeskrivelse
+          }
+          fieldValue={
+            globalFormState.kommunikasjonFormFields
+              .trengerHjelpFraNavBeskrivelse
+          }
         />
         <SummaryField
           fieldName={fieldTexts.kommunikasjonTexts.beskjedTilFastlege}

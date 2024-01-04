@@ -18,7 +18,17 @@ export const KommunikasjonGroup = ({ globalFormState }: Props) => {
       />
       <FieldItem
         label={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}
-        value={globalFormState.kommunikasjonFormFields.bistandFraNav}
+        value={
+          globalFormState.kommunikasjonFormFields.trengerHjelpFraNav === true
+            ? "Ja"
+            : "Nei"
+        }
+      />
+      <FieldItem
+        label={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAVBeskrivelse}
+        value={
+          globalFormState.kommunikasjonFormFields.trengerHjelpFraNavBeskrivelse
+        }
       />
       <FieldItem
         label={fieldTexts.kommunikasjonTexts.beskjedTilFastlege}

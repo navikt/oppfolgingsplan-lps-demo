@@ -33,7 +33,7 @@ export default function Home() {
   const tidligereTilretteleggingJaNeiValue = watch("tidligereTilrettelegging");
 
   const hasSelectedTidligereTilrettelegging = () => {
-    if (!tidligereTilretteleggingJaNeiValue) {
+    if (tidligereTilretteleggingJaNeiValue === null) {
       return (
         globalFormState.jobbOgMuligheterFormFields.tidligereTilrettelegging ===
         true

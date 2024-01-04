@@ -12,7 +12,6 @@ export const defaultFormValues: OppfolgingsplanFormFields = {
     },
     kommunikasjonFormFields: {
         mottaker: [],
-        bistandFraNav: "",
         beskjedTilFastlege: "",
         trengerHjelpFraNav: null,
         trengerHjelpFraNavBeskrivelse: "",

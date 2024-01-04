@@ -10,10 +10,9 @@ export type JobbOgMuligheterFormFields = {
 
 export type KommunikasjonFormFields = {
     mottaker: string[];
-    bistandFraNav: string;
     beskjedTilFastlege: string;
     trengerHjelpFraNav: boolean | null;
-    trengerHjelpFraNavBeskrivelse: string | null;
+    trengerHjelpFraNavBeskrivelse: string;
     utfyllendeOpplysninger: string;
     kontaktpersonNavn: string;
     kontaktpersonTelefonnummer: string;

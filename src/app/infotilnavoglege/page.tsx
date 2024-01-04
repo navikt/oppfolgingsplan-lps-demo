@@ -35,6 +35,7 @@ export default function Page() {
   };
 
   const mottakerValue = watch("mottaker");
+  const trengerHjelpFraNavValue = watch("trengerHjelpFraNav");
 
   const hasSelectedSendTilLege = () => {
     if (!mottakerValue) {
@@ -48,6 +49,16 @@ export default function Page() {
       return globalFormState.kommunikasjonFormFields.mottaker?.includes("NAV");
     }
     return mottakerValue?.includes("NAV");
+  };
+
+  const hasSelectedTrengerHjelpFraNAV = () => {
+    console.log(trengerHjelpFraNavValue);
+    if (trengerHjelpFraNavValue === null) {
+      return (
+        globalFormState.kommunikasjonFormFields.trengerHjelpFraNav === true
+      );
+    }
+    return trengerHjelpFraNavValue === true;
   };
 
   return (
@@ -88,22 +99,48 @@ export default function Page() {
 
       {hasSelectedSendTilNAV() && (
         <>
-          <RadioGroup
-            legend={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}
-            description="For eksempel om dere ønsker et dialogmøte i regi av NAV, eller har behov for hjelpemidler"
-            onChange={(val: any) => console.log(val)}
-          >
-            <Radio value={true}>Ja</Radio>
-            <Radio value={false}>Nei</Radio>
-          </RadioGroup>
-
-          <Textarea
-            label={optionalText(
-              fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAVBeskrivelse,
+          <Controller
+            name="trengerHjelpFraNav"
+            defaultValue={
+              globalFormState.kommunikasjonFormFields.trengerHjelpFraNav
+            }
+            rules={{
+              validate: (value: boolean | null) => {
+                if (value == null) {
+                  return "Du må oppgi om dere trenger hjelp fra NAV eller ikke";
+                }
+                return true;
+              },
+            }}
+            control={control}
+            render={({ field: { onChange, onBlur, value, ref } }) => (
+              <RadioGroup
+                legend={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}
+                description="For eksempel om dere ønsker et dialogmøte i regi av NAV, eller har behov for hjelpemidler"
+                onBlur={onBlur}
+                onChange={onChange}
+                error={errors.trengerHjelpFraNav?.message}
+                ref={ref}
+                value={value}
+              >
+                <Radio value={true}>Ja</Radio>
+                <Radio value={false}>Nei</Radio>
+              </RadioGroup>
             )}
-            {...register("bistandFraNav")}
-            defaultValue={globalFormState.kommunikasjonFormFields.bistandFraNav}
           />
+
+          {hasSelectedTrengerHjelpFraNAV() && (
+            <Textarea
+              label={optionalText(
+                fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAVBeskrivelse,
+              )}
+              {...register("trengerHjelpFraNavBeskrivelse")}
+              defaultValue={
+                globalFormState.kommunikasjonFormFields
+                  .trengerHjelpFraNavBeskrivelse
+              }
+            />
+          )}
         </>
       )}
 
