@@ -11,7 +11,7 @@ interface Props {
 
 export const KommunikasjonGroup = ({ globalFormState }: Props) => {
   return (
-    <FieldGroup heading="Kommunikasjon med NAV og lege">
+    <FieldGroup heading="Informasjon til NAV og fastlege">
       <FieldItem
         label={fieldTexts.kommunikasjonTexts.mottaker}
         value={globalFormState.kommunikasjonFormFields.mottaker.toString()}
