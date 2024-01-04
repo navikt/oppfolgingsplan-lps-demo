@@ -8,7 +8,7 @@ import {
   useContext,
   useState,
 } from "react";
-import { OppfolgingsplanFormFields } from "@/types/FormType";
+import { InnsendingFormFields } from "@/types/FormType";
 import { defaultFormValues } from "@/state/defaultFormValues";
 
 export const AppStateContext = createContext<FormContext>({
@@ -23,13 +23,13 @@ interface Props {
 }
 
 type FormContext = {
-  globalFormState: OppfolgingsplanFormFields;
-  globalFormStateDispatch: Dispatch<SetStateAction<OppfolgingsplanFormFields>>;
+  globalFormState: InnsendingFormFields;
+  globalFormStateDispatch: Dispatch<SetStateAction<InnsendingFormFields>>;
 };
 
 export function FormStateProvider({ children }: Props) {
   const [formValues, setFormValues] =
-    useState<OppfolgingsplanFormFields>(defaultFormValues);
+    useState<InnsendingFormFields>(defaultFormValues);
   return (
     <AppStateContext.Provider
       value={{ globalFormState: formValues, globalFormStateDispatch: setFormValues }}

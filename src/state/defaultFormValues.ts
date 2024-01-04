@@ -1,7 +1,7 @@
-import {OppfolgingsplanFormFields} from "@/types/FormType";
+import {InnsendingFormFields} from "@/types/FormType";
 
-export const defaultFormValues: OppfolgingsplanFormFields = {
-    jobbOgMuligheterFormFields: {
+export const defaultFormValues: InnsendingFormFields = {
+    oppfolgingsplanFormFields: {
         typiskArbeidshverdag: "",
         arbeidsoppgaverSomKanUtfores: "",
         arbeidsoppgaverSomIkkeKanUtfores: "",
@@ -10,7 +10,7 @@ export const defaultFormValues: OppfolgingsplanFormFields = {
         tilretteleggingIDennePerioden: "",
         muligheterForTilrettelegging: "",
     },
-    kommunikasjonFormFields: {
+    infoTilNavOgLegeFormFields: {
         mottaker: [],
         beskjedTilFastlege: "",
         trengerHjelpFraNav: null,
@@ -18,8 +18,7 @@ export const defaultFormValues: OppfolgingsplanFormFields = {
         utfyllendeOpplysninger: "",
         kontaktpersonNavn: "Ståle Svelesen",
         kontaktpersonTelefonnummer: "99999999",
+        sykmeldtHarMedvirket: null,
+        sykmeldtHarIkkeMedvirketBegrunnelse: ""
     },
-    medvirkningFormFields: {
-        sykmeldtHarMedvirket: null
-    }
 };

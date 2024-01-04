@@ -4,7 +4,7 @@ import { Heading, Radio, RadioGroup, Textarea } from "@navikt/ds-react";
 import React from "react";
 import { FormPage, Step } from "@/components/FormPage";
 import { Controller, useForm } from "react-hook-form";
-import { JobbOgMuligheterFormFields } from "@/types/FormType";
+import { OppfolgingsplanFormFields } from "@/types/FormType";
 import { useGlobalState } from "@/state/appState";
 import { useRouter } from "next/navigation";
 import { fieldTexts } from "@/text/fieldTexts";
@@ -20,12 +20,12 @@ export default function Home() {
     handleSubmit,
     formState: { errors },
     watch,
-  } = useForm<JobbOgMuligheterFormFields>();
+  } = useForm<OppfolgingsplanFormFields>();
 
-  const storeGlobalData = (data: JobbOgMuligheterFormFields) => {
+  const storeGlobalData = (data: OppfolgingsplanFormFields) => {
     globalFormStateDispatch({
       ...globalFormState,
-      jobbOgMuligheterFormFields: { ...data },
+      oppfolgingsplanFormFields: { ...data },
     });
     router.push("/infotilnavoglege");
   };
@@ -35,7 +35,7 @@ export default function Home() {
   const hasSelectedTidligereTilrettelegging = () => {
     if (tidligereTilretteleggingJaNeiValue === null) {
       return (
-        globalFormState.jobbOgMuligheterFormFields.tidligereTilrettelegging ===
+        globalFormState.oppfolgingsplanFormFields.tidligereTilrettelegging ===
         true
       );
     }
@@ -55,29 +55,29 @@ export default function Home() {
       </Heading>
 
       <Textarea
-        label={fieldTexts.arbeidsoppgaveTexts.typiskArbeidshverdag}
+        label={fieldTexts.oppfolgingsplanTexts.typiskArbeidshverdag}
         {...register("typiskArbeidshverdag", { required: "Feltet er påkrevd" })}
         defaultValue={
-          globalFormState.jobbOgMuligheterFormFields.typiskArbeidshverdag
+          globalFormState.oppfolgingsplanFormFields.typiskArbeidshverdag
         }
         error={errors.typiskArbeidshverdag?.message}
       />
       <Textarea
-        label={fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaverSomKanUtfores}
+        label={fieldTexts.oppfolgingsplanTexts.arbeidsoppgaverSomKanUtfores}
         description="Hva ville vært bra for den sykmeldte på jobben slik hen har det nå?"
         {...register("arbeidsoppgaverSomKanUtfores", {
           required: "Feltet er påkrevd",
         })}
         defaultValue={
-          globalFormState.jobbOgMuligheterFormFields
+          globalFormState.oppfolgingsplanFormFields
             .arbeidsoppgaverSomKanUtfores
         }
         error={errors.arbeidsoppgaverSomKanUtfores?.message}
       />
       <Textarea
-        label={fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaverSomIkkeKanUtfores}
+        label={fieldTexts.oppfolgingsplanTexts.arbeidsoppgaverSomIkkeKanUtfores}
         defaultValue={
-          globalFormState.jobbOgMuligheterFormFields
+          globalFormState.oppfolgingsplanFormFields
             .arbeidsoppgaverSomIkkeKanUtfores
         }
         {...register("arbeidsoppgaverSomIkkeKanUtfores", {
@@ -93,7 +93,7 @@ export default function Home() {
       <Controller
         name="tidligereTilrettelegging"
         defaultValue={
-          globalFormState.jobbOgMuligheterFormFields.tidligereTilrettelegging
+          globalFormState.oppfolgingsplanFormFields.tidligereTilrettelegging
         }
         rules={{
           validate: (value: boolean | null) => {
@@ -107,7 +107,7 @@ export default function Home() {
         render={({ field: { onChange, onBlur, value, ref } }) => (
           <RadioGroup
             legend={
-              fieldTexts.tilretteleggingTexts.tidligereTilretteleggingJaNei
+              fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingJaNei
             }
             onBlur={onBlur}
             onChange={onChange}
@@ -124,37 +124,37 @@ export default function Home() {
       {hasSelectedTidligereTilrettelegging() && (
         <Textarea
           label={
-            fieldTexts.tilretteleggingTexts.tidligereTilretteleggingBeskrivelse
+            fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingBeskrivelse
           }
           {...register("tidligereTilretteleggingBeskrivelse", {
             required: "Feltet er påkrevd",
           })}
           defaultValue={
-            globalFormState.jobbOgMuligheterFormFields
+            globalFormState.oppfolgingsplanFormFields
               .tidligereTilretteleggingBeskrivelse
           }
           error={errors.tidligereTilretteleggingBeskrivelse?.message}
         />
       )}
       <Textarea
-        label={fieldTexts.tilretteleggingTexts.tilretteleggingIDennePerioden}
+        label={fieldTexts.oppfolgingsplanTexts.tilretteleggingIDennePerioden}
         description="Hva skal til for at den sykmeldte kan være på jobb til tross for sine plager?"
         {...register("tilretteleggingIDennePerioden", {
           required: "Feltet er påkrevd",
         })}
         defaultValue={
-          globalFormState.jobbOgMuligheterFormFields
+          globalFormState.oppfolgingsplanFormFields
             .tilretteleggingIDennePerioden
         }
         error={errors.tilretteleggingIDennePerioden?.message}
       />
       <Textarea
         label={optionalText(
-          fieldTexts.tilretteleggingTexts.muligheterForTilrettelegging,
+          fieldTexts.oppfolgingsplanTexts.muligheterForTilrettelegging,
         )}
         {...register("muligheterForTilrettelegging")}
         defaultValue={
-          globalFormState.jobbOgMuligheterFormFields
+          globalFormState.oppfolgingsplanFormFields
             .muligheterForTilrettelegging
         }
       />

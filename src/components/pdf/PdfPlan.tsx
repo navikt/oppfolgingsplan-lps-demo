@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Document, Font, Page, StyleSheet, View } from "@react-pdf/renderer";
-import { OppfolgingsplanFormFields } from "@/types/FormType";
+import { InnsendingFormFields } from "@/types/FormType";
 import { ArbeidsoppgaverGroup } from "@/components/pdf/ArbeidsoppgaverGroup";
 import { TilretteleggingGroup } from "@/components/pdf/TilretteleggingGroup";
 import { KommunikasjonGroup } from "@/components/pdf/KommunikasjonGroup";
@@ -38,7 +38,7 @@ Font.register({
 });
 
 interface Props {
-  globalFormState: OppfolgingsplanFormFields;
+  globalFormState: InnsendingFormFields;
 }
 
 export const PdfPlan = ({ globalFormState }: Props) => {

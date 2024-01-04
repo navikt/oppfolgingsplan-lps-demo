@@ -12,7 +12,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { useGlobalState } from "@/state/appState";
 import { Controller, useForm } from "react-hook-form";
-import { KommunikasjonFormFields } from "@/types/FormType";
+import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 import { fieldTexts } from "@/text/fieldTexts";
 import { optionalText } from "@/text/textUtils";
 
@@ -25,12 +25,12 @@ export default function Page() {
     handleSubmit,
     formState: { errors },
     watch,
-  } = useForm<KommunikasjonFormFields>();
+  } = useForm<InfoTilNavOgLegeFormFields>();
 
-  const storeGlobalData = (data: KommunikasjonFormFields) => {
+  const storeGlobalData = (data: InfoTilNavOgLegeFormFields) => {
     globalFormStateDispatch({
       ...globalFormState,
-      kommunikasjonFormFields: { ...data },
+      infoTilNavOgLegeFormFields: { ...data },
     });
     router.push("/innsending");
   };
@@ -42,7 +42,7 @@ export default function Page() {
   const sykmeldtHarIkkeMedvirket = () => {
     if (sykmeldtHarMedvirketValue === null || sykmeldtHarMedvirketValue === undefined) {
       return (
-        globalFormState.kommunikasjonFormFields.sykmeldtHarMedvirket === false
+        globalFormState.infoTilNavOgLegeFormFields.sykmeldtHarMedvirket === false
       );
     }
     return sykmeldtHarMedvirketValue === false;
@@ -50,14 +50,14 @@ export default function Page() {
 
   const hasSelectedSendTilLege = () => {
     if (!mottakerValue) {
-      return globalFormState.kommunikasjonFormFields.mottaker?.includes("LEGE");
+      return globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes("LEGE");
     }
     return mottakerValue?.includes("LEGE");
   };
 
   const hasSelectedSendTilNAV = () => {
     if (!mottakerValue) {
-      return globalFormState.kommunikasjonFormFields.mottaker?.includes("NAV");
+      return globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes("NAV");
     }
     return mottakerValue?.includes("NAV");
   };
@@ -66,7 +66,7 @@ export default function Page() {
     console.log(trengerHjelpFraNavValue);
     if (trengerHjelpFraNavValue === null) {
       return (
-        globalFormState.kommunikasjonFormFields.trengerHjelpFraNav === true
+        globalFormState.infoTilNavOgLegeFormFields.trengerHjelpFraNav === true
       );
     }
     return trengerHjelpFraNavValue === true;
@@ -80,7 +80,7 @@ export default function Page() {
     >
       <Controller
         name="mottaker"
-        defaultValue={globalFormState.kommunikasjonFormFields.mottaker || []}
+        defaultValue={globalFormState.infoTilNavOgLegeFormFields.mottaker || []}
         rules={{ required: "Du må velge hvem planen skal deles med" }}
         control={control}
         render={({ field: { onChange, onBlur, value, ref } }) => (
@@ -103,7 +103,7 @@ export default function Page() {
           label={optionalText(fieldTexts.kommunikasjonTexts.beskjedTilFastlege)}
           {...register("beskjedTilFastlege")}
           defaultValue={
-            globalFormState.kommunikasjonFormFields.beskjedTilFastlege
+            globalFormState.infoTilNavOgLegeFormFields.beskjedTilFastlege
           }
         />
       )}
@@ -113,7 +113,7 @@ export default function Page() {
           <Controller
             name="trengerHjelpFraNav"
             defaultValue={
-              globalFormState.kommunikasjonFormFields.trengerHjelpFraNav
+              globalFormState.infoTilNavOgLegeFormFields.trengerHjelpFraNav
             }
             rules={{
               validate: (value: boolean | null) => {
@@ -147,7 +147,7 @@ export default function Page() {
               )}
               {...register("trengerHjelpFraNavBeskrivelse")}
               defaultValue={
-                globalFormState.kommunikasjonFormFields
+                globalFormState.infoTilNavOgLegeFormFields
                   .trengerHjelpFraNavBeskrivelse
               }
             />
@@ -158,7 +158,7 @@ export default function Page() {
       <Controller
         name="sykmeldtHarMedvirket"
         defaultValue={
-          globalFormState.kommunikasjonFormFields.sykmeldtHarMedvirket
+          globalFormState.infoTilNavOgLegeFormFields.sykmeldtHarMedvirket
         }
         rules={{
           validate: (value: boolean | null) => {
@@ -193,7 +193,7 @@ export default function Page() {
             required: "Feltet er påkrevd",
           })}
           defaultValue={
-            globalFormState.kommunikasjonFormFields
+            globalFormState.infoTilNavOgLegeFormFields
               .sykmeldtHarIkkeMedvirketBegrunnelse
           }
           error={errors.sykmeldtHarIkkeMedvirketBegrunnelse?.message}
@@ -206,7 +206,7 @@ export default function Page() {
           {...register("kontaktpersonNavn", {
             required: "Feltet er påkrevd",
           })}
-          defaultValue={globalFormState.kommunikasjonFormFields.kontaktpersonNavn}
+          defaultValue={globalFormState.infoTilNavOgLegeFormFields.kontaktpersonNavn}
           error={errors.kontaktpersonNavn?.message}
       />
 
@@ -216,7 +216,7 @@ export default function Page() {
             required: "Feltet er påkrevd",
           })}
           defaultValue={
-            globalFormState.kommunikasjonFormFields.kontaktpersonTelefonnummer
+            globalFormState.infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer
           }
           error={errors.kontaktpersonTelefonnummer?.message}
       />
@@ -228,7 +228,7 @@ export default function Page() {
         description="Dersom det er behov for å gi mer opplysninger"
         {...register("utfyllendeOpplysninger")}
         defaultValue={
-          globalFormState.kommunikasjonFormFields.utfyllendeOpplysninger
+          globalFormState.infoTilNavOgLegeFormFields.utfyllendeOpplysninger
         }
       />
     </FormPage>

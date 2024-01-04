@@ -10,34 +10,34 @@ export const TilretteleggingSummary = () => {
     <VStack gap="4">
       <SummaryField
         fieldName={
-          fieldTexts.tilretteleggingTexts.tidligereTilretteleggingJaNei
+          fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingJaNei
         }
         fieldValue={booleanToJaNei(
-          globalFormState.jobbOgMuligheterFormFields.tidligereTilrettelegging,
+          globalFormState.oppfolgingsplanFormFields.tidligereTilrettelegging,
         )}
       />
       <SummaryField
         fieldName={
-          fieldTexts.tilretteleggingTexts.tidligereTilretteleggingBeskrivelse
+          fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingBeskrivelse
         }
         fieldValue={
-          globalFormState.jobbOgMuligheterFormFields
+          globalFormState.oppfolgingsplanFormFields
             .tidligereTilretteleggingBeskrivelse
         }
       />
       <SummaryField
         fieldName={
-          fieldTexts.tilretteleggingTexts.tilretteleggingIDennePerioden
+          fieldTexts.oppfolgingsplanTexts.tilretteleggingIDennePerioden
         }
         fieldValue={
-          globalFormState.jobbOgMuligheterFormFields
+          globalFormState.oppfolgingsplanFormFields
             .tilretteleggingIDennePerioden
         }
       />
       <SummaryField
-        fieldName={fieldTexts.tilretteleggingTexts.muligheterForTilrettelegging}
+        fieldName={fieldTexts.oppfolgingsplanTexts.muligheterForTilrettelegging}
         fieldValue={
-          globalFormState.jobbOgMuligheterFormFields
+          globalFormState.oppfolgingsplanFormFields
             .muligheterForTilrettelegging
         }
       />

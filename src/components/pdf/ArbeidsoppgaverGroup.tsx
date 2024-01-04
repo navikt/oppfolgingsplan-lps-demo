@@ -3,26 +3,26 @@ import { FieldGroup } from "@/components/pdf/FieldGroup";
 import { FieldItem } from "@/components/pdf/FieldItem";
 import { fieldTexts } from "@/text/fieldTexts";
 import React from "react";
-import { OppfolgingsplanFormFields } from "@/types/FormType";
+import { InnsendingFormFields } from "@/types/FormType";
 
 interface Props {
-  globalFormState: OppfolgingsplanFormFields;
+  globalFormState: InnsendingFormFields;
 }
 
 export const ArbeidsoppgaverGroup = ({ globalFormState }: Props) => {
   return (
     <FieldGroup heading="Arbeidsoppgaver">
       <FieldItem
-        label={fieldTexts.arbeidsoppgaveTexts.typiskArbeidshverdag}
-        value={globalFormState.jobbOgMuligheterFormFields.typiskArbeidshverdag}
+        label={fieldTexts.oppfolgingsplanTexts.typiskArbeidshverdag}
+        value={globalFormState.oppfolgingsplanFormFields.typiskArbeidshverdag}
       />
       <FieldItem
-        label={fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaverSomKanUtfores}
-        value={globalFormState.jobbOgMuligheterFormFields.arbeidsoppgaverSomKanUtfores}
+        label={fieldTexts.oppfolgingsplanTexts.arbeidsoppgaverSomKanUtfores}
+        value={globalFormState.oppfolgingsplanFormFields.arbeidsoppgaverSomKanUtfores}
       />
       <FieldItem
-        label={fieldTexts.arbeidsoppgaveTexts.arbeidsoppgaverSomIkkeKanUtfores}
-        value={globalFormState.jobbOgMuligheterFormFields.arbeidsoppgaverSomIkkeKanUtfores}
+        label={fieldTexts.oppfolgingsplanTexts.arbeidsoppgaverSomIkkeKanUtfores}
+        value={globalFormState.oppfolgingsplanFormFields.arbeidsoppgaverSomIkkeKanUtfores}
       />
     </FieldGroup>
   );

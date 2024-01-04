@@ -1,4 +1,4 @@
-export type JobbOgMuligheterFormFields = {
+export type OppfolgingsplanFormFields = {
     typiskArbeidshverdag: string;
     arbeidsoppgaverSomKanUtfores: string;
     arbeidsoppgaverSomIkkeKanUtfores: string;
@@ -8,7 +8,7 @@ export type JobbOgMuligheterFormFields = {
     muligheterForTilrettelegging: string;
 };
 
-export type KommunikasjonFormFields = {
+export type InfoTilNavOgLegeFormFields = {
     mottaker: string[];
     beskjedTilFastlege: string;
     trengerHjelpFraNav: boolean | null;
@@ -20,7 +20,7 @@ export type KommunikasjonFormFields = {
     sykmeldtHarIkkeMedvirketBegrunnelse: string;
 };
 
-export type OppfolgingsplanFormFields = {
-    jobbOgMuligheterFormFields: JobbOgMuligheterFormFields;
-    kommunikasjonFormFields: KommunikasjonFormFields;
+export type InnsendingFormFields = {
+    oppfolgingsplanFormFields: OppfolgingsplanFormFields;
+    infoTilNavOgLegeFormFields: InfoTilNavOgLegeFormFields;
 };

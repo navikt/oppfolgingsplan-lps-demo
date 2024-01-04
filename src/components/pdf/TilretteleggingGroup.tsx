@@ -3,43 +3,43 @@ import { FieldGroup } from "@/components/pdf/FieldGroup";
 import { FieldItem } from "@/components/pdf/FieldItem";
 import { fieldTexts } from "@/text/fieldTexts";
 import React from "react";
-import { OppfolgingsplanFormFields } from "@/types/FormType";
+import { InnsendingFormFields } from "@/types/FormType";
 import {booleanToJaNei} from "@/text/textUtils";
 
 interface Props {
-  globalFormState: OppfolgingsplanFormFields;
+  globalFormState: InnsendingFormFields;
 }
 
 export const TilretteleggingGroup = ({ globalFormState }: Props) => {
   return (
     <FieldGroup heading="Tilrettelegging">
       <FieldItem
-        label={fieldTexts.tilretteleggingTexts.tidligereTilretteleggingJaNei}
-        value={booleanToJaNei(globalFormState.jobbOgMuligheterFormFields
+        label={fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingJaNei}
+        value={booleanToJaNei(globalFormState.oppfolgingsplanFormFields
             .tidligereTilrettelegging)
         }
       />
 
       <FieldItem
         label={
-          fieldTexts.tilretteleggingTexts.tidligereTilretteleggingBeskrivelse
+          fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingBeskrivelse
         }
         value={
-          globalFormState.jobbOgMuligheterFormFields
+          globalFormState.oppfolgingsplanFormFields
             .tidligereTilretteleggingBeskrivelse
         }
       />
       <FieldItem
-        label={fieldTexts.tilretteleggingTexts.tilretteleggingIDennePerioden}
+        label={fieldTexts.oppfolgingsplanTexts.tilretteleggingIDennePerioden}
         value={
-          globalFormState.jobbOgMuligheterFormFields
+          globalFormState.oppfolgingsplanFormFields
             .tilretteleggingIDennePerioden
         }
       />
       <FieldItem
-        label={fieldTexts.tilretteleggingTexts.muligheterForTilrettelegging}
+        label={fieldTexts.oppfolgingsplanTexts.muligheterForTilrettelegging}
         value={
-          globalFormState.jobbOgMuligheterFormFields
+          globalFormState.oppfolgingsplanFormFields
             .muligheterForTilrettelegging
         }
       />

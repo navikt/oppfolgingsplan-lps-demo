@@ -11,12 +11,12 @@ export const KommunikasjonSummary = () => {
       <VStack gap="4">
         <SummaryField
           fieldName={fieldTexts.kommunikasjonTexts.mottaker}
-          fieldValue={globalFormState.kommunikasjonFormFields.mottaker.toString()}
+          fieldValue={globalFormState.infoTilNavOgLegeFormFields.mottaker.toString()}
         />
         <SummaryField
           fieldName={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}
           fieldValue={booleanToJaNei(
-            globalFormState.kommunikasjonFormFields.trengerHjelpFraNav,
+            globalFormState.infoTilNavOgLegeFormFields.trengerHjelpFraNav,
           )}
         />
         <SummaryField
@@ -24,20 +24,20 @@ export const KommunikasjonSummary = () => {
             fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAVBeskrivelse
           }
           fieldValue={
-            globalFormState.kommunikasjonFormFields
+            globalFormState.infoTilNavOgLegeFormFields
               .trengerHjelpFraNavBeskrivelse
           }
         />
         <SummaryField
           fieldName={fieldTexts.kommunikasjonTexts.beskjedTilFastlege}
           fieldValue={
-            globalFormState.kommunikasjonFormFields.beskjedTilFastlege
+            globalFormState.infoTilNavOgLegeFormFields.beskjedTilFastlege
           }
         />
         <SummaryField
           fieldName={fieldTexts.kommunikasjonTexts.harSykmeldtMedvirket}
           fieldValue={booleanToJaNei(
-            globalFormState.kommunikasjonFormFields.sykmeldtHarMedvirket,
+            globalFormState.infoTilNavOgLegeFormFields.sykmeldtHarMedvirket,
           )}
         />
         <SummaryField
@@ -45,25 +45,25 @@ export const KommunikasjonSummary = () => {
             fieldTexts.kommunikasjonTexts.sykmeldtHarIkkeMedvirketBegrunnelse
           }
           fieldValue={
-            globalFormState.kommunikasjonFormFields
+            globalFormState.infoTilNavOgLegeFormFields
               .sykmeldtHarIkkeMedvirketBegrunnelse
           }
         />
 
         <SummaryField
           fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
-          fieldValue={globalFormState.kommunikasjonFormFields.kontaktpersonNavn}
+          fieldValue={globalFormState.infoTilNavOgLegeFormFields.kontaktpersonNavn}
         />
         <SummaryField
           fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
           fieldValue={
-            globalFormState.kommunikasjonFormFields.kontaktpersonTelefonnummer
+            globalFormState.infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer
           }
         />
         <SummaryField
           fieldName={fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger}
           fieldValue={
-            globalFormState.kommunikasjonFormFields.utfyllendeOpplysninger
+            globalFormState.infoTilNavOgLegeFormFields.utfyllendeOpplysninger
           }
         />
       </VStack>
