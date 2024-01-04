@@ -35,23 +35,6 @@ export const KommunikasjonSummary = () => {
           }
         />
         <SummaryField
-          fieldName={fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger}
-          fieldValue={
-            globalFormState.kommunikasjonFormFields.utfyllendeOpplysninger
-          }
-        />
-
-        <SummaryField
-          fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
-          fieldValue={globalFormState.kommunikasjonFormFields.kontaktpersonNavn}
-        />
-        <SummaryField
-          fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
-          fieldValue={
-            globalFormState.kommunikasjonFormFields.kontaktpersonTelefonnummer
-          }
-        />
-        <SummaryField
           fieldName={fieldTexts.kommunikasjonTexts.harSykmeldtMedvirket}
           fieldValue={booleanToJaNei(
             globalFormState.kommunikasjonFormFields.sykmeldtHarMedvirket,
@@ -75,6 +58,12 @@ export const KommunikasjonSummary = () => {
           fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
           fieldValue={
             globalFormState.kommunikasjonFormFields.kontaktpersonTelefonnummer
+          }
+        />
+        <SummaryField
+          fieldName={fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger}
+          fieldValue={
+            globalFormState.kommunikasjonFormFields.utfyllendeOpplysninger
           }
         />
       </VStack>
