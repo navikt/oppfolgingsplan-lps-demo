@@ -1,10 +1,4 @@
-import {
-  BodyLong,
-  Heading,
-  Radio,
-  RadioGroup,
-  Textarea,
-} from "@navikt/ds-react";
+import { Heading, Radio, RadioGroup, Textarea } from "@navikt/ds-react";
 import { Controller } from "react-hook-form";
 import { fieldTexts } from "@/text/fieldTexts";
 import { optionalText } from "@/text/textUtils";
@@ -18,7 +12,6 @@ import { OppfolgingsplanFormFields } from "@/types/FormType";
 import { FieldErrors } from "react-hook-form/dist/types/errors";
 import { useGlobalState } from "@/state/appState";
 import { Section } from "@/components/wrappers/Section";
-import { OpDatePicker } from "@/components/datepicker/OpDatePicker";
 
 interface Props {
   register: UseFormRegister<OppfolgingsplanFormFields>;
@@ -52,23 +45,11 @@ export const Tilrettelegging = ({
 
   return (
     <div>
-      <Heading size="medium" level={"2"} className="mb-8">
+      <Heading size="medium" level={"2"} spacing>
         Tilrettelegging
       </Heading>
 
       <Section>
-        <div>
-          <BodyLong weight="semibold">Tilretteleggingsperiode</BodyLong>
-          <BodyLong textColor="subtle">
-            Oppgi når tilretteleggingen begynner, frem til dere tar en
-            oppfølgingssamtale og evaluerer hvordan tilrettelegging har gått i denne perioden
-          </BodyLong>
-          <div className="flex flex-row gap-8">
-            <OpDatePicker name="periodeFra" label="Fra dato" />
-            <OpDatePicker name="periodeTil" label="Til dato" />
-          </div>
-        </div>
-
         <Controller
           name="tidligereTilrettelegging"
           defaultValue={
