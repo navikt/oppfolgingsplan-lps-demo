@@ -1,15 +1,8 @@
-import { BodyLong, DatePicker, Heading, useDatepicker } from "@navikt/ds-react";
+import { BodyLong, Heading } from "@navikt/ds-react";
 import React from "react";
+import { OpDatePicker } from "@/components/datepicker/OpDatePicker";
 
 export const OppfolgingsplanPeriod = () => {
-  const fromDate = useDatepicker({
-    onDateChange: console.log,
-  });
-
-  const toDate = useDatepicker({
-    onDateChange: console.log,
-  });
-
   return (
     <div>
       <Heading size="medium" level={"2"} className="mt-4">
@@ -21,12 +14,8 @@ export const OppfolgingsplanPeriod = () => {
         (med eller uten NAV), og vurdere hvordan denne perioden har gått
       </BodyLong>
       <div className="flex flex-row gap-8">
-        <DatePicker {...fromDate.datepickerProps}>
-          <DatePicker.Input {...fromDate.inputProps} label="Fra dato" />
-        </DatePicker>
-        <DatePicker {...toDate.datepickerProps}>
-          <DatePicker.Input {...toDate.inputProps} label="Til dato" />
-        </DatePicker>
+        <OpDatePicker name="periodeFra" label="Fra dato" />
+        <OpDatePicker name="periodeTil" label="Til dato" />
       </div>
     </div>
   );

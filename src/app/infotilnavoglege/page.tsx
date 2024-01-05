@@ -40,9 +40,13 @@ export default function Page() {
   const sykmeldtHarMedvirketValue = watch("sykmeldtHarMedvirket");
 
   const sykmeldtHarIkkeMedvirket = () => {
-    if (sykmeldtHarMedvirketValue === null || sykmeldtHarMedvirketValue === undefined) {
+    if (
+      sykmeldtHarMedvirketValue === null ||
+      sykmeldtHarMedvirketValue === undefined
+    ) {
       return (
-        globalFormState.infoTilNavOgLegeFormFields.sykmeldtHarMedvirket === false
+        globalFormState.infoTilNavOgLegeFormFields.sykmeldtHarMedvirket ===
+        false
       );
     }
     return sykmeldtHarMedvirketValue === false;
@@ -50,14 +54,18 @@ export default function Page() {
 
   const hasSelectedSendTilLege = () => {
     if (mottakerValue === null || mottakerValue === undefined) {
-      return globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes("LEGE");
+      return globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes(
+        "LEGE",
+      );
     }
     return mottakerValue?.includes("LEGE");
   };
 
   const hasSelectedSendTilNAV = () => {
     if (mottakerValue === null || mottakerValue === undefined) {
-      return globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes("NAV");
+      return globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes(
+        "NAV",
+      );
     }
     return mottakerValue?.includes("NAV");
   };
@@ -143,7 +151,8 @@ export default function Page() {
           {hasSelectedTrengerHjelpFraNAV() && (
             <Textarea
               label={
-                fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAVBeskrivelse}
+                fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAVBeskrivelse
+              }
               {...register("trengerHjelpFraNavBeskrivelse", {
                 required: "Feltet er påkrevd",
               })}
@@ -203,24 +212,26 @@ export default function Page() {
       )}
 
       <TextField
-          label={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
-          description="Den som har ansvaret for å følge opp den sykmeldte, som for eksempel nærmeste leder eller kontaktperson hos HR"
-          {...register("kontaktpersonNavn", {
-            required: "Feltet er påkrevd",
-          })}
-          defaultValue={globalFormState.infoTilNavOgLegeFormFields.kontaktpersonNavn}
-          error={errors.kontaktpersonNavn?.message}
+        label={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
+        description="Den som har ansvaret for å følge opp den sykmeldte, som for eksempel nærmeste leder eller kontaktperson hos HR"
+        {...register("kontaktpersonNavn", {
+          required: "Feltet er påkrevd",
+        })}
+        defaultValue={
+          globalFormState.infoTilNavOgLegeFormFields.kontaktpersonNavn
+        }
+        error={errors.kontaktpersonNavn?.message}
       />
 
       <TextField
-          label={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
-          {...register("kontaktpersonTelefonnummer", {
-            required: "Feltet er påkrevd",
-          })}
-          defaultValue={
-            globalFormState.infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer
-          }
-          error={errors.kontaktpersonTelefonnummer?.message}
+        label={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
+        {...register("kontaktpersonTelefonnummer", {
+          required: "Feltet er påkrevd",
+        })}
+        defaultValue={
+          globalFormState.infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer
+        }
+        error={errors.kontaktpersonTelefonnummer?.message}
       />
 
       <Textarea

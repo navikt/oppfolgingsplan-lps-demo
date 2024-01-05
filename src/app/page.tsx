@@ -6,10 +6,10 @@ import { useForm } from "react-hook-form";
 import { OppfolgingsplanFormFields } from "@/types/FormType";
 import { useGlobalState } from "@/state/appState";
 import { useRouter } from "next/navigation";
-import { OppfolgingsplanPeriod } from "@/components/oppfolgingsplanPeriod/OppfolgingsplanPeriod";
 import { Arbeidssituasjon } from "@/components/oppfolgingsplan/arbeidssituasjon";
 import { Tilrettelegging } from "@/components/oppfolgingsplan/tilrettelegging";
-import {Heading, Textarea} from "@navikt/ds-react";
+import { Heading, Textarea } from "@navikt/ds-react";
+import { OppfolgingsplanPeriod } from "@/components/oppfolgingsplan/OppfolgingsplanPeriod";
 
 export default function Home() {
   const router = useRouter();
@@ -51,15 +51,13 @@ export default function Home() {
         Oppfølging
       </Heading>
       <Textarea
-          label="Hvordan skal dere følge opp at avtalt tilrettelegging fungerer?"
-          description="Beskriv når og hvordan dere skal vurdere om det er behov for å gjøre endringer i planen"
-          {...register("oppfolging", {
-            required: "Feltet er påkrevd",
-          })}
-          defaultValue={
-            globalFormState.oppfolgingsplanFormFields.oppfolging
-          }
-          error={errors.oppfolging?.message}
+        label="Hvordan skal dere følge opp at avtalt tilrettelegging fungerer?"
+        description="Beskriv når og hvordan dere skal vurdere om det er behov for å gjøre endringer i planen"
+        {...register("oppfolging", {
+          required: "Feltet er påkrevd",
+        })}
+        defaultValue={globalFormState.oppfolgingsplanFormFields.oppfolging}
+        error={errors.oppfolging?.message}
       />
     </FormPage>
   );

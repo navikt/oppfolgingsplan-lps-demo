@@ -1,4 +1,6 @@
 export type OppfolgingsplanFormFields = {
+    periodeFra: Date | null;
+    periodeTil: Date | null;
     typiskArbeidshverdag: string;
     arbeidsoppgaverSomKanUtfores: string;
     arbeidsoppgaverSomIkkeKanUtfores: string;
