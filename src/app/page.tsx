@@ -53,13 +53,13 @@ export default function Home() {
       <Textarea
           label="Hvordan skal dere følge opp at avtalt tilrettelegging fungerer?"
           description="Beskriv når og hvordan dere skal vurdere om det er behov for å gjøre endringer i planen"
-          {...register("arbeidsoppgaverSomKanUtfores", {
+          {...register("oppfolging", {
             required: "Feltet er påkrevd",
           })}
           defaultValue={
-            globalFormState.oppfolgingsplanFormFields.arbeidsoppgaverSomKanUtfores
+            globalFormState.oppfolgingsplanFormFields.oppfolging
           }
-          error={errors.arbeidsoppgaverSomKanUtfores?.message}
+          error={errors.oppfolging?.message}
       />
     </FormPage>
   );

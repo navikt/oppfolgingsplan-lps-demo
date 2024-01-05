@@ -6,6 +6,7 @@ export type OppfolgingsplanFormFields = {
     tidligereTilretteleggingBeskrivelse: string;
     tilretteleggingIDennePerioden: string;
     muligheterForTilrettelegging: string;
+    oppfolging: string;
 };
 
 export type InfoTilNavOgLegeFormFields = {

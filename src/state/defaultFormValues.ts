@@ -9,6 +9,7 @@ export const defaultFormValues: InnsendingFormFields = {
         tidligereTilretteleggingBeskrivelse: "",
         tilretteleggingIDennePerioden: "",
         muligheterForTilrettelegging: "",
+        oppfolging: "",
     },
     infoTilNavOgLegeFormFields: {
         mottaker: [],
