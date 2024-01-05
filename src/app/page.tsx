@@ -9,7 +9,6 @@ import { useRouter } from "next/navigation";
 import { Arbeidssituasjon } from "@/components/oppfolgingsplan/arbeidssituasjon";
 import { Tilrettelegging } from "@/components/oppfolgingsplan/tilrettelegging";
 import { Heading, Textarea } from "@navikt/ds-react";
-import { OppfolgingsplanPeriod } from "@/components/oppfolgingsplan/OppfolgingsplanPeriod";
 
 export default function Home() {
   const router = useRouter();
@@ -36,8 +35,6 @@ export default function Home() {
       activeStep={Step.oppfolgingsplan}
       onSubmit={handleSubmit(storeGlobalData)}
     >
-      <OppfolgingsplanPeriod />
-
       <Arbeidssituasjon register={register} errors={errors} />
 
       <Tilrettelegging

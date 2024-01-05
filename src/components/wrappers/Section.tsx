@@ -5,5 +5,5 @@ interface Props {
 }
 
 export const Section = ({ children }: Props) => {
-  return <div className="flex flex-col gap-4">{children}</div>;
+  return <div className="flex flex-col gap-6">{children}</div>;
 };
