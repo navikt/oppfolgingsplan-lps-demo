@@ -166,6 +166,40 @@ export default function Page() {
         </>
       )}
 
+      <TextField
+        label={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
+        description="Den som har ansvaret for å følge opp den sykmeldte, som for eksempel nærmeste leder eller kontaktperson hos HR"
+        {...register("kontaktpersonNavn", {
+          required: "Feltet er påkrevd",
+        })}
+        defaultValue={
+          globalFormState.infoTilNavOgLegeFormFields.kontaktpersonNavn
+        }
+        error={errors.kontaktpersonNavn?.message}
+      />
+
+      <TextField
+        label={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
+        {...register("kontaktpersonTelefonnummer", {
+          required: "Feltet er påkrevd",
+        })}
+        defaultValue={
+          globalFormState.infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer
+        }
+        error={errors.kontaktpersonTelefonnummer?.message}
+      />
+
+      <Textarea
+        label={optionalText(
+          fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger,
+        )}
+        description="Dersom det er behov for å gi mer opplysninger"
+        {...register("utfyllendeOpplysninger")}
+        defaultValue={
+          globalFormState.infoTilNavOgLegeFormFields.utfyllendeOpplysninger
+        }
+      />
+
       <Controller
         name="sykmeldtHarMedvirket"
         defaultValue={
@@ -210,40 +244,6 @@ export default function Page() {
           error={errors.sykmeldtHarIkkeMedvirketBegrunnelse?.message}
         />
       )}
-
-      <TextField
-        label={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
-        description="Den som har ansvaret for å følge opp den sykmeldte, som for eksempel nærmeste leder eller kontaktperson hos HR"
-        {...register("kontaktpersonNavn", {
-          required: "Feltet er påkrevd",
-        })}
-        defaultValue={
-          globalFormState.infoTilNavOgLegeFormFields.kontaktpersonNavn
-        }
-        error={errors.kontaktpersonNavn?.message}
-      />
-
-      <TextField
-        label={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
-        {...register("kontaktpersonTelefonnummer", {
-          required: "Feltet er påkrevd",
-        })}
-        defaultValue={
-          globalFormState.infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer
-        }
-        error={errors.kontaktpersonTelefonnummer?.message}
-      />
-
-      <Textarea
-        label={optionalText(
-          fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger,
-        )}
-        description="Dersom det er behov for å gi mer opplysninger"
-        {...register("utfyllendeOpplysninger")}
-        defaultValue={
-          globalFormState.infoTilNavOgLegeFormFields.utfyllendeOpplysninger
-        }
-      />
     </FormPage>
   );
 }
