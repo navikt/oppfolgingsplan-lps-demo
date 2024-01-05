@@ -11,6 +11,7 @@ import {
 import { OppfolgingsplanFormFields } from "@/types/FormType";
 import { FieldErrors } from "react-hook-form/dist/types/errors";
 import { useGlobalState } from "@/state/appState";
+import { Section } from "@/components/wrappers/Section";
 
 interface Props {
   register: UseFormRegister<OppfolgingsplanFormFields>;
@@ -43,78 +44,82 @@ export const Tilrettelegging = ({
   };
 
   return (
-    <>
-      <Heading size="medium" level={"2"} className="mt-4">
+    <div>
+      <Heading size="medium" level={"2"} spacing>
         Tilrettelegging
       </Heading>
 
-      <Controller
-        name="tidligereTilrettelegging"
-        defaultValue={
-          globalFormState.oppfolgingsplanFormFields.tidligereTilrettelegging
-        }
-        rules={{
-          validate: (value: boolean | null) => {
-            if (value == null) {
-              return "Du må oppgi om dere har gjort tilrettelegging før denne perioden.";
-            }
-            return true;
-          },
-        }}
-        control={control}
-        render={({ field: { onChange, onBlur, value, ref } }) => (
-          <RadioGroup
-            legend={
-              fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingJaNei
-            }
-            onBlur={onBlur}
-            onChange={onChange}
-            error={errors.tidligereTilrettelegging?.message}
-            ref={ref}
-            value={value}
-          >
-            <Radio value={true}>Ja</Radio>
-            <Radio value={false}>Nei</Radio>
-          </RadioGroup>
-        )}
-      />
-
-      {hasSelectedTidligereTilrettelegging() && (
-        <Textarea
-          label={
-            fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingBeskrivelse
+      <Section>
+        <Controller
+          name="tidligereTilrettelegging"
+          defaultValue={
+            globalFormState.oppfolgingsplanFormFields.tidligereTilrettelegging
           }
-          {...register("tidligereTilretteleggingBeskrivelse", {
+          rules={{
+            validate: (value: boolean | null) => {
+              if (value == null) {
+                return "Du må oppgi om dere har gjort tilrettelegging før denne perioden.";
+              }
+              return true;
+            },
+          }}
+          control={control}
+          render={({ field: { onChange, onBlur, value, ref } }) => (
+            <RadioGroup
+              legend={
+                fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingJaNei
+              }
+              onBlur={onBlur}
+              onChange={onChange}
+              error={errors.tidligereTilrettelegging?.message}
+              ref={ref}
+              value={value}
+            >
+              <Radio value={true}>Ja</Radio>
+              <Radio value={false}>Nei</Radio>
+            </RadioGroup>
+          )}
+        />
+
+        {hasSelectedTidligereTilrettelegging() && (
+          <Textarea
+            label={
+              fieldTexts.oppfolgingsplanTexts
+                .tidligereTilretteleggingBeskrivelse
+            }
+            {...register("tidligereTilretteleggingBeskrivelse", {
+              required: "Feltet er påkrevd",
+            })}
+            defaultValue={
+              globalFormState.oppfolgingsplanFormFields
+                .tidligereTilretteleggingBeskrivelse
+            }
+            error={errors.tidligereTilretteleggingBeskrivelse?.message}
+          />
+        )}
+        <Textarea
+          label={fieldTexts.oppfolgingsplanTexts.tilretteleggingIDennePerioden}
+          description="Beskriv hva som skal til for at den sykmeldte kan utføre deler av jobben til tross for sine plager"
+          {...register("tilretteleggingIDennePerioden", {
             required: "Feltet er påkrevd",
           })}
           defaultValue={
             globalFormState.oppfolgingsplanFormFields
-              .tidligereTilretteleggingBeskrivelse
+              .tilretteleggingIDennePerioden
           }
-          error={errors.tidligereTilretteleggingBeskrivelse?.message}
+          error={errors.tilretteleggingIDennePerioden?.message}
         />
-      )}
-      <Textarea
-        label={fieldTexts.oppfolgingsplanTexts.tilretteleggingIDennePerioden}
-        description="Beskriv hva som skal til for at den sykmeldte kan utføre deler av jobben til tross for sine plager"
-        {...register("tilretteleggingIDennePerioden", {
-          required: "Feltet er påkrevd",
-        })}
-        defaultValue={
-          globalFormState.oppfolgingsplanFormFields
-            .tilretteleggingIDennePerioden
-        }
-        error={errors.tilretteleggingIDennePerioden?.message}
-      />
-      <Textarea
-        label={optionalText(
-          fieldTexts.oppfolgingsplanTexts.muligheterForTilrettelegging,
-        )}
-        {...register("muligheterForTilrettelegging")}
-        defaultValue={
-          globalFormState.oppfolgingsplanFormFields.muligheterForTilrettelegging
-        }
-      />
-    </>
+        <Textarea
+          label={optionalText(
+            fieldTexts.oppfolgingsplanTexts.muligheterForTilrettelegging,
+          )}
+          {...register("muligheterForTilrettelegging")}
+          defaultValue={
+            globalFormState.oppfolgingsplanFormFields
+              .muligheterForTilrettelegging
+          }
+        />
+      </Section>
+    </div>
   );
 };

@@ -47,18 +47,20 @@ export default function Home() {
         control={control}
       />
 
-      <Heading size="medium" level={"2"} className="mt-4">
-        Oppfølging
-      </Heading>
-      <Textarea
-        label="Hvordan skal dere følge opp at avtalt tilrettelegging fungerer?"
-        description="Beskriv når og hvordan dere skal vurdere om det er behov for å gjøre endringer i planen"
-        {...register("oppfolging", {
-          required: "Feltet er påkrevd",
-        })}
-        defaultValue={globalFormState.oppfolgingsplanFormFields.oppfolging}
-        error={errors.oppfolging?.message}
-      />
+      <div>
+        <Heading size="medium" level={"2"} spacing>
+          Oppfølging
+        </Heading>
+        <Textarea
+          label="Hvordan skal dere følge opp at avtalt tilrettelegging fungerer?"
+          description="Beskriv når og hvordan dere skal vurdere om det er behov for å gjøre endringer i planen"
+          {...register("oppfolging", {
+            required: "Feltet er påkrevd",
+          })}
+          defaultValue={globalFormState.oppfolgingsplanFormFields.oppfolging}
+          error={errors.oppfolging?.message}
+        />
+      </div>
     </FormPage>
   );
 }
