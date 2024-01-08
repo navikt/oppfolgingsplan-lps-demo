@@ -27,6 +27,18 @@ export function createDateMonthsAgo(months: number) {
   return date;
 }
 
+export const getLongDateFormat = (date: string | number | Date | null) => {
+  if (date === null) return null;
+  const dateObject = new Date(date);
+
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  return dateObject.toLocaleDateString("nb-NO", options);
+};
+
 export const getFullDateFormat = (date: string | number | Date) => {
   const dateObject = new Date(date);
 

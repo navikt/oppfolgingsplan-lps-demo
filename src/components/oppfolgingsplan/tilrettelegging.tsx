@@ -53,16 +53,18 @@ export const Tilrettelegging = () => {
           <div className="flex flex-row gap-8">
             <OpDatePicker
               name="periodeFra"
-              label="Fra dato"
+              label={fieldTexts.oppfolgingsplanTexts.periodeFra}
               defaultValue={
-                globalFormState.oppfolgingsplanFormFields.periodeFra || undefined
+                globalFormState.oppfolgingsplanFormFields.periodeFra ||
+                undefined
               }
             />
             <OpDatePicker
               name="periodeTil"
-              label="Til dato"
+              label={fieldTexts.oppfolgingsplanTexts.periodeTil}
               defaultValue={
-                globalFormState.oppfolgingsplanFormFields.periodeTil || undefined
+                globalFormState.oppfolgingsplanFormFields.periodeTil ||
+                undefined
               }
             />
           </div>

@@ -3,6 +3,8 @@ export const fieldTexts = {
         typiskArbeidshverdag: "Hvordan ser en typisk arbeidshverdag ut?",
         arbeidsoppgaverSomKanUtfores: "Hvilke arbeidsoppgaver kan utføres til tross for sykdom?",
         arbeidsoppgaverSomIkkeKanUtfores: "Hvilke arbeidsoppgaver kan ikke utføres på grunn av sykdom?",
+        periodeFra: "Fra dato",
+        periodeTil: "Til dato",
         tidligereTilretteleggingJaNei: "Har dere forsøkt tilrettelegging på arbeidsplassen tidligere?",
         tidligereTilretteleggingBeskrivelse: "Evaluer tidligere tilrettelegging. Hva har fungert, og hva har ikke fungert?",
         tilretteleggingIDennePerioden: "Hvordan skal arbeidsoppgavene tilrettelegges i denne perioden?",
