@@ -6,13 +6,13 @@ import dayjs from "dayjs";
 export interface Props {
   name: "periodeFra" | "periodeTil";
   label?: string | ReactNode;
-  defaultValue?: Date | null;
+  defaultValue?: Date | undefined;
 }
 
 export const OpDatePicker = ({ name, label, defaultValue }: Props) => {
   const { field, fieldState } = useController({
     name: name,
-    defaultValue: defaultValue,
+    // defaultValue: defaultValue,
     rules: {
       required: "Feltet er påkrevd",
     },
@@ -23,7 +23,7 @@ export const OpDatePicker = ({ name, label, defaultValue }: Props) => {
     toDate: new Date("2100"),
     openOnFocus: false,
     allowTwoDigitYear: false,
-    defaultSelected: field.value ? dayjs(field.value.fom).toDate() : undefined,
+    defaultSelected: field.value ? dayjs(field.value.fom).toDate() : defaultValue,
     onDateChange: (date: Date | undefined) => {
       field.onChange(date);
     },

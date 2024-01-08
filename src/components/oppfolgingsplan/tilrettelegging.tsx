@@ -51,8 +51,20 @@ export const Tilrettelegging = () => {
             Oppgi hvilken periode planen skal gjelde for
           </BodyLong>
           <div className="flex flex-row gap-8">
-            <OpDatePicker name="periodeFra" label="Fra dato" />
-            <OpDatePicker name="periodeTil" label="Til dato" />
+            <OpDatePicker
+              name="periodeFra"
+              label="Fra dato"
+              defaultValue={
+                globalFormState.oppfolgingsplanFormFields.periodeFra || undefined
+              }
+            />
+            <OpDatePicker
+              name="periodeTil"
+              label="Til dato"
+              defaultValue={
+                globalFormState.oppfolgingsplanFormFields.periodeTil || undefined
+              }
+            />
           </div>
         </div>
 
