@@ -55,16 +55,14 @@ export const Tilrettelegging = () => {
               name="periodeFra"
               label={fieldTexts.oppfolgingsplanTexts.periodeFra}
               defaultValue={
-                globalFormState.oppfolgingsplanFormFields.periodeFra ||
-                undefined
+                globalFormState.oppfolgingsplanFormFields.periodeFra
               }
             />
             <OpDatePicker
               name="periodeTil"
               label={fieldTexts.oppfolgingsplanTexts.periodeTil}
               defaultValue={
-                globalFormState.oppfolgingsplanFormFields.periodeTil ||
-                undefined
+                globalFormState.oppfolgingsplanFormFields.periodeTil
               }
             />
           </div>

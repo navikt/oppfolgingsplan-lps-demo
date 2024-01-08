@@ -1,18 +1,18 @@
 import React, { ReactNode } from "react";
 import { useController } from "react-hook-form";
 import { DatePicker, useDatepicker } from "@navikt/ds-react";
-import dayjs from "dayjs";
+import { toDate } from "@/utils/dateUtils";
 
 export interface Props {
   name: "periodeFra" | "periodeTil";
   label?: string | ReactNode;
-  defaultValue?: Date | undefined;
+  defaultValue?: Date | null;
 }
 
 export const OpDatePicker = ({ name, label, defaultValue }: Props) => {
   const { field, fieldState } = useController({
     name: name,
-    // defaultValue: defaultValue,
+    defaultValue: defaultValue,
     rules: {
       required: "Feltet er påkrevd",
     },
@@ -23,8 +23,11 @@ export const OpDatePicker = ({ name, label, defaultValue }: Props) => {
     toDate: new Date("2100"),
     openOnFocus: false,
     allowTwoDigitYear: false,
-    defaultSelected: field.value ? dayjs(field.value.fom).toDate() : defaultValue,
+    defaultSelected: field.value ? toDate(field.value) : undefined,
     onDateChange: (date: Date | undefined) => {
+      if (date === undefined) {
+        field.onChange(null);
+      }
       field.onChange(date);
     },
   });
@@ -35,6 +38,7 @@ export const OpDatePicker = ({ name, label, defaultValue }: Props) => {
         {...inputProps}
         id={field.name}
         label={label}
+        placeholder="DD.MM.ÅÅÅÅ"
         error={fieldState.error?.message}
       />
     </DatePicker>
