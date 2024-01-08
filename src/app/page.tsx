@@ -1,28 +1,22 @@
 "use client";
 
 import React from "react";
-import { FormPage, Step } from "@/components/FormPage";
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { OppfolgingsplanFormFields } from "@/types/FormType";
 import { useGlobalState } from "@/state/appState";
 import { useRouter } from "next/navigation";
+import { ContentPage, Step } from "@/components/ContentPage";
 import { Arbeidssituasjon } from "@/components/oppfolgingsplan/arbeidssituasjon";
 import { Tilrettelegging } from "@/components/oppfolgingsplan/tilrettelegging";
-import { Heading, Textarea } from "@navikt/ds-react";
-import { Section } from "@/components/wrappers/Section";
+import { Oppfolging } from "@/components/oppfolgingsplan/oppfolging";
 
 export default function Home() {
   const router = useRouter();
+  const formFunctions = useForm<OppfolgingsplanFormFields>();
   const { globalFormState, globalFormStateDispatch } = useGlobalState();
-  const {
-    register,
-    control,
-    handleSubmit,
-    formState: { errors },
-    watch,
-  } = useForm<OppfolgingsplanFormFields>();
+  const submitDataAndNavigate = (data: OppfolgingsplanFormFields) => {
+    console.table(data);
 
-  const storeGlobalData = (data: OppfolgingsplanFormFields) => {
     globalFormStateDispatch({
       ...globalFormState,
       oppfolgingsplanFormFields: { ...data },
@@ -31,37 +25,22 @@ export default function Home() {
   };
 
   return (
-    <FormPage
-      pageHeader="Oppfølgingsplan for Kari Normann"
-      activeStep={Step.oppfolgingsplan}
-      onSubmit={handleSubmit(storeGlobalData)}
-    >
-      <Arbeidssituasjon register={register} errors={errors} />
+    <FormProvider {...formFunctions}>
+      <form
+        onSubmit={formFunctions.handleSubmit(submitDataAndNavigate)}
+        className="flex max-w-4xl flex-col w-full"
+      >
+        <ContentPage
+          pageHeader="Oppfølgingsplan for Kari Normann"
+          activeStep={Step.oppfolgingsplan}
+        >
+          <Arbeidssituasjon />
 
-      <Tilrettelegging
-        register={register}
-        errors={errors}
-        watch={watch}
-        control={control}
-      />
+          <Tilrettelegging />
 
-      <div>
-        <Heading size="medium" level={"2"} spacing>
-          Oppfølging
-        </Heading>
-
-        <Section>
-          <Textarea
-            label="Hvordan skal dere følge opp avtalt tilrettelegging?"
-            description="Beskriv når og hvordan dere skal vurdere om det er behov for å gjøre endringer i planen"
-            {...register("oppfolging", {
-              required: "Feltet er påkrevd",
-            })}
-            defaultValue={globalFormState.oppfolgingsplanFormFields.oppfolging}
-            error={errors.oppfolging?.message}
-          />
-        </Section>
-      </div>
-    </FormPage>
+          <Oppfolging />
+        </ContentPage>
+      </form>
+    </FormProvider>
   );
 }

@@ -1,8 +1,7 @@
 import React, { ReactNode } from "react";
 import { useController } from "react-hook-form";
 import { DatePicker, useDatepicker } from "@navikt/ds-react";
-import { toDate } from "@/utils/dateUtils";
-import {OppfolgingsplanFormFields} from "@/types/FormType";
+import dayjs from "dayjs";
 
 export interface Props {
   name: "periodeFra" | "periodeTil";
@@ -11,7 +10,7 @@ export interface Props {
 }
 
 export const OpDatePicker = ({ name, label, defaultValue }: Props) => {
-  const { field, fieldState } = useController<OppfolgingsplanFormFields>({
+  const { field, fieldState } = useController({
     name: name,
     defaultValue: defaultValue,
     rules: {
@@ -20,7 +19,11 @@ export const OpDatePicker = ({ name, label, defaultValue }: Props) => {
   });
 
   const { datepickerProps, inputProps } = useDatepicker({
-    defaultSelected: field.value ? toDate(field.value as Date) : undefined,
+    fromDate: new Date("1900"),
+    toDate: new Date("2100"),
+    openOnFocus: false,
+    allowTwoDigitYear: false,
+    defaultSelected: field.value ? dayjs(field.value.fom).toDate() : undefined,
     onDateChange: (date: Date | undefined) => {
       field.onChange(date);
     },
@@ -29,10 +32,9 @@ export const OpDatePicker = ({ name, label, defaultValue }: Props) => {
   return (
     <DatePicker {...datepickerProps}>
       <DatePicker.Input
-        id={field.name}
         {...inputProps}
+        id={field.name}
         label={label}
-        placeholder="DD.MM.ÅÅÅÅ"
         error={fieldState.error?.message}
       />
     </DatePicker>

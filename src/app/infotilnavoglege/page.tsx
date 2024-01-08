@@ -1,33 +1,23 @@
 "use client";
-import {
-  Checkbox,
-  CheckboxGroup,
-  Radio,
-  RadioGroup,
-  Textarea,
-  TextField,
-} from "@navikt/ds-react";
-import { FormPage, Step } from "@/components/FormPage";
+import { ContentPage, Step } from "@/components/ContentPage";
 import React from "react";
 import { useRouter } from "next/navigation";
 import { useGlobalState } from "@/state/appState";
-import { Controller, useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
-import { fieldTexts } from "@/text/fieldTexts";
-import { optionalText } from "@/text/textUtils";
+import { HarSykmeldtMedvirket } from "@/components/infotilnavoglege/HarSykmeldtMedvirket";
+import { Mottaker } from "@/components/infotilnavoglege/Mottaker";
+import { BeskjedTilLege } from "@/components/infotilnavoglege/BeskjedTilLege";
+import { TrengerHjelpFraNav } from "@/components/infotilnavoglege/TrengerHjelpFraNav";
+import { Kontaktperson } from "@/components/infotilnavoglege/Kontaktperson";
+import { EventuelleTilleggsopplysninger } from "@/components/infotilnavoglege/EventuelleTilleggsopplysninger";
 
 export default function Page() {
   const router = useRouter();
+  const formFunctions = useForm<InfoTilNavOgLegeFormFields>();
   const { globalFormState, globalFormStateDispatch } = useGlobalState();
-  const {
-    register,
-    control,
-    handleSubmit,
-    formState: { errors },
-    watch,
-  } = useForm<InfoTilNavOgLegeFormFields>();
 
-  const storeGlobalData = (data: InfoTilNavOgLegeFormFields) => {
+  const submitDataAndNavigate = (data: InfoTilNavOgLegeFormFields) => {
     globalFormStateDispatch({
       ...globalFormState,
       infoTilNavOgLegeFormFields: { ...data },
@@ -35,215 +25,29 @@ export default function Page() {
     router.push("/innsending");
   };
 
-  const mottakerValue = watch("mottaker");
-  const trengerHjelpFraNavValue = watch("trengerHjelpFraNav");
-  const sykmeldtHarMedvirketValue = watch("sykmeldtHarMedvirket");
-
-  const sykmeldtHarIkkeMedvirket = () => {
-    if (
-      sykmeldtHarMedvirketValue === null ||
-      sykmeldtHarMedvirketValue === undefined
-    ) {
-      return (
-        globalFormState.infoTilNavOgLegeFormFields.sykmeldtHarMedvirket ===
-        false
-      );
-    }
-    return sykmeldtHarMedvirketValue === false;
-  };
-
-  const hasSelectedSendTilLege = () => {
-    if (mottakerValue === null || mottakerValue === undefined) {
-      return globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes(
-        "LEGE",
-      );
-    }
-    return mottakerValue?.includes("LEGE");
-  };
-
-  const hasSelectedSendTilNAV = () => {
-    if (mottakerValue === null || mottakerValue === undefined) {
-      return globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes(
-        "NAV",
-      );
-    }
-    return mottakerValue?.includes("NAV");
-  };
-
-  const hasSelectedTrengerHjelpFraNAV = () => {
-    console.log(trengerHjelpFraNavValue);
-    if (trengerHjelpFraNavValue === null) {
-      return (
-        globalFormState.infoTilNavOgLegeFormFields.trengerHjelpFraNav === true
-      );
-    }
-    return trengerHjelpFraNavValue === true;
-  };
-
   return (
-    <FormPage
-      pageHeader="Informasjon til NAV og fastlege"
-      activeStep={Step.infoTilNavOgLege}
-      onSubmit={handleSubmit(storeGlobalData)}
-    >
-      <Controller
-        name="mottaker"
-        defaultValue={globalFormState.infoTilNavOgLegeFormFields.mottaker || []}
-        rules={{ required: "Du må velge hvem planen skal deles med" }}
-        control={control}
-        render={({ field: { onChange, onBlur, value, ref } }) => (
-          <CheckboxGroup
-            legend={fieldTexts.kommunikasjonTexts.mottaker}
-            onBlur={onBlur}
-            onChange={onChange}
-            error={errors.mottaker?.message}
-            ref={ref}
-            value={value}
-          >
-            <Checkbox value="LEGE">Fastlege</Checkbox>
-            <Checkbox value="NAV">NAV</Checkbox>
-          </CheckboxGroup>
-        )}
-      />
+    <FormProvider {...formFunctions}>
+      <form
+        onSubmit={formFunctions.handleSubmit(submitDataAndNavigate)}
+        className="flex max-w-4xl flex-col w-full"
+      >
+        <ContentPage
+          pageHeader="Informasjon til NAV og fastlege"
+          activeStep={Step.infoTilNavOgLege}
+        >
+          <Mottaker />
 
-      {hasSelectedSendTilLege() && (
-        <Textarea
-          label={optionalText(fieldTexts.kommunikasjonTexts.beskjedTilFastlege)}
-          {...register("beskjedTilFastlege")}
-          defaultValue={
-            globalFormState.infoTilNavOgLegeFormFields.beskjedTilFastlege
-          }
-        />
-      )}
+          <BeskjedTilLege />
 
-      {hasSelectedSendTilNAV() && (
-        <>
-          <Controller
-            name="trengerHjelpFraNav"
-            defaultValue={
-              globalFormState.infoTilNavOgLegeFormFields.trengerHjelpFraNav
-            }
-            rules={{
-              validate: (value: boolean | null) => {
-                if (value == null) {
-                  return "Du må oppgi om dere trenger hjelp fra NAV eller ikke";
-                }
-                return true;
-              },
-            }}
-            control={control}
-            render={({ field: { onChange, onBlur, value, ref } }) => (
-              <RadioGroup
-                legend={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}
-                description="For eksempel om dere ønsker et dialogmøte i regi av NAV, eller har behov for hjelpemidler"
-                onBlur={onBlur}
-                onChange={onChange}
-                error={errors.trengerHjelpFraNav?.message}
-                ref={ref}
-                value={value}
-              >
-                <Radio value={true}>Ja</Radio>
-                <Radio value={false}>Nei</Radio>
-              </RadioGroup>
-            )}
-          />
+          <TrengerHjelpFraNav />
 
-          {hasSelectedTrengerHjelpFraNAV() && (
-            <Textarea
-              label={
-                fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAVBeskrivelse
-              }
-              {...register("trengerHjelpFraNavBeskrivelse", {
-                required: "Feltet er påkrevd",
-              })}
-              defaultValue={
-                globalFormState.infoTilNavOgLegeFormFields
-                  .trengerHjelpFraNavBeskrivelse
-              }
-              error={errors.trengerHjelpFraNavBeskrivelse?.message}
-            />
-          )}
-        </>
-      )}
+          <Kontaktperson />
 
-      <TextField
-        label={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
-        description="Den som har ansvaret for å følge opp den sykmeldte, som for eksempel nærmeste leder eller kontaktperson hos HR"
-        {...register("kontaktpersonNavn", {
-          required: "Feltet er påkrevd",
-        })}
-        defaultValue={
-          globalFormState.infoTilNavOgLegeFormFields.kontaktpersonNavn
-        }
-        error={errors.kontaktpersonNavn?.message}
-      />
+          <EventuelleTilleggsopplysninger />
 
-      <TextField
-        label={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
-        {...register("kontaktpersonTelefonnummer", {
-          required: "Feltet er påkrevd",
-        })}
-        defaultValue={
-          globalFormState.infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer
-        }
-        error={errors.kontaktpersonTelefonnummer?.message}
-      />
-
-      <Textarea
-        label={optionalText(
-          fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger,
-        )}
-        description="Dersom det er behov for å gi mer opplysninger"
-        {...register("utfyllendeOpplysninger")}
-        defaultValue={
-          globalFormState.infoTilNavOgLegeFormFields.utfyllendeOpplysninger
-        }
-      />
-
-      <Controller
-        name="sykmeldtHarMedvirket"
-        defaultValue={
-          globalFormState.infoTilNavOgLegeFormFields.sykmeldtHarMedvirket
-        }
-        rules={{
-          validate: (value: boolean | null) => {
-            if (value == null) {
-              return "Du må oppgi om arbeidstaker har medvirket eller ikke.";
-            }
-            return true;
-          },
-        }}
-        control={control}
-        render={({ field: { onChange, onBlur, value, ref } }) => (
-          <RadioGroup
-            legend={fieldTexts.kommunikasjonTexts.harSykmeldtMedvirket}
-            onBlur={onBlur}
-            onChange={onChange}
-            error={errors.sykmeldtHarMedvirket?.message}
-            ref={ref}
-            value={value}
-          >
-            <Radio value={true}>Ja</Radio>
-            <Radio value={false}>Nei</Radio>
-          </RadioGroup>
-        )}
-      />
-
-      {sykmeldtHarIkkeMedvirket() && (
-        <Textarea
-          label={
-            fieldTexts.kommunikasjonTexts.sykmeldtHarIkkeMedvirketBegrunnelse
-          }
-          {...register("sykmeldtHarIkkeMedvirketBegrunnelse", {
-            required: "Feltet er påkrevd",
-          })}
-          defaultValue={
-            globalFormState.infoTilNavOgLegeFormFields
-              .sykmeldtHarIkkeMedvirketBegrunnelse
-          }
-          error={errors.sykmeldtHarIkkeMedvirketBegrunnelse?.message}
-        />
-      )}
-    </FormPage>
+          <HarSykmeldtMedvirket />
+        </ContentPage>
+      </form>
+    </FormProvider>
   );
 }

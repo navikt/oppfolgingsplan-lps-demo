@@ -3,17 +3,15 @@ import { fieldTexts } from "@/text/fieldTexts";
 import React from "react";
 import { OppfolgingsplanFormFields } from "@/types/FormType";
 import { useGlobalState } from "@/state/appState";
-import { UseFormRegister } from "react-hook-form/dist/types/form";
-import { FieldErrors } from "react-hook-form/dist/types/errors";
 import { Section } from "@/components/wrappers/Section";
+import { useFormContext } from "react-hook-form";
 
-interface Props {
-  register: UseFormRegister<OppfolgingsplanFormFields>;
-  errors: FieldErrors<OppfolgingsplanFormFields>;
-}
-
-export const Arbeidssituasjon = ({ register, errors }: Props) => {
+export const Arbeidssituasjon = () => {
   const { globalFormState } = useGlobalState();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<OppfolgingsplanFormFields>();
 
   return (
     <div>

@@ -1,6 +1,6 @@
 /*flex w-full justify-between flex-col gap-8 bg-slate-100 p-8 lg:p-24*/
 
-.formpage {
+.contentpage {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -10,7 +10,7 @@
 }
 
 @media (min-width: 1024px) {
-  .formpage {
+  .contentpage {
     padding: 4rem;
   }
 }
