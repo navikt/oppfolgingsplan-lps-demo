@@ -5,7 +5,6 @@ import { fieldTexts } from "@/text/fieldTexts";
 import React from "react";
 import { InnsendingFormFields } from "@/types/FormType";
 import { booleanToJaNei } from "@/text/textUtils";
-import { getLongDateFormat } from "@/utils/dateUtils";
 
 interface Props {
   globalFormState: InnsendingFormFields;
@@ -13,21 +12,7 @@ interface Props {
 
 export const TilretteleggingGroup = ({ globalFormState }: Props) => {
   return (
-    <FieldGroup heading="Tilrettelegging">
-      <FieldItem
-        label={fieldTexts.oppfolgingsplanTexts.periodeFra}
-        value={getLongDateFormat(
-          globalFormState.oppfolgingsplanFormFields.periodeFra,
-        )}
-      />
-
-      <FieldItem
-        label={fieldTexts.oppfolgingsplanTexts.periodeTil}
-        value={getLongDateFormat(
-          globalFormState.oppfolgingsplanFormFields.periodeTil,
-        )}
-      />
-
+    <FieldGroup heading="Tilrettelegging for å være i arbeid">
       <FieldItem
         label={fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingJaNei}
         value={booleanToJaNei(

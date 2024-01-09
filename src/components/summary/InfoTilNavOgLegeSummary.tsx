@@ -4,7 +4,7 @@ import { fieldTexts } from "@/text/fieldTexts";
 import { useGlobalState } from "@/state/appState";
 import { booleanToJaNei } from "@/text/textUtils";
 
-export const KommunikasjonSummary = () => {
+export const InfoTilNavOgLegeSummary = () => {
   const { globalFormState } = useGlobalState();
   return (
     <>

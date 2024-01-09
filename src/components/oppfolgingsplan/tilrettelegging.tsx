@@ -1,10 +1,4 @@
-import {
-  BodyLong,
-  Heading,
-  Radio,
-  RadioGroup,
-  Textarea,
-} from "@navikt/ds-react";
+import { Heading, Radio, RadioGroup, Textarea } from "@navikt/ds-react";
 import { Controller, useFormContext } from "react-hook-form";
 import { fieldTexts } from "@/text/fieldTexts";
 import { optionalText } from "@/text/textUtils";
@@ -12,7 +6,6 @@ import React from "react";
 import { OppfolgingsplanFormFields } from "@/types/FormType";
 import { useGlobalState } from "@/state/appState";
 import { Section } from "@/components/wrappers/Section";
-import { OpDatePicker } from "@/components/datepicker/OpDatePicker";
 
 export const Tilrettelegging = () => {
   const { globalFormState } = useGlobalState();
@@ -41,33 +34,10 @@ export const Tilrettelegging = () => {
   return (
     <div>
       <Heading size="medium" level={"2"} spacing>
-        Tilrettelegging
+        Tilrettelegging for å være i arbeid
       </Heading>
 
       <Section>
-        <div>
-          <BodyLong weight="semibold">Tilretteleggingsperiode</BodyLong>
-          <BodyLong textColor="subtle">
-            Oppgi hvilken periode planen skal gjelde for
-          </BodyLong>
-          <div className="flex flex-row gap-8">
-            <OpDatePicker
-              name="periodeFra"
-              label={fieldTexts.oppfolgingsplanTexts.periodeFra}
-              defaultValue={
-                globalFormState.oppfolgingsplanFormFields.periodeFra
-              }
-            />
-            <OpDatePicker
-              name="periodeTil"
-              label={fieldTexts.oppfolgingsplanTexts.periodeTil}
-              defaultValue={
-                globalFormState.oppfolgingsplanFormFields.periodeTil
-              }
-            />
-          </div>
-        </div>
-
         <Controller
           name="tidligereTilrettelegging"
           defaultValue={

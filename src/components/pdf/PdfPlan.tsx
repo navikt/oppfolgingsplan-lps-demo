@@ -6,6 +6,7 @@ import { ArbeidsoppgaverGroup } from "@/components/pdf/ArbeidsoppgaverGroup";
 import { TilretteleggingGroup } from "@/components/pdf/TilretteleggingGroup";
 import { KommunikasjonGroup } from "@/components/pdf/KommunikasjonGroup";
 import { PlanHeaderGroup } from "@/components/pdf/PlanHeaderGroup";
+import { OppfolgingGroup } from "@/components/pdf/OppfolgingGroup";
 
 const styles = StyleSheet.create({
   page: {
@@ -49,6 +50,7 @@ export const PdfPlan = ({ globalFormState }: Props) => {
           <PlanHeaderGroup />
           <ArbeidsoppgaverGroup globalFormState={globalFormState} />
           <TilretteleggingGroup globalFormState={globalFormState} />
+          <OppfolgingGroup globalFormState={globalFormState} />
           <KommunikasjonGroup globalFormState={globalFormState} />
         </View>
       </Page>

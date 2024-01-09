@@ -1,7 +1,8 @@
 import { Accordion } from "@navikt/ds-react";
 import { ArbeidsoppgaverSummary } from "@/components/summary/ArbeidsoppgaverSummary";
 import { TilretteleggingSummary } from "@/components/summary/TilretteleggingSummary";
-import { KommunikasjonSummary } from "@/components/summary/KommunikasjonSummary";
+import { InfoTilNavOgLegeSummary } from "@/components/summary/InfoTilNavOgLegeSummary";
+import { OppfolgingSummary } from "@/components/summary/OppfolgingSummary";
 
 export const FormSummary = () => {
   return (
@@ -14,15 +15,23 @@ export const FormSummary = () => {
           </Accordion.Content>
         </Accordion.Item>
         <Accordion.Item>
-          <Accordion.Header>Tilrettelegging</Accordion.Header>
+          <Accordion.Header>
+            Tilrettelegging for å være i arbeid
+          </Accordion.Header>
           <Accordion.Content>
             <TilretteleggingSummary />
           </Accordion.Content>
         </Accordion.Item>
         <Accordion.Item>
+          <Accordion.Header>Oppfølging</Accordion.Header>
+          <Accordion.Content>
+            <OppfolgingSummary />
+          </Accordion.Content>
+        </Accordion.Item>
+        <Accordion.Item>
           <Accordion.Header>Informasjon til NAV og lege</Accordion.Header>
           <Accordion.Content>
-            <KommunikasjonSummary />
+            <InfoTilNavOgLegeSummary />
           </Accordion.Content>
         </Accordion.Item>
       </Accordion>
