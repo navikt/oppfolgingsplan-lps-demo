@@ -2,8 +2,7 @@ import {InnsendingFormFields} from "@/types/FormType";
 
 export const defaultFormValues: InnsendingFormFields = {
     oppfolgingsplanFormFields: {
-        periodeFra: null,
-        periodeTil: null,
+        evalueringsdato: null,
         typiskArbeidshverdag: "",
         arbeidsoppgaverSomKanUtfores: "",
         arbeidsoppgaverSomIkkeKanUtfores: "",

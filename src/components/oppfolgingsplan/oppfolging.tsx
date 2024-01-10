@@ -4,7 +4,7 @@ import { OppfolgingsplanFormFields } from "@/types/FormType";
 import { useGlobalState } from "@/state/appState";
 import { Section } from "@/components/wrappers/Section";
 import { useFormContext } from "react-hook-form";
-import { OpDatePicker } from "@/components/datepicker/OpDatePicker";
+import { Evalueringsdato } from "@/components/datepicker/Evalueringsdato";
 import { fieldTexts } from "@/text/fieldTexts";
 
 export const Oppfolging = () => {
@@ -28,10 +28,9 @@ export const Oppfolging = () => {
           defaultValue={globalFormState.oppfolgingsplanFormFields.oppfolging}
           error={errors.oppfolging?.message}
         />
-        <OpDatePicker
-          name="periodeTil"
-          label={fieldTexts.oppfolgingsplanTexts.periodeTil}
-          defaultValue={globalFormState.oppfolgingsplanFormFields.periodeTil}
+        <Evalueringsdato
+          label={fieldTexts.oppfolgingsplanTexts.evalueringsdato}
+          defaultValue={globalFormState.oppfolgingsplanFormFields.evalueringsdato}
         />
       </Section>
     </div>

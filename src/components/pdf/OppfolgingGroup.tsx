@@ -14,16 +14,9 @@ export const OppfolgingGroup = ({ globalFormState }: Props) => {
   return (
     <FieldGroup heading="Oppfølging">
       <FieldItem
-        label={fieldTexts.oppfolgingsplanTexts.periodeFra}
+        label={fieldTexts.oppfolgingsplanTexts.evalueringsdato}
         value={getLongDateFormat(
-          globalFormState.oppfolgingsplanFormFields.periodeFra,
-        )}
-      />
-
-      <FieldItem
-        label={fieldTexts.oppfolgingsplanTexts.periodeTil}
-        value={getLongDateFormat(
-          globalFormState.oppfolgingsplanFormFields.periodeTil,
+          globalFormState.oppfolgingsplanFormFields.evalueringsdato,
         )}
       />
 

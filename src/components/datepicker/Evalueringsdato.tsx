@@ -4,14 +4,13 @@ import { DatePicker, useDatepicker } from "@navikt/ds-react";
 import { toDate } from "@/utils/dateUtils";
 
 export interface Props {
-  name: "periodeFra" | "periodeTil";
   label?: string | ReactNode;
   defaultValue?: Date | null;
 }
 
-export const OpDatePicker = ({ name, label, defaultValue }: Props) => {
+export const Evalueringsdato = ({ label, defaultValue }: Props) => {
   const { field, fieldState } = useController({
-    name: name,
+    name: "evalueringsdato",
     defaultValue: defaultValue,
     rules: {
       required: "Feltet er påkrevd",
