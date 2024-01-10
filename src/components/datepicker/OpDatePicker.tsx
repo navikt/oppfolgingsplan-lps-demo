@@ -37,6 +37,7 @@ export const OpDatePicker = ({ name, label, defaultValue }: Props) => {
       <DatePicker.Input
         {...inputProps}
         id={field.name}
+        description="Oppgi når dere skal gå gjennom planen og vurdere hvordan tilretteleggingen har gått"
         label={label}
         placeholder="DD.MM.ÅÅÅÅ"
         error={fieldState.error?.message}

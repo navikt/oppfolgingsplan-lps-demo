@@ -17,7 +17,7 @@ export const Kontaktperson = () => {
     <>
       <TextField
         label={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
-        description="Den som har ansvaret for å følge opp den sykmeldte, som for eksempel nærmeste leder eller kontaktperson hos HR"
+        description="Den som har ansvaret for å følge opp den ansatte, som for eksempel nærmeste leder eller kontaktperson hos HR"
         {...register("kontaktpersonNavn", {
           required: "Feltet er påkrevd",
         })}
