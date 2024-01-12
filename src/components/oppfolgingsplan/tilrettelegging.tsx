@@ -87,7 +87,7 @@ export const Tilrettelegging = () => {
         )}
         <Textarea
           label={fieldTexts.oppfolgingsplanTexts.tilretteleggingIDennePerioden}
-          description="Beskriv hva som skal til for at arbeidstakeren kan være noe i jobb til tross for sine plager"
+          description="Beskriv hva dere skal gjøre for at arbeidstakeren kan være i noe jobb"
           {...register("tilretteleggingIDennePerioden", {
             required: "Feltet er påkrevd",
           })}
