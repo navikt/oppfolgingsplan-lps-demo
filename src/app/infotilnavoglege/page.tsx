@@ -41,9 +41,9 @@ export default function Page() {
 
           <TrengerHjelpFraNav />
 
-          <Kontaktperson />
-
           <EventuelleTilleggsopplysninger />
+
+          <Kontaktperson />
 
           <HarSykmeldtMedvirket />
         </ContentPage>

@@ -17,7 +17,6 @@ export const EventuelleTilleggsopplysninger = () => {
   return (
     <Textarea
       label={optionalText(fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger)}
-      description="Dersom det er behov for å gi mer opplysninger"
       {...register("utfyllendeOpplysninger")}
       defaultValue={
         globalFormState.infoTilNavOgLegeFormFields.utfyllendeOpplysninger

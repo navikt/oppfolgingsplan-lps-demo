@@ -28,8 +28,8 @@ export const Mottaker = () => {
           ref={ref}
           value={value}
         >
-          <Checkbox value="LEGE">Fastlege</Checkbox>
-          <Checkbox value="NAV">NAV</Checkbox>
+          <Checkbox value="LEGE">Fastlege <i>(Deles innen uke 4 av sykefraværet)</i></Checkbox>
+          <Checkbox value="NAV">NAV <i>(Deles i forkant av dialogmøte eller når NAV ber om det)</i></Checkbox>
         </CheckboxGroup>
       )}
     />

@@ -1,8 +1,8 @@
 export const fieldTexts = {
     oppfolgingsplanTexts: {
-        typiskArbeidshverdag: "Hvordan ser en typisk arbeidshverdag ut?",
-        arbeidsoppgaverSomKanUtfores: "Hvilke arbeidsoppgaver kan utføres til tross for sykdom?",
-        arbeidsoppgaverSomIkkeKanUtfores: "Hvilke arbeidsoppgaver kan ikke utføres på grunn av sykdom?",
+        typiskArbeidshverdag: "Hvordan ser arbeidshverdagen til den ansatte ut?",
+        arbeidsoppgaverSomKanUtfores: "Hvilke arbeidsoppgaver kan fortsatt utføres?",
+        arbeidsoppgaverSomIkkeKanUtfores: "Hvilke arbeidsoppgaver kan ikke utføres?",
         oppfolging: "Hvordan skal dere følge opp avtalt tilrettelegging?",
         evalueringsdato: "Når skal dere evaluere denne oppfølgingsplanen?",
         tidligereTilretteleggingJaNei: "Har dere forsøkt tilrettelegging på arbeidsplassen tidligere?",
