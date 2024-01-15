@@ -22,7 +22,7 @@ export const Mottaker = () => {
       render={({ field: { onChange, onBlur, value, ref } }) => (
         <CheckboxGroup
           legend={fieldTexts.kommunikasjonTexts.mottaker}
-          description="Oppfølgingsplanen skal sendes til fastlegen senest innen uke 4 av sykefraværet, og sendes til NAV i forkant av et dialogmøte eller når NAV ber om det.
+          description="Oppfølgingsplanen skal sendes til fastlegen senest innen det har gått 4 uker av sykefraværet, og sendes til NAV i forkant av et dialogmøte eller når NAV ber om det.
           Dere kan også sende inn planen når dere har behov for det på andre tidspunkt"
           onBlur={onBlur}
           onChange={onChange}
@@ -30,12 +30,8 @@ export const Mottaker = () => {
           ref={ref}
           value={value}
         >
-          <Checkbox value="LEGE">
-            Fastlege
-          </Checkbox>
-          <Checkbox value="NAV">
-            NAV
-          </Checkbox>
+          <Checkbox value="LEGE">Fastlege</Checkbox>
+          <Checkbox value="NAV">NAV</Checkbox>
         </CheckboxGroup>
       )}
     />
