@@ -101,7 +101,7 @@ export const Tilrettelegging = () => {
           label={optionalText(
             fieldTexts.oppfolgingsplanTexts.muligheterForTilrettelegging,
           )}
-          description="For eksempel involvering av bedriftshelsetjeneste eller andre typer arbeidsoppgaver"
+          description="For eksempel involvering av bedriftshelsetjeneste, eller utføre andre typer arbeidsoppgaver"
           {...register("muligheterForTilrettelegging")}
           defaultValue={
             globalFormState.oppfolgingsplanFormFields
