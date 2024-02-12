@@ -6,7 +6,6 @@ export const defaultFormValues: InnsendingFormFields = {
         typiskArbeidshverdag: "",
         arbeidsoppgaverSomKanUtfores: "",
         arbeidsoppgaverSomIkkeKanUtfores: "",
-        tidligereTilrettelegging: null,
         tidligereTilretteleggingBeskrivelse: "",
         tilretteleggingIDennePerioden: "",
         muligheterForTilrettelegging: "",

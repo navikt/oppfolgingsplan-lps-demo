@@ -2,20 +2,11 @@ import { VStack } from "@navikt/ds-react";
 import { SummaryField } from "@/components/summary/SummaryField";
 import { fieldTexts } from "@/text/fieldTexts";
 import { useGlobalState } from "@/state/appState";
-import { booleanToJaNei } from "@/text/textUtils";
 
 export const TilretteleggingSummary = () => {
   const { globalFormState } = useGlobalState();
   return (
     <VStack gap="4">
-      <SummaryField
-        fieldName={
-          fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingJaNei
-        }
-        fieldValue={booleanToJaNei(
-          globalFormState.oppfolgingsplanFormFields.tidligereTilrettelegging,
-        )}
-      />
       <SummaryField
         fieldName={
           fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingBeskrivelse

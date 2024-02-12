@@ -1,5 +1,5 @@
-import { Heading, Radio, RadioGroup, Textarea } from "@navikt/ds-react";
-import { Controller, useFormContext } from "react-hook-form";
+import { Heading, Textarea } from "@navikt/ds-react";
+import { useFormContext } from "react-hook-form";
 import { fieldTexts } from "@/text/fieldTexts";
 import { optionalText } from "@/text/textUtils";
 import React from "react";
@@ -12,24 +12,7 @@ export const Tilrettelegging = () => {
   const {
     register,
     formState: { errors },
-    control,
-    watch,
   } = useFormContext<OppfolgingsplanFormFields>();
-
-  const tidligereTilretteleggingJaNeiValue = watch("tidligereTilrettelegging");
-
-  const hasSelectedTidligereTilrettelegging = () => {
-    if (
-      tidligereTilretteleggingJaNeiValue === null ||
-      tidligereTilretteleggingJaNeiValue === undefined
-    ) {
-      return (
-        globalFormState.oppfolgingsplanFormFields.tidligereTilrettelegging ===
-        true
-      );
-    }
-    return tidligereTilretteleggingJaNeiValue === true;
-  };
 
   return (
     <div>
@@ -38,53 +21,20 @@ export const Tilrettelegging = () => {
       </Heading>
 
       <Section>
-        <Controller
-          name="tidligereTilrettelegging"
-          defaultValue={
-            globalFormState.oppfolgingsplanFormFields.tidligereTilrettelegging
+        <Textarea
+          label={
+            fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingBeskrivelse
           }
-          rules={{
-            validate: (value: boolean | null) => {
-              if (value == null) {
-                return "Du må oppgi om dere har gjort tilrettelegging før denne perioden.";
-              }
-              return true;
-            },
-          }}
-          control={control}
-          render={({ field: { onChange, onBlur, value, ref } }) => (
-            <RadioGroup
-              legend={
-                fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingJaNei
-              }
-              onBlur={onBlur}
-              onChange={onChange}
-              error={errors.tidligereTilrettelegging?.message}
-              ref={ref}
-              value={value}
-            >
-              <Radio value={true}>Ja</Radio>
-              <Radio value={false}>Nei</Radio>
-            </RadioGroup>
-          )}
+          description="Beskriv hva dere har forsøkt av tilrettelegging så langt i sykefraværet. Hva har fungert, og hva har ikke fungert?"
+          {...register("tidligereTilretteleggingBeskrivelse", {
+            required: "Feltet er påkrevd",
+          })}
+          defaultValue={
+            globalFormState.oppfolgingsplanFormFields
+              .tidligereTilretteleggingBeskrivelse
+          }
+          error={errors.tidligereTilretteleggingBeskrivelse?.message}
         />
-
-        {hasSelectedTidligereTilrettelegging() && (
-          <Textarea
-            label={
-              fieldTexts.oppfolgingsplanTexts
-                .tidligereTilretteleggingBeskrivelse
-            }
-            {...register("tidligereTilretteleggingBeskrivelse", {
-              required: "Feltet er påkrevd",
-            })}
-            defaultValue={
-              globalFormState.oppfolgingsplanFormFields
-                .tidligereTilretteleggingBeskrivelse
-            }
-            error={errors.tidligereTilretteleggingBeskrivelse?.message}
-          />
-        )}
         <Textarea
           label={fieldTexts.oppfolgingsplanTexts.tilretteleggingIDennePerioden}
           description="Beskriv hva dere skal gjøre for at arbeidstakeren kan være i noe jobb"
