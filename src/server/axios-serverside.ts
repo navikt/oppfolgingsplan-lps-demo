@@ -5,26 +5,19 @@ import axiosBetterStacktrace from "axios-better-stacktrace";
 axiosBetterStacktrace(axios);
 export const AUTHORIZATION_HEADER = "Authorization";
 
-const defaultRequestHeaders = (): Record<string, string> => {
+const defaultRequestHeaders = (token: string): Record<string, string> => {
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
   };
 
-  const basicUser = process.env.username;
-  const basicPass = process.env.password;
-
-  const base64Credentials = Buffer.from(`${basicUser}:${basicPass}`).toString(
-    "base64",
-  );
-
-  headers[AUTHORIZATION_HEADER] = `Basic ${base64Credentials}`;
+  headers[AUTHORIZATION_HEADER] = token;
 
   return headers;
 };
-export const get = async <ResponseData>(url: string): Promise<ResponseData> => {
+export const get = async <ResponseData>(url: string, token: string): Promise<ResponseData> => {
   try {
     const response = await axios.get(encodeURI(url), {
-      headers: defaultRequestHeaders(),
+      headers: defaultRequestHeaders(token),
       withCredentials: true,
     });
     return response.data;
@@ -36,11 +29,12 @@ export const get = async <ResponseData>(url: string): Promise<ResponseData> => {
 
 export const post = async <ResponseData>(
   url: string,
-  data?: unknown,
+  data: unknown,
+  token: string,
 ): Promise<ResponseData> => {
   try {
     const response = await axios.post(url, data, {
-      headers: defaultRequestHeaders(),
+      headers: defaultRequestHeaders(token),
       withCredentials: true,
     });
     return response.data;

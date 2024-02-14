@@ -1,15 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
-import { get } from "@/server/axios-serverside";
-import {logger} from "@navikt/next-logger";
+import { get, post } from "@/server/axios-serverside";
 
 export async function POST(request: NextRequest) {
-  logger.info("Forsøker å hente token")
-  const tokenResponse = await get(
-    "http://lps-oppfolgingsplan-mottak/api/test/token",
+  const basicUser = process.env.username;
+  const basicPass = process.env.password;
+
+  const base64Credentials = Buffer.from(`${basicUser}:${basicPass}`).toString(
+    "base64",
   );
 
-  return NextResponse.json(
-    { message: "Woop " + tokenResponse },
-    { status: 200 },
+  const maskinportenToken = await get(
+    "http://lps-oppfolgingsplan-mottak/api/test/token",
+    `Basic ${base64Credentials}`,
   );
+
+  await post(
+    "http://lps-oppfolgingsplan-mottak/api/test/token",
+    request.body,
+    `Bearer ${maskinportenToken}`,
+  );
+
+  return NextResponse.json({ message: "Woop" }, { status: 200 });
 }
