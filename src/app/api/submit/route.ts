@@ -8,24 +8,23 @@ export async function POST(request: NextRequest) {
     "base64",
   );
 
-  const response = await fetch("/oppfolgingsplan-lps/api/submit", {
-    method: "POST",
+  const tokenResponse = await fetch("https://lps-oppfolgingsplan-mottak.ekstern.dev.nav.no/api/test/token", {
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
       // Add Authorization header
       Authorization: `Basic ${base64Credentials}`,
     },
-    body: request.body,
   });
 
-  if (!response.ok) {
+  if (!tokenResponse.ok) {
     return NextResponse.json(
       { message: "Failed to submit form" },
       { status: 500 },
     );
   }
 
-  const maskinportenToken = await response.json();
+  const maskinportenToken = await tokenResponse.json();
 
   return NextResponse.json(
     { message: "Woop " + maskinportenToken },
