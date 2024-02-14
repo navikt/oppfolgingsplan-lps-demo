@@ -22,6 +22,7 @@ export const get = async <ResponseData>(url: string, token: string): Promise<Res
     });
     return response.data;
   } catch (error: any) {
+    logger.error("Nei!")
     logger.error(error.message);
     throw error;
   }
@@ -39,6 +40,7 @@ export const post = async <ResponseData>(
     });
     return response.data;
   } catch (error: any) {
+    logger.error("Nei!")
     logger.error(error.message);
     throw error;
   }

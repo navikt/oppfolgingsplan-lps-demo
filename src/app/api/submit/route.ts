@@ -1,5 +1,6 @@
 import {NextRequest, NextResponse} from "next/server";
 import {get, post} from "@/server/axios-serverside";
+import {logger} from "@navikt/next-logger";
 
 export async function POST(request: NextRequest) {
     const basicUser = process.env.username;
@@ -13,6 +14,8 @@ export async function POST(request: NextRequest) {
         "http://lps-oppfolgingsplan-mottak/api/test/token",
         `Basic ${base64Credentials}`,
     );
+
+    logger.info("Token is " + maskinportenToken)
 
     await post(
         "http://lps-oppfolgingsplan-mottak/api/test/token",
