@@ -11,7 +11,6 @@ export async function POST(request: NextRequest) {
   const tokenResponse = await fetch("https://lps-oppfolgingsplan-mottak.ekstern.dev.nav.no/api/test/token", {
     method: "GET",
     headers: {
-      "Content-Type": "application/json",
       // Add Authorization header
       Authorization: `Basic ${base64Credentials}`,
     },

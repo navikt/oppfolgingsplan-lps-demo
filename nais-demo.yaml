@@ -37,3 +37,7 @@ spec:
     - https://demo.ekstern.dev.nav.no/oppfolgingsplan-lps
   envFrom:
     - secret: lps-oppfolgingsplan-mottak-secrets
+  accessPolicy:
+    outbound:
+      rules:
+        - application: lps-oppfolgingsplan-mottak
