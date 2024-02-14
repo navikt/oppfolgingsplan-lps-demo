@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { get, post } from "@/server/axios-serverside";
-import { logger } from "@navikt/next-logger";
 import { FollowUpPlanDTO } from "@/dto/FollowUpPlanDTO";
 
 export async function POST(request: NextRequest) {
