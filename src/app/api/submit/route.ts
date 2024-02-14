@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { get } from "@/server/axios-serverside";
+import {logger} from "@navikt/next-logger";
 
 export async function POST(request: NextRequest) {
+  logger.info("Forsøker å hente token")
   const tokenResponse = await get(
-    "https://lps-oppfolgingsplan-mottak.ekstern.dev.nav.no/api/test/token",
+    "http://lps-oppfolgingsplan-mottak/api/test/token",
   );
 
   return NextResponse.json(
