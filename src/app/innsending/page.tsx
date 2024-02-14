@@ -5,13 +5,29 @@ import { FormProvider, useForm } from "react-hook-form";
 import { Alert, BodyLong } from "@navikt/ds-react";
 import { FormSummary } from "@/components/summary/FormSummary";
 import { useRouter } from "next/navigation";
+import { globalStateToFollowUpPlanDTO, useGlobalState } from "@/state/appState";
 
 export default function Page() {
   const router = useRouter();
   const formFunctions = useForm();
+  const { globalFormState } = useGlobalState();
 
-  const submitForm = () => {
-    router.push("/kvittering");
+  const submitForm = async () => {
+    const dto = globalStateToFollowUpPlanDTO(globalFormState);
+
+    const response = await fetch("/oppfolgingsplan-lps/api/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dto),
+    });
+
+    if (!response.ok) {
+      console.error("Failed to submit form", response);
+    } else {
+      router.push("/kvittering");
+    }
   };
 
   return (

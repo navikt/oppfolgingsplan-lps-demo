@@ -1,15 +1,9 @@
 "use client";
 
-import {
-  createContext,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useContext,
-  useState,
-} from "react";
-import { InnsendingFormFields } from "@/types/FormType";
-import { defaultFormValues } from "@/state/defaultFormValues";
+import {createContext, Dispatch, ReactNode, SetStateAction, useContext, useState,} from "react";
+import {InnsendingFormFields} from "@/types/FormType";
+import {defaultFormValues} from "@/state/defaultFormValues";
+import {FollowUpPlanDTO} from "@/dto/FollowUpPlanDTO";
 
 export const AppStateContext = createContext<FormContext>({
   globalFormState: defaultFormValues,
@@ -32,7 +26,10 @@ export function FormStateProvider({ children }: Props) {
     useState<InnsendingFormFields>(defaultFormValues);
   return (
     <AppStateContext.Provider
-      value={{ globalFormState: formValues, globalFormStateDispatch: setFormValues }}
+      value={{
+        globalFormState: formValues,
+        globalFormStateDispatch: setFormValues,
+      }}
     >
       {children}
     </AppStateContext.Provider>
@@ -45,4 +42,43 @@ export function useGlobalState() {
     throw new Error("useGlobalState must be used within the FormStateProvider");
   }
   return context;
+}
+
+export function globalStateToFollowUpPlanDTO(
+  globalFormState: InnsendingFormFields,
+): FollowUpPlanDTO {
+  const { oppfolgingsplanFormFields, infoTilNavOgLegeFormFields } =
+    globalFormState;
+
+  return {
+    employeeIdentificationNumber: "19087999648",
+    typicalWorkday: oppfolgingsplanFormFields.typiskArbeidshverdag,
+    tasksThatCanStillBeDone:
+    oppfolgingsplanFormFields.arbeidsoppgaverSomKanUtfores,
+    tasksThatCanNotBeDone:
+    oppfolgingsplanFormFields.arbeidsoppgaverSomIkkeKanUtfores,
+    previousFacilitation:
+    oppfolgingsplanFormFields.tidligereTilretteleggingBeskrivelse,
+    plannedFacilitation:
+    oppfolgingsplanFormFields.tilretteleggingIDennePerioden,
+    otherFacilitationOptions:
+    oppfolgingsplanFormFields.muligheterForTilrettelegging,
+    followUp: oppfolgingsplanFormFields.oppfolging,
+    evaluationDate: oppfolgingsplanFormFields.evalueringsdato!!.toISOString(),
+    sendPlanToNav: infoTilNavOgLegeFormFields.mottaker.includes("NAV"),
+    needsHelpFromNav: infoTilNavOgLegeFormFields.trengerHjelpFraNav,
+    needsHelpFromNavDescription:
+    infoTilNavOgLegeFormFields.trengerHjelpFraNavBeskrivelse,
+    sendPlanToGeneralPractitioner:
+        infoTilNavOgLegeFormFields.mottaker.includes("LEGE"),
+    messageToGeneralPractitioner: infoTilNavOgLegeFormFields.beskjedTilFastlege,
+    additionalInformation: infoTilNavOgLegeFormFields.utfyllendeOpplysninger,
+    contactPersonFullName: infoTilNavOgLegeFormFields.kontaktpersonNavn,
+    contactPersonPhoneNumber:
+    infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer,
+    employeeHasContributedToPlan:
+        infoTilNavOgLegeFormFields.sykmeldtHarMedvirket!!,
+    employeeHasNotContributedToPlanDescription:
+    infoTilNavOgLegeFormFields.sykmeldtHarIkkeMedvirketBegrunnelse,
+  };
 }
