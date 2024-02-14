@@ -16,14 +16,10 @@ export async function POST(request: NextRequest) {
     `Basic ${base64Credentials}`,
   );
 
-  logger.info("Token is " + maskinportenToken);
-
   const plan: FollowUpPlanDTO = await request.json();
 
-  logger.info("Plan fnr: " + plan.employeeIdentificationNumber);
-
   await post(
-    "http://lps-oppfolgingsplan-mottak/api/test/token",
+    "http://lps-oppfolgingsplan-mottak/api/v1/followupplan/write",
     plan,
     `Bearer ${maskinportenToken}`,
   );

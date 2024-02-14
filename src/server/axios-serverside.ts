@@ -40,7 +40,6 @@ export const post = async <ResponseData>(
     });
     return response.data;
   } catch (error: any) {
-    logger.error("Nei!")
     logger.error(error.message);
     throw error;
   }
