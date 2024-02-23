@@ -80,5 +80,6 @@ export function globalStateToFollowUpPlanDTO(
         infoTilNavOgLegeFormFields.sykmeldtHarMedvirket!!,
     employeeHasNotContributedToPlanDescription:
     infoTilNavOgLegeFormFields.sykmeldtHarIkkeMedvirketBegrunnelse,
+    lpsName: "Svele"
   };
 }

@@ -18,4 +18,5 @@ export interface FollowUpPlanDTO {
     contactPersonPhoneNumber: string;
     employeeHasContributedToPlan: boolean;
     employeeHasNotContributedToPlanDescription: string | null;
+    lpsName: string;
 }
