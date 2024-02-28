@@ -48,6 +48,8 @@ jobs:
     if: ${{ github.actor != 'dependabot[bot]' }}
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: nais/deploy/actions/deploy@v2
