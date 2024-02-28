@@ -1,5 +1,9 @@
 name: "Build and deploy"
-on: push
+
+on:
+  push:
+  workflow_dispatch:
+
 jobs:
   build:
     name: build
@@ -40,6 +44,7 @@ jobs:
 
   deploy-demo:
     name: Deploy to demo dev-gcp
+    if: ${{ github.actor != 'dependabot[bot]' }}
     needs: build
     runs-on: ubuntu-latest
     steps:
