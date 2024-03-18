@@ -8,7 +8,7 @@ export const LpsHeader = () => {
     <Box className={styles.lpsHeader}>
       <div className="flex flex-row w-full align-center items-center">
         <Heading level="2" size="medium" className="flex w-40">
-          Svele HRM
+          Svele LPS
         </Heading>
         <div className="flex w-full pr-40 justify-center">
           <LpsHeaderMenu />
