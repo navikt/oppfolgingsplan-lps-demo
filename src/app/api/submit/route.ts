@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
   const plan: FollowUpPlanDTO = await request.json();
 
   await post(
-    "http://lps-oppfolgingsplan-mottak/api/v1/followupplan/write",
+    "http://lps-oppfolgingsplan-mottak/api/v1/followupplan",
     plan,
     `Bearer ${maskinportenToken}`,
   );
