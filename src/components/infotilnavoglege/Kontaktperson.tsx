@@ -37,6 +37,17 @@ export const Kontaktperson = () => {
         }
         error={errors.kontaktpersonTelefonnummer?.message}
       />
+
+      <TextField
+        label={fieldTexts.kommunikasjonTexts.kontaktpersonEpost}
+        {...register("kontaktpersonEpost", {
+          required: "Feltet er påkrevd",
+        })}
+        defaultValue={
+          globalFormState.infoTilNavOgLegeFormFields.kontaktpersonEpost
+        }
+        error={errors.kontaktpersonEpost?.message}
+      />
     </>
   );
 };

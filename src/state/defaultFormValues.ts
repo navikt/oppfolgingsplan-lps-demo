@@ -19,6 +19,7 @@ export const defaultFormValues: InnsendingFormFields = {
         utfyllendeOpplysninger: "",
         kontaktpersonNavn: "Ståle Svelesen",
         kontaktpersonTelefonnummer: "99999999",
+        kontaktpersonEpost: "test@nav.no",
         sykmeldtHarMedvirket: null,
         sykmeldtHarIkkeMedvirketBegrunnelse: ""
     },

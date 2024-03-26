@@ -17,6 +17,7 @@ export type InfoTilNavOgLegeFormFields = {
   utfyllendeOpplysninger: string;
   kontaktpersonNavn: string;
   kontaktpersonTelefonnummer: string;
+  kontaktpersonEpost: string;
   sykmeldtHarMedvirket: boolean | null;
   sykmeldtHarIkkeMedvirketBegrunnelse: string;
 };

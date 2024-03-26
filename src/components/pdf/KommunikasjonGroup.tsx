@@ -63,6 +63,12 @@ export const KommunikasjonGroup = ({ globalFormState }: Props) => {
               globalFormState.infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer
             }
           />
+          <FieldItem
+            label={fieldTexts.kommunikasjonTexts.kontaktpersonEpost}
+            value={
+              globalFormState.infoTilNavOgLegeFormFields.kontaktpersonEpost
+            }
+          />
         </FieldGroup>
         <FieldItem
           label={fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger}
