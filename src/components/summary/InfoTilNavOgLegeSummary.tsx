@@ -55,9 +55,9 @@ export const InfoTilNavOgLegeSummary = () => {
           fieldValue={globalFormState.infoTilNavOgLegeFormFields.kontaktpersonNavn}
         />
         <SummaryField
-          fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
+          fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonEpost}
           fieldValue={
-            globalFormState.infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer
+            globalFormState.infoTilNavOgLegeFormFields.kontaktpersonEpost
           }
         />
         <SummaryField

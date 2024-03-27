@@ -76,6 +76,8 @@ export function globalStateToFollowUpPlanDTO(
     contactPersonFullName: infoTilNavOgLegeFormFields.kontaktpersonNavn,
     contactPersonPhoneNumber:
     infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer,
+    contactPersonEmail:
+    infoTilNavOgLegeFormFields.kontaktpersonEpost,
     employeeHasContributedToPlan:
         infoTilNavOgLegeFormFields.sykmeldtHarMedvirket!!,
     employeeHasNotContributedToPlanDescription:

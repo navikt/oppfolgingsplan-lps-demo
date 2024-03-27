@@ -17,6 +17,7 @@ export const fieldTexts = {
         utfyllendeOpplysninger: "Eventuelle tilleggsopplysninger",
         kontaktpersonNavn: "Navn til kontaktperson",
         kontaktpersonTelefonnummer: "Telefonnummer til kontaktperson",
+        kontaktpersonEpost: "E-post til kontaktperson",
         harSykmeldtMedvirket: "Har arbeidstakeren vært med å lage planen?",
         sykmeldtHarIkkeMedvirketBegrunnelse: "Beskriv hvorfor arbeidstakeren ikke har vært med å lage planen"
     },

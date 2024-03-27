@@ -16,6 +16,7 @@ export interface FollowUpPlanDTO {
     additionalInformation: string | null;
     contactPersonFullName: string;
     contactPersonPhoneNumber: string;
+    contactPersonEmail: string;
     employeeHasContributedToPlan: boolean;
     employeeHasNotContributedToPlanDescription: string | null;
     lpsName: string;
