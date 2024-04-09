@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@navikt/ds-css": "^5.7.3",
-    "@navikt/ds-react": "^5.7.3",
+    "@navikt/ds-css": "^6.4.0",
+    "@navikt/ds-react": "^6.4.0",
     "@navikt/next-logger": "^1.23.0",
     "@react-pdf/renderer": "^3.1.14",
     "axios": "^1.6.8",
