@@ -21,6 +21,7 @@ export const Oppfolging = () => {
       </Heading>
       <Section>
         <Textarea
+          id="followUp"
           label={fieldTexts.oppfolgingsplanTexts.oppfolging}
           {...register("oppfolging", {
             required: "Feltet er påkrevd",
@@ -29,8 +30,11 @@ export const Oppfolging = () => {
           error={errors.oppfolging?.message}
         />
         <Evalueringsdato
+          id="evaluationDate"
           label={fieldTexts.oppfolgingsplanTexts.evalueringsdato}
-          defaultValue={globalFormState.oppfolgingsplanFormFields.evalueringsdato}
+          defaultValue={
+            globalFormState.oppfolgingsplanFormFields.evalueringsdato
+          }
         />
       </Section>
     </div>

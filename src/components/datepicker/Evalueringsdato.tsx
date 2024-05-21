@@ -4,11 +4,12 @@ import { DatePicker, useDatepicker } from "@navikt/ds-react";
 import { toDate } from "@/utils/dateUtils";
 
 export interface Props {
+  id: string;
   label?: string | ReactNode;
   defaultValue?: Date | null;
 }
 
-export const Evalueringsdato = ({ label, defaultValue }: Props) => {
+export const Evalueringsdato = ({ id, label, defaultValue }: Props) => {
   const { field, fieldState } = useController({
     name: "evalueringsdato",
     defaultValue: defaultValue,
@@ -32,7 +33,7 @@ export const Evalueringsdato = ({ label, defaultValue }: Props) => {
   });
 
   return (
-    <DatePicker {...datepickerProps}>
+    <DatePicker id={id} {...datepickerProps}>
       <DatePicker.Input
         {...inputProps}
         id={field.name}

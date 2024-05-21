@@ -14,6 +14,12 @@ export const InfoTilNavOgLegeSummary = () => {
           fieldValue={globalFormState.infoTilNavOgLegeFormFields.mottaker.toString()}
         />
         <SummaryField
+          fieldName={fieldTexts.kommunikasjonTexts.beskjedTilFastlege}
+          fieldValue={
+            globalFormState.infoTilNavOgLegeFormFields.beskjedTilFastlege
+          }
+        />
+        <SummaryField
           fieldName={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}
           fieldValue={booleanToJaNei(
             globalFormState.infoTilNavOgLegeFormFields.trengerHjelpFraNav,
@@ -29,9 +35,28 @@ export const InfoTilNavOgLegeSummary = () => {
           }
         />
         <SummaryField
-          fieldName={fieldTexts.kommunikasjonTexts.beskjedTilFastlege}
+          fieldName={fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger}
           fieldValue={
-            globalFormState.infoTilNavOgLegeFormFields.beskjedTilFastlege
+            globalFormState.infoTilNavOgLegeFormFields.utfyllendeOpplysninger
+          }
+        />
+        <SummaryField
+          fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
+          fieldValue={
+            globalFormState.infoTilNavOgLegeFormFields.kontaktpersonNavn
+          }
+        />
+        <SummaryField
+          fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
+          fieldValue={
+            globalFormState.infoTilNavOgLegeFormFields
+              .kontaktpersonTelefonnummer
+          }
+        />
+        <SummaryField
+          fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonEpost}
+          fieldValue={
+            globalFormState.infoTilNavOgLegeFormFields.kontaktpersonEpost
           }
         />
         <SummaryField
@@ -47,23 +72,6 @@ export const InfoTilNavOgLegeSummary = () => {
           fieldValue={
             globalFormState.infoTilNavOgLegeFormFields
               .sykmeldtHarIkkeMedvirketBegrunnelse
-          }
-        />
-
-        <SummaryField
-          fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
-          fieldValue={globalFormState.infoTilNavOgLegeFormFields.kontaktpersonNavn}
-        />
-        <SummaryField
-          fieldName={fieldTexts.kommunikasjonTexts.kontaktpersonEpost}
-          fieldValue={
-            globalFormState.infoTilNavOgLegeFormFields.kontaktpersonEpost
-          }
-        />
-        <SummaryField
-          fieldName={fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger}
-          fieldValue={
-            globalFormState.infoTilNavOgLegeFormFields.utfyllendeOpplysninger
           }
         />
       </VStack>

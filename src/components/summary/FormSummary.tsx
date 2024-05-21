@@ -1,5 +1,5 @@
 import { Accordion } from "@navikt/ds-react";
-import { ArbeidsoppgaverSummary } from "@/components/summary/ArbeidsoppgaverSummary";
+import { ArbeidssituasjonSummary } from "@/components/summary/ArbeidssituasjonSummary";
 import { TilretteleggingSummary } from "@/components/summary/TilretteleggingSummary";
 import { InfoTilNavOgLegeSummary } from "@/components/summary/InfoTilNavOgLegeSummary";
 import { OppfolgingSummary } from "@/components/summary/OppfolgingSummary";
@@ -9,9 +9,9 @@ export const FormSummary = () => {
     <>
       <Accordion>
         <Accordion.Item>
-          <Accordion.Header>Arbeidsoppgaver</Accordion.Header>
+          <Accordion.Header>Arbeidssituasjon</Accordion.Header>
           <Accordion.Content>
-            <ArbeidsoppgaverSummary />
+            <ArbeidssituasjonSummary />
           </Accordion.Content>
         </Accordion.Item>
         <Accordion.Item>

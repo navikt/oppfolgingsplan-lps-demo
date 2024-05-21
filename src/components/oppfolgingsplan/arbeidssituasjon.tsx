@@ -1,10 +1,10 @@
-import {Heading, Textarea} from "@navikt/ds-react";
-import {fieldTexts} from "@/text/fieldTexts";
+import { Heading, Textarea } from "@navikt/ds-react";
+import { fieldTexts } from "@/text/fieldTexts";
 import React from "react";
-import {OppfolgingsplanFormFields} from "@/types/FormType";
-import {useGlobalState} from "@/state/appState";
-import {Section} from "@/components/wrappers/Section";
-import {useFormContext} from "react-hook-form";
+import { OppfolgingsplanFormFields } from "@/types/FormType";
+import { useGlobalState } from "@/state/appState";
+import { Section } from "@/components/wrappers/Section";
+import { useFormContext } from "react-hook-form";
 
 export const Arbeidssituasjon = () => {
   const { globalFormState } = useGlobalState();
@@ -21,6 +21,7 @@ export const Arbeidssituasjon = () => {
 
       <Section>
         <Textarea
+          id="typicalWorkday"
           label={fieldTexts.oppfolgingsplanTexts.typiskArbeidshverdag}
           {...register("typiskArbeidshverdag", {
             required: "Feltet er påkrevd",
@@ -31,6 +32,7 @@ export const Arbeidssituasjon = () => {
           error={errors.typiskArbeidshverdag?.message}
         />
         <Textarea
+          id="tasksThatCanStillBeDone"
           label={fieldTexts.oppfolgingsplanTexts.arbeidsoppgaverSomKanUtfores}
           {...register("arbeidsoppgaverSomKanUtfores", {
             required: "Feltet er påkrevd",
@@ -42,6 +44,7 @@ export const Arbeidssituasjon = () => {
           error={errors.arbeidsoppgaverSomKanUtfores?.message}
         />
         <Textarea
+          id="tasksThatCanNotBeDone"
           label={
             fieldTexts.oppfolgingsplanTexts.arbeidsoppgaverSomIkkeKanUtfores
           }

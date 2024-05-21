@@ -22,6 +22,7 @@ export const Tilrettelegging = () => {
 
       <Section>
         <Textarea
+            id="previousFacilitation"
           label={
             fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingBeskrivelse
           }
@@ -36,6 +37,7 @@ export const Tilrettelegging = () => {
           error={errors.tidligereTilretteleggingBeskrivelse?.message}
         />
         <Textarea
+          id="plannedFacilitation"
           label={fieldTexts.oppfolgingsplanTexts.tilretteleggingIDennePerioden}
           description="Beskriv hva dere skal gjøre for at arbeidstakeren kan være i noe jobb"
           {...register("tilretteleggingIDennePerioden", {
@@ -48,6 +50,7 @@ export const Tilrettelegging = () => {
           error={errors.tilretteleggingIDennePerioden?.message}
         />
         <Textarea
+            id="otherFacilitationOptions"
           label={optionalText(
             fieldTexts.oppfolgingsplanTexts.muligheterForTilrettelegging,
           )}

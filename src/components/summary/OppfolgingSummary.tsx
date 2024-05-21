@@ -10,15 +10,15 @@ export const OppfolgingSummary = () => {
   return (
     <VStack gap="4">
       <SummaryField
+        fieldName={fieldTexts.oppfolgingsplanTexts.oppfolging}
+        fieldValue={globalFormState.oppfolgingsplanFormFields.oppfolging}
+      />
+
+      <SummaryField
         fieldName={fieldTexts.oppfolgingsplanTexts.evalueringsdato}
         fieldValue={getLongDateFormat(
           globalFormState.oppfolgingsplanFormFields.evalueringsdato,
         )}
-      />
-
-      <SummaryField
-        fieldName={fieldTexts.oppfolgingsplanTexts.oppfolging}
-        fieldValue={globalFormState.oppfolgingsplanFormFields.oppfolging}
       />
     </VStack>
   );

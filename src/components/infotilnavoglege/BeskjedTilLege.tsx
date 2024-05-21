@@ -29,6 +29,7 @@ export const BeskjedTilLege = () => {
   if (hasSelectedSendTilLege()) {
     return (
       <Textarea
+        id="messageToGeneralPractitioner"
         label={optionalText(fieldTexts.kommunikasjonTexts.beskjedTilFastlege)}
         {...register("beskjedTilFastlege")}
         defaultValue={

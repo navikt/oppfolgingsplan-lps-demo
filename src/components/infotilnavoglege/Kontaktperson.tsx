@@ -16,6 +16,7 @@ export const Kontaktperson = () => {
   return (
     <>
       <TextField
+        id="contactPersonFullName"
         label={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
         description="Den som har ansvaret for å følge opp den ansatte, som for eksempel nærmeste leder eller kontaktperson hos HR"
         {...register("kontaktpersonNavn", {
@@ -28,6 +29,7 @@ export const Kontaktperson = () => {
       />
 
       <TextField
+        id="contactPersonPhoneNumber"
         label={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
         {...register("kontaktpersonTelefonnummer", {
           required: "Feltet er påkrevd",
@@ -39,6 +41,7 @@ export const Kontaktperson = () => {
       />
 
       <TextField
+        id="contactPersonEmail"
         label={fieldTexts.kommunikasjonTexts.kontaktpersonEpost}
         {...register("kontaktpersonEpost", {
           required: "Feltet er påkrevd",

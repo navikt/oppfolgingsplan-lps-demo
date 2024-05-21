@@ -47,6 +47,7 @@ export const HarSykmeldtMedvirket = () => {
         control={control}
         render={({ field: { onChange, onBlur, value, ref } }) => (
           <RadioGroup
+            id="employeeHasContributedToPlan"
             legend={fieldTexts.kommunikasjonTexts.harSykmeldtMedvirket}
             onBlur={onBlur}
             onChange={onChange}
@@ -62,6 +63,7 @@ export const HarSykmeldtMedvirket = () => {
 
       {sykmeldtHarIkkeMedvirket() && (
         <Textarea
+          id="employeeHasNotContributedToPlanDescription"
           label={
             fieldTexts.kommunikasjonTexts.sykmeldtHarIkkeMedvirketBegrunnelse
           }
