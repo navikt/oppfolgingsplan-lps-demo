@@ -30,8 +30,8 @@ export const Mottaker = () => {
           ref={ref}
           value={value}
         >
-          <Checkbox value="LEGE">Fastlege</Checkbox>
-          <Checkbox value="NAV">NAV</Checkbox>
+          <Checkbox id="sendPlanToGeneralPractitioner" value="LEGE">Fastlege</Checkbox>
+          <Checkbox id="sendPlanToNav" value="NAV">NAV</Checkbox>
         </CheckboxGroup>
       )}
     />

@@ -16,6 +16,7 @@ export const EventuelleTilleggsopplysninger = () => {
 
   return (
     <Textarea
+      id="additionalInformation"
       label={optionalText(fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger)}
       {...register("utfyllendeOpplysninger")}
       defaultValue={

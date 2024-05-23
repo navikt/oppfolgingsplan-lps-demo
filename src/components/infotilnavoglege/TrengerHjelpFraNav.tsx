@@ -55,6 +55,7 @@ export const TrengerHjelpFraNav = () => {
           control={control}
           render={({ field: { onChange, onBlur, value, ref } }) => (
             <RadioGroup
+              id="needsHelpFromNav"
               legend={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}
               description="For eksempel om dere ønsker et dialogmøte i regi av NAV, eller har behov for hjelpemidler"
               onBlur={onBlur}
@@ -71,6 +72,7 @@ export const TrengerHjelpFraNav = () => {
 
         {hasSelectedTrengerHjelpFraNAV() && (
           <Textarea
+            id="needsHelpFromNavDescription"
             label={
               fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAVBeskrivelse
             }

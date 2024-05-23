@@ -2,7 +2,7 @@
 import React from "react";
 import { Document, Font, Page, StyleSheet, View } from "@react-pdf/renderer";
 import { InnsendingFormFields } from "@/types/FormType";
-import { ArbeidsoppgaverGroup } from "@/components/pdf/ArbeidsoppgaverGroup";
+import { ArbeidssituasjonGroup } from "@/components/pdf/ArbeidssituasjonGroup";
 import { TilretteleggingGroup } from "@/components/pdf/TilretteleggingGroup";
 import { KommunikasjonGroup } from "@/components/pdf/KommunikasjonGroup";
 import { PlanHeaderGroup } from "@/components/pdf/PlanHeaderGroup";
@@ -48,7 +48,7 @@ export const PdfPlan = ({ globalFormState }: Props) => {
       <Page size="A4" style={styles.page}>
         <View style={styles.table}>
           <PlanHeaderGroup />
-          <ArbeidsoppgaverGroup globalFormState={globalFormState} />
+          <ArbeidssituasjonGroup globalFormState={globalFormState} />
           <TilretteleggingGroup globalFormState={globalFormState} />
           <OppfolgingGroup globalFormState={globalFormState} />
           <KommunikasjonGroup globalFormState={globalFormState} />

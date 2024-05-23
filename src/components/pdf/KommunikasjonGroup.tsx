@@ -19,6 +19,10 @@ export const KommunikasjonGroup = ({ globalFormState }: Props) => {
           value={globalFormState.infoTilNavOgLegeFormFields.mottaker.toString()}
         />
         <FieldItem
+          label={fieldTexts.kommunikasjonTexts.beskjedTilFastlege}
+          value={globalFormState.infoTilNavOgLegeFormFields.beskjedTilFastlege}
+        />
+        <FieldItem
           label={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}
           value={booleanToJaNei(
             globalFormState.infoTilNavOgLegeFormFields.trengerHjelpFraNav,
@@ -34,9 +38,30 @@ export const KommunikasjonGroup = ({ globalFormState }: Props) => {
           }
         />
         <FieldItem
-          label={fieldTexts.kommunikasjonTexts.beskjedTilFastlege}
-          value={globalFormState.infoTilNavOgLegeFormFields.beskjedTilFastlege}
+          label={fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger}
+          value={
+            globalFormState.infoTilNavOgLegeFormFields.utfyllendeOpplysninger
+          }
         />
+        <FieldGroup heading="Kontaktperson">
+          <FieldItem
+            label={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
+            value={globalFormState.infoTilNavOgLegeFormFields.kontaktpersonNavn}
+          />
+          <FieldItem
+            label={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
+            value={
+              globalFormState.infoTilNavOgLegeFormFields
+                .kontaktpersonTelefonnummer
+            }
+          />
+          <FieldItem
+            label={fieldTexts.kommunikasjonTexts.kontaktpersonEpost}
+            value={
+              globalFormState.infoTilNavOgLegeFormFields.kontaktpersonEpost
+            }
+          />
+        </FieldGroup>
         <FieldItem
           label={fieldTexts.kommunikasjonTexts.harSykmeldtMedvirket}
           value={booleanToJaNei(
@@ -51,28 +76,6 @@ export const KommunikasjonGroup = ({ globalFormState }: Props) => {
             globalFormState.infoTilNavOgLegeFormFields
               .sykmeldtHarIkkeMedvirketBegrunnelse
           }
-        />
-        <FieldGroup heading="Kontaktperson">
-          <FieldItem
-            label={fieldTexts.kommunikasjonTexts.kontaktpersonNavn}
-            value={globalFormState.infoTilNavOgLegeFormFields.kontaktpersonNavn}
-          />
-          <FieldItem
-            label={fieldTexts.kommunikasjonTexts.kontaktpersonTelefonnummer}
-            value={
-              globalFormState.infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer
-            }
-          />
-          <FieldItem
-            label={fieldTexts.kommunikasjonTexts.kontaktpersonEpost}
-            value={
-              globalFormState.infoTilNavOgLegeFormFields.kontaktpersonEpost
-            }
-          />
-        </FieldGroup>
-        <FieldItem
-          label={fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger}
-          value={globalFormState.infoTilNavOgLegeFormFields.utfyllendeOpplysninger}
         />
       </FieldGroup>
     </>

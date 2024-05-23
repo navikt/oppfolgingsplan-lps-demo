@@ -3,7 +3,7 @@ import { SummaryField } from "@/components/summary/SummaryField";
 import { fieldTexts } from "@/text/fieldTexts";
 import { useGlobalState } from "@/state/appState";
 
-export const ArbeidsoppgaverSummary = () => {
+export const ArbeidssituasjonSummary = () => {
   const { globalFormState } = useGlobalState();
 
   return (

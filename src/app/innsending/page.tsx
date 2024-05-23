@@ -15,6 +15,10 @@ export default function Page() {
   const submitForm = async () => {
     const dto = globalStateToFollowUpPlanDTO(globalFormState);
 
+    if (process.env.NODE_ENV === 'development') {
+      router.push("/kvittering");
+    }
+
     const response = await fetch("/oppfolgingsplan-lps/api/submit", {
       method: "POST",
       headers: {

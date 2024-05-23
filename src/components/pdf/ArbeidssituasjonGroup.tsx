@@ -9,9 +9,9 @@ interface Props {
   globalFormState: InnsendingFormFields;
 }
 
-export const ArbeidsoppgaverGroup = ({ globalFormState }: Props) => {
+export const ArbeidssituasjonGroup = ({ globalFormState }: Props) => {
   return (
-    <FieldGroup heading="Arbeidsoppgaver">
+    <FieldGroup heading="Arbeidssituasjon">
       <FieldItem
         label={fieldTexts.oppfolgingsplanTexts.typiskArbeidshverdag}
         value={globalFormState.oppfolgingsplanFormFields.typiskArbeidshverdag}
