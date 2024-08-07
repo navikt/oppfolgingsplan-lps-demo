@@ -18,7 +18,7 @@
     "dayjs": "^1.11.12",
     "next": "13.5.5",
     "postcss-import": "^15.1.0",
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.52.2"
