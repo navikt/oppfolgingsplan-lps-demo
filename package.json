@@ -14,7 +14,7 @@
     "@navikt/next-logger": "^1.25.0",
     "@react-pdf/renderer": "^3.1.14",
     "axios": "^1.7.3",
-    "axios-better-stacktrace": "^2.1.6",
+    "axios-better-stacktrace": "^2.1.7",
     "dayjs": "^1.11.11",
     "next": "13.5.5",
     "postcss-import": "^15.1.0",
