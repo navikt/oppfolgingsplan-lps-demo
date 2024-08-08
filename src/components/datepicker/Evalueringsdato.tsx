@@ -21,7 +21,6 @@ export const Evalueringsdato = ({ id, label, defaultValue }: Props) => {
   const { datepickerProps, inputProps } = useDatepicker({
     fromDate: new Date("1900"),
     toDate: new Date("2100"),
-    openOnFocus: false,
     allowTwoDigitYear: false,
     defaultSelected: field.value ? toDate(field.value) : undefined,
     onDateChange: (date: Date | undefined) => {
