@@ -15,13 +15,13 @@ export const Navbar = ({ activeStep }: Props) => {
       className="hidden md:flex mb-8 mt-8"
     >
       <Link href={`/`} passHref={true} legacyBehavior>
-        <Stepper.Step unsafe_index={0}>Oppfølgingsplan</Stepper.Step>
+        <Stepper.Step>Oppfølgingsplan</Stepper.Step>
       </Link>
       <Link href={`/infotilnavoglege`} passHref={true} legacyBehavior>
-        <Stepper.Step unsafe_index={1}>Informasjon til NAV og lege</Stepper.Step>
+        <Stepper.Step>Informasjon til NAV og lege</Stepper.Step>
       </Link>
       <Link href={`/innsending`} passHref={true} legacyBehavior>
-        <Stepper.Step unsafe_index={2}>Innsending</Stepper.Step>
+        <Stepper.Step>Innsending</Stepper.Step>
       </Link>
     </Stepper>
   );
