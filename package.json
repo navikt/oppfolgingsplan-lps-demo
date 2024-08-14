@@ -12,7 +12,7 @@
     "@navikt/ds-css": "^6.16.0",
     "@navikt/ds-react": "^6.16.0",
     "@navikt/next-logger": "^1.25.0",
-    "axios": "^1.7.3",
+    "axios": "^1.7.4",
     "axios-better-stacktrace": "^2.1.7",
     "dayjs": "^1.11.12",
     "next": "14.2.5",
