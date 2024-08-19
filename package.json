@@ -11,7 +11,7 @@
   "dependencies": {
     "@navikt/ds-css": "^6.16.0",
     "@navikt/ds-react": "^6.16.0",
-    "@navikt/next-logger": "^1.30.0",
+    "@navikt/next-logger": "^1.31.0",
     "axios": "^1.7.4",
     "axios-better-stacktrace": "^2.1.7",
     "dayjs": "^1.11.12",
