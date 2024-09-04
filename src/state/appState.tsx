@@ -51,7 +51,7 @@ export function globalStateToFollowUpPlanDTO(
     globalFormState;
 
   return {
-    employeeIdentificationNumber: "19087999648",
+    employeeIdentificationNumber: "01898299631",
     typicalWorkday: oppfolgingsplanFormFields.typiskArbeidshverdag,
     tasksThatCanStillBeDone:
     oppfolgingsplanFormFields.arbeidsoppgaverSomKanUtfores,
