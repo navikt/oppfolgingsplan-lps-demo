@@ -6,7 +6,9 @@ import styles from "./contentpage.module.css";
 export enum Step {
   oppfolgingsplan = 1,
   infoTilNavOgLege = 2,
-  innsending = 3,
+  planlegging,
+  innsending = 4,
+  kvittering =5
 }
 
 interface Props {
@@ -24,21 +26,25 @@ export const ContentPage = ({ pageHeader, children, activeStep }: Props) => {
           {pageHeader}
         </Heading>
         {children}
-        <div className="flex flex-row gap-8">
-          {activeStep !== Step.oppfolgingsplan && (
-            <Button
-              variant="secondary"
-              type="button"
-              onClick={() => history.back()}
-              className="w-fit mt-4"
-            >
-              Forrige steg
-            </Button>
-          )}
-          <Button variant="primary" className="w-fit mt-4">
-            {activeStep === 3 ? "Send inn oppfølgingsplanen" : "Neste"}
-          </Button>
-        </div>
+        {
+            activeStep !== Step.kvittering &&
+            <div className="flex flex-row gap-8">
+              {activeStep !== Step.oppfolgingsplan && (
+                  <Button
+                      variant="secondary"
+                      type="button"
+                      onClick={() => history.back()}
+                      className="w-fit mt-4"
+                  >
+                    Forrige steg
+                  </Button>
+              )}
+              <Button variant="primary" className="w-fit mt-4">
+                {activeStep === 4 ? "Lagre oppfølgingsplan" : "Neste"}
+              </Button>
+            </div>
+        }
+
       </div>
     </div>
   );

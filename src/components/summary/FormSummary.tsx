@@ -28,12 +28,6 @@ export const FormSummary = () => {
             <OppfolgingSummary />
           </Accordion.Content>
         </Accordion.Item>
-        <Accordion.Item>
-          <Accordion.Header>Informasjon til NAV og lege</Accordion.Header>
-          <Accordion.Content>
-            <InfoTilNavOgLegeSummary />
-          </Accordion.Content>
-        </Accordion.Item>
       </Accordion>
     </>
   );

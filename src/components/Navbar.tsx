@@ -20,6 +20,9 @@ export const Navbar = ({ activeStep }: Props) => {
       <Link href={`/infotilnavoglege`} passHref={true} legacyBehavior>
         <Stepper.Step>Informasjon til NAV og lege</Stepper.Step>
       </Link>
+      <Link href={`/planlegging`} passHref={true} legacyBehavior>
+        <Stepper.Step>Planlegg neste oppfølging</Stepper.Step>
+      </Link>
       <Link href={`/innsending`} passHref={true} legacyBehavior>
         <Stepper.Step>Innsending</Stepper.Step>
       </Link>
