@@ -22,7 +22,7 @@ export default function Page() {
       ...globalFormState,
       infoTilNavOgLegeFormFields: { ...data },
     });
-    router.push("/innsending");
+    router.push("/planlegging");
   };
 
   return (
@@ -43,7 +43,7 @@ export default function Page() {
 
           <EventuelleTilleggsopplysninger />
 
-          <Kontaktperson />
+          {/*<Kontaktperson />*/}
 
           <HarSykmeldtMedvirket />
         </ContentPage>

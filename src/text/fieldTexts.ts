@@ -1,6 +1,6 @@
 export const fieldTexts = {
     oppfolgingsplanTexts: {
-        typiskArbeidshverdag: "Hvordan ser en vanlig arbeidshverdag ut?",
+        typiskArbeidshverdag: "Hvilke ordinære arbeidsoppgaver kan og kan ikke utføres?",
         arbeidsoppgaverSomKanUtfores: "Hvilke ordinære arbeidsoppgaver kan fortsatt utføres?",
         arbeidsoppgaverSomIkkeKanUtfores: "Hvilke ordinære arbeidsoppgaver kan ikke utføres?",
         oppfolging: "Hvordan skal dere følge opp avtalt tilrettelegging?",

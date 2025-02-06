@@ -16,7 +16,7 @@ export default function Page() {
     const dto = globalStateToFollowUpPlanDTO(globalFormState);
 
     if (process.env.NODE_ENV === 'development') {
-      router.push("/kvittering");
+      router.push("/planlegging");
     }
 
     const response = await fetch("/oppfolgingsplan-lps/api/submit", {
@@ -30,7 +30,7 @@ export default function Page() {
     if (!response.ok) {
       console.error("Failed to submit form", response);
     } else {
-      router.push("/kvittering");
+      router.push("/planlegging");
     }
   };
 

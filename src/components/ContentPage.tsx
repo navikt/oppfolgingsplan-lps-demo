@@ -6,7 +6,8 @@ import styles from "./contentpage.module.css";
 export enum Step {
   oppfolgingsplan = 1,
   infoTilNavOgLege = 2,
-  innsending = 3,
+  planlegging,
+  innsending = 4,
 }
 
 interface Props {
