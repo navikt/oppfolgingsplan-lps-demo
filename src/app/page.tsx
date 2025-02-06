@@ -26,10 +26,10 @@ export default function Home() {
     <FormProvider {...formFunctions}>
       <form
         onSubmit={navigateToReceipt}
-        className="flex max-w-4xl flex-col w-full"
+        className="flex flex-col w-full"
       >
         <ContentPage
-          pageHeader="Oppfølgingsplan for Kari Normann"
+          pageHeader="Oppfølgingsplan for Per Persen"
           activeStep={Step.oppfolgingsplan}
         >
           <Arbeidssituasjon />

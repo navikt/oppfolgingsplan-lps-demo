@@ -29,7 +29,7 @@ export default function Page() {
     <FormProvider {...formFunctions}>
       <form
         onSubmit={formFunctions.handleSubmit(submitDataAndNavigate)}
-        className="flex max-w-4xl flex-col w-full"
+        className="flex flex-col w-full"
       >
         <ContentPage
           pageHeader="Informasjon til NAV og fastlege"

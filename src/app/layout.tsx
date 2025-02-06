@@ -3,6 +3,7 @@ import {FormStateProvider} from "@/state/appState";
 import {LpsHeader} from "@/components/lpsheader/LpsHeader";
 import {fetchDecoratorReact} from "@navikt/nav-dekoratoren-moduler/ssr";
 import Script from "next/script";
+import {setBreadcrumbs} from "@navikt/nav-dekoratoren-moduler";
 
 export default async function RootLayout({
                                              children,
@@ -12,6 +13,7 @@ export default async function RootLayout({
     const Decorator = await fetchDecoratorReact({
         env: "prod",
     });
+
     return (
         <html lang="no">
         <head>

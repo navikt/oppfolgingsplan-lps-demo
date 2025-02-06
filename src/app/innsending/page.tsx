@@ -38,7 +38,7 @@ export default function Page() {
     <FormProvider {...formFunctions}>
       <form
         onSubmit={formFunctions.handleSubmit(submitForm)}
-        className="flex max-w-4xl flex-col w-full"
+        className="flex flex-col w-full"
       >
         <ContentPage
           pageHeader="Send inn oppfølgingsplanen"
