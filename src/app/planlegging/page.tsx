@@ -16,10 +16,6 @@ export default function Page() {
             activeStep={Step.planlegging}
         >
             <Textarea
-                size={"small"}
-                label={"Fyll inn tittel for hendelse"} // sjekk med fag
-            />
-            <Textarea
                 label={"Fyll inn tekst for hendelse"} // sjekk med fag
             />
             <Label>Velg dato for neste oppfølging</Label>
