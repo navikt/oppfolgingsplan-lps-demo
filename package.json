@@ -12,8 +12,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@navikt/ds-css": "^6.16.3",
-    "@navikt/ds-react": "^6.16.3",
+    "@navikt/ds-css": "^7.14.0",
+    "@navikt/ds-react": "^7.14.0",
     "@navikt/next-logger": "^1.35.0",
     "axios": "^1.7.9",
     "axios-better-stacktrace": "^2.1.7",
