@@ -23,7 +23,7 @@
     "prettier": "^3.5.3",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.56.2"
+    "react-hook-form": "^7.56.3"
   },
   "devDependencies": {
     "@types/node": "^22",
