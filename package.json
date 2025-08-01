@@ -18,7 +18,7 @@
     "axios": "^1.11.0",
     "axios-better-stacktrace": "^2.1.7",
     "dayjs": "^1.11.13",
-    "next": "14.2.26",
+    "next": "15.4.5",
     "postcss-import": "^16.1.1",
     "prettier": "^3.6.2",
     "react": "^18",
