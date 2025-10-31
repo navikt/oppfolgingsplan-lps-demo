@@ -17,7 +17,7 @@
     "@navikt/next-logger": "^1.35.0",
     "axios": "^1.13.1",
     "axios-better-stacktrace": "^2.1.7",
-    "dayjs": "^1.11.18",
+    "dayjs": "^1.11.19",
     "next": "14.2.26",
     "postcss-import": "^16.1.1",
     "prettier": "^3.6.2",
