@@ -1,8 +1,8 @@
+import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { Radio, RadioGroup, Textarea } from "@navikt/ds-react";
-import { fieldTexts } from "@/text/fieldTexts";
-import React from "react";
 import { useGlobalState } from "@/state/appState";
+import { fieldTexts } from "@/text/fieldTexts";
 import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 
 export const TrengerHjelpFraNav = () => {

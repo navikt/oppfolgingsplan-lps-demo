@@ -1,6 +1,6 @@
 "use client";
-import { Stepper } from "@navikt/ds-react";
 import Link from "next/link";
+import { Stepper } from "@navikt/ds-react";
 
 interface Props {
   activeStep: number;
@@ -12,7 +12,7 @@ export const Navbar = ({ activeStep }: Props) => {
       aria-labelledby="stepper-heading"
       activeStep={activeStep}
       orientation="horizontal"
-      className="hidden md:flex mb-8 mt-8"
+      className="mb-8 mt-8 hidden md:flex"
     >
       <Link href={`/`} passHref={true} legacyBehavior>
         <Stepper.Step>Oppfølgingsplan</Stepper.Step>

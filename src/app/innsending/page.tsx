@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import { ContentPage, Step } from "@/components/ContentPage";
+import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 import { Alert, BodyLong } from "@navikt/ds-react";
+import { ContentPage, Step } from "@/components/ContentPage";
 import { FormSummary } from "@/components/summary/FormSummary";
-import { useRouter } from "next/navigation";
 import { globalStateToFollowUpPlanDTO, useGlobalState } from "@/state/appState";
 
 export default function Page() {
@@ -15,7 +15,7 @@ export default function Page() {
   const submitForm = async () => {
     const dto = globalStateToFollowUpPlanDTO(globalFormState);
 
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === "development") {
       router.push("/kvittering");
     }
 
@@ -38,7 +38,7 @@ export default function Page() {
     <FormProvider {...formFunctions}>
       <form
         onSubmit={formFunctions.handleSubmit(submitForm)}
-        className="flex max-w-4xl flex-col w-full"
+        className="flex w-full max-w-4xl flex-col"
       >
         <ContentPage
           pageHeader="Send inn oppfølgingsplanen"

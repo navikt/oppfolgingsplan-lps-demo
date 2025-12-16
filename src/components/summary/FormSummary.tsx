@@ -1,8 +1,8 @@
 import { Accordion } from "@navikt/ds-react";
 import { ArbeidssituasjonSummary } from "@/components/summary/ArbeidssituasjonSummary";
-import { TilretteleggingSummary } from "@/components/summary/TilretteleggingSummary";
 import { InfoTilNavOgLegeSummary } from "@/components/summary/InfoTilNavOgLegeSummary";
 import { OppfolgingSummary } from "@/components/summary/OppfolgingSummary";
+import { TilretteleggingSummary } from "@/components/summary/TilretteleggingSummary";
 
 export const FormSummary = () => {
   return (

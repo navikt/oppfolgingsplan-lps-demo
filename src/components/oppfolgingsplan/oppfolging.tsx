@@ -1,11 +1,11 @@
-import { Heading, Textarea } from "@navikt/ds-react";
 import React from "react";
-import { OppfolgingsplanFormFields } from "@/types/FormType";
-import { useGlobalState } from "@/state/appState";
-import { Section } from "@/components/wrappers/Section";
 import { useFormContext } from "react-hook-form";
+import { Heading, Textarea } from "@navikt/ds-react";
 import { Evalueringsdato } from "@/components/datepicker/Evalueringsdato";
+import { Section } from "@/components/wrappers/Section";
+import { useGlobalState } from "@/state/appState";
 import { fieldTexts } from "@/text/fieldTexts";
+import { OppfolgingsplanFormFields } from "@/types/FormType";
 
 export const Oppfolging = () => {
   const { globalFormState } = useGlobalState();

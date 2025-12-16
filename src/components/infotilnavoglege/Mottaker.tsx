@@ -1,9 +1,9 @@
-import { Checkbox, CheckboxGroup } from "@navikt/ds-react";
-import { fieldTexts } from "@/text/fieldTexts";
-import { Controller, useFormContext } from "react-hook-form";
 import React from "react";
-import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
+import { Controller, useFormContext } from "react-hook-form";
+import { Checkbox, CheckboxGroup } from "@navikt/ds-react";
 import { useGlobalState } from "@/state/appState";
+import { fieldTexts } from "@/text/fieldTexts";
+import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 
 export const Mottaker = () => {
   const { globalFormState } = useGlobalState();
@@ -30,8 +30,12 @@ export const Mottaker = () => {
           ref={ref}
           value={value}
         >
-          <Checkbox id="sendPlanToGeneralPractitioner" value="LEGE">Fastlege</Checkbox>
-          <Checkbox id="sendPlanToNav" value="NAV">NAV</Checkbox>
+          <Checkbox id="sendPlanToGeneralPractitioner" value="LEGE">
+            Fastlege
+          </Checkbox>
+          <Checkbox id="sendPlanToNav" value="NAV">
+            NAV
+          </Checkbox>
         </CheckboxGroup>
       )}
     />

@@ -1,2 +1,4 @@
-export { /* @next-codemod-error `POST` export is re-exported. Check if this component uses `params` or `searchParams`*/
-POST } from "@navikt/next-logger/app-dir";
+export {
+  /* @next-codemod-error `POST` export is re-exported. Check if this component uses `params` or `searchParams`*/
+  POST,
+} from "@navikt/next-logger/app-dir";

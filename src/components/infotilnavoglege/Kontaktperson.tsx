@@ -1,8 +1,8 @@
-import { TextField } from "@navikt/ds-react";
-import { fieldTexts } from "@/text/fieldTexts";
 import React from "react";
-import { useGlobalState } from "@/state/appState";
 import { useFormContext } from "react-hook-form";
+import { TextField } from "@navikt/ds-react";
+import { useGlobalState } from "@/state/appState";
+import { fieldTexts } from "@/text/fieldTexts";
 import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 
 export const Kontaktperson = () => {

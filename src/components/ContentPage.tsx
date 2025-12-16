@@ -1,6 +1,6 @@
-import { Navbar } from "@/components/Navbar";
 import React, { ReactNode } from "react";
 import { Button, Heading } from "@navikt/ds-react";
+import { Navbar } from "@/components/Navbar";
 import styles from "./contentpage.module.css";
 
 export enum Step {
@@ -30,12 +30,12 @@ export const ContentPage = ({ pageHeader, children, activeStep }: Props) => {
               variant="secondary"
               type="button"
               onClick={() => history.back()}
-              className="w-fit mt-4"
+              className="mt-4 w-fit"
             >
               Forrige steg
             </Button>
           )}
-          <Button variant="primary" className="w-fit mt-4">
+          <Button variant="primary" className="mt-4 w-fit">
             {activeStep === 3 ? "Send inn oppfølgingsplanen" : "Neste"}
           </Button>
         </div>

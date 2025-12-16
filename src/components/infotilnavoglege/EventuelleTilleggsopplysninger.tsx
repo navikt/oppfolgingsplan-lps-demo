@@ -1,8 +1,8 @@
-import { optionalText } from "@/text/textUtils";
-import { fieldTexts } from "@/text/fieldTexts";
+import { useFormContext } from "react-hook-form";
 import { Textarea } from "@navikt/ds-react";
 import { useGlobalState } from "@/state/appState";
-import { useFormContext } from "react-hook-form";
+import { fieldTexts } from "@/text/fieldTexts";
+import { optionalText } from "@/text/textUtils";
 import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 
 export const EventuelleTilleggsopplysninger = () => {

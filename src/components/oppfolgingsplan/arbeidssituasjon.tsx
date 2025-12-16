@@ -1,10 +1,10 @@
-import { Heading, Textarea } from "@navikt/ds-react";
-import { fieldTexts } from "@/text/fieldTexts";
 import React from "react";
-import { OppfolgingsplanFormFields } from "@/types/FormType";
-import { useGlobalState } from "@/state/appState";
-import { Section } from "@/components/wrappers/Section";
 import { useFormContext } from "react-hook-form";
+import { Heading, Textarea } from "@navikt/ds-react";
+import { Section } from "@/components/wrappers/Section";
+import { useGlobalState } from "@/state/appState";
+import { fieldTexts } from "@/text/fieldTexts";
+import { OppfolgingsplanFormFields } from "@/types/FormType";
 
 export const Arbeidssituasjon = () => {
   const { globalFormState } = useGlobalState();

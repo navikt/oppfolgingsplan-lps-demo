@@ -1,11 +1,11 @@
-import { Heading, Textarea } from "@navikt/ds-react";
+import React from "react";
 import { useFormContext } from "react-hook-form";
+import { Heading, Textarea } from "@navikt/ds-react";
+import { Section } from "@/components/wrappers/Section";
+import { useGlobalState } from "@/state/appState";
 import { fieldTexts } from "@/text/fieldTexts";
 import { optionalText } from "@/text/textUtils";
-import React from "react";
 import { OppfolgingsplanFormFields } from "@/types/FormType";
-import { useGlobalState } from "@/state/appState";
-import { Section } from "@/components/wrappers/Section";
 
 export const Tilrettelegging = () => {
   const { globalFormState } = useGlobalState();
@@ -22,7 +22,7 @@ export const Tilrettelegging = () => {
 
       <Section>
         <Textarea
-            id="previousFacilitation"
+          id="previousFacilitation"
           label={
             fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingBeskrivelse
           }
@@ -50,7 +50,7 @@ export const Tilrettelegging = () => {
           error={errors.tilretteleggingIDennePerioden?.message}
         />
         <Textarea
-            id="otherFacilitationOptions"
+          id="otherFacilitationOptions"
           label={optionalText(
             fieldTexts.oppfolgingsplanTexts.muligheterForTilrettelegging,
           )}

@@ -1,7 +1,7 @@
 import { VStack } from "@navikt/ds-react";
 import { SummaryField } from "@/components/summary/SummaryField";
-import { fieldTexts } from "@/text/fieldTexts";
 import { useGlobalState } from "@/state/appState";
+import { fieldTexts } from "@/text/fieldTexts";
 
 export const TilretteleggingSummary = () => {
   const { globalFormState } = useGlobalState();
