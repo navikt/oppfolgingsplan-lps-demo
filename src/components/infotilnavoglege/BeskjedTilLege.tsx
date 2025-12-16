@@ -1,4 +1,4 @@
-import { useFormContext } from "react-hook-form";
+import { useController, useFormContext, useWatch } from "react-hook-form";
 import { Textarea } from "@navikt/ds-react";
 import { useGlobalState } from "@/state/appState";
 import { fieldTexts } from "@/text/fieldTexts";
@@ -8,17 +8,28 @@ import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 export const BeskjedTilLege = () => {
   const { globalFormState } = useGlobalState();
 
-  const { register, watch } = useFormContext<InfoTilNavOgLegeFormFields>();
+  const { control } = useFormContext<InfoTilNavOgLegeFormFields>();
 
-  const mottakerValue = watch("mottaker");
+  const beskjedTilFastlege = useController({
+    name: "beskjedTilFastlege",
+    control,
+    defaultValue: globalFormState.infoTilNavOgLegeFormFields.beskjedTilFastlege,
+  });
+
+  const mottakerValue = useWatch({ control, name: "mottaker" });
 
   const hasSelectedSendTilLege = () => {
-    if (mottakerValue === null || mottakerValue === undefined) {
-      return globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes(
-        "LEGE",
-      );
+    if (
+      mottakerValue &&
+      Array.isArray(mottakerValue) &&
+      mottakerValue.length > 0
+    ) {
+      return mottakerValue.includes("LEGE");
     }
-    return mottakerValue?.includes("LEGE");
+    return (
+      globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes("LEGE") ??
+      false
+    );
   };
 
   if (hasSelectedSendTilLege()) {
@@ -26,10 +37,8 @@ export const BeskjedTilLege = () => {
       <Textarea
         id="messageToGeneralPractitioner"
         label={optionalText(fieldTexts.kommunikasjonTexts.beskjedTilFastlege)}
-        {...register("beskjedTilFastlege")}
-        defaultValue={
-          globalFormState.infoTilNavOgLegeFormFields.beskjedTilFastlege
-        }
+        {...beskjedTilFastlege.field}
+        value={beskjedTilFastlege.field.value ?? ""}
       />
     );
   }

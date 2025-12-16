@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { Button, Heading } from "@navikt/ds-react";
 import { Navbar } from "@/components/Navbar";
 import styles from "./contentpage.module.css";

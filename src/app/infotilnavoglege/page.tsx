@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 import { ContentPage, Step } from "@/components/ContentPage";
@@ -14,7 +13,9 @@ import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 
 export default function Page() {
   const router = useRouter();
-  const formFunctions = useForm<InfoTilNavOgLegeFormFields>();
+  const formFunctions = useForm<InfoTilNavOgLegeFormFields>({
+    mode: "onTouched",
+  });
   const { globalFormState, globalFormStateDispatch } = useGlobalState();
 
   const submitDataAndNavigate = (data: InfoTilNavOgLegeFormFields) => {

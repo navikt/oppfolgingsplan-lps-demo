@@ -1,4 +1,4 @@
-import { useFormContext } from "react-hook-form";
+import { useController, useFormContext } from "react-hook-form";
 import { Textarea } from "@navikt/ds-react";
 import { useGlobalState } from "@/state/appState";
 import { fieldTexts } from "@/text/fieldTexts";
@@ -8,16 +8,21 @@ import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 export const EventuelleTilleggsopplysninger = () => {
   const { globalFormState } = useGlobalState();
 
-  const { register } = useFormContext<InfoTilNavOgLegeFormFields>();
+  const { control } = useFormContext<InfoTilNavOgLegeFormFields>();
+
+  const utfyllendeOpplysninger = useController({
+    name: "utfyllendeOpplysninger",
+    control,
+    defaultValue:
+      globalFormState.infoTilNavOgLegeFormFields.utfyllendeOpplysninger,
+  });
 
   return (
     <Textarea
       id="additionalInformation"
       label={optionalText(fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger)}
-      {...register("utfyllendeOpplysninger")}
-      defaultValue={
-        globalFormState.infoTilNavOgLegeFormFields.utfyllendeOpplysninger
-      }
+      {...utfyllendeOpplysninger.field}
+      value={utfyllendeOpplysninger.field.value ?? ""}
     />
   );
 };

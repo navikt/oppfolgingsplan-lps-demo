@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 import { ContentPage, Step } from "@/components/ContentPage";
@@ -12,7 +11,9 @@ import { OppfolgingsplanFormFields } from "@/types/FormType";
 
 export default function Home() {
   const router = useRouter();
-  const formFunctions = useForm<OppfolgingsplanFormFields>();
+  const formFunctions = useForm<OppfolgingsplanFormFields>({
+    mode: "onTouched",
+  });
   const { globalFormState, globalFormStateDispatch } = useGlobalState();
   const submitDataAndNavigate = (data: OppfolgingsplanFormFields) => {
     console.table(data);

@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormContext } from "react-hook-form";
+import { useController, useFormContext } from "react-hook-form";
 import { Heading, Textarea } from "@navikt/ds-react";
 import { Section } from "@/components/wrappers/Section";
 import { useGlobalState } from "@/state/appState";
@@ -9,10 +9,31 @@ import { OppfolgingsplanFormFields } from "@/types/FormType";
 
 export const Tilrettelegging = () => {
   const { globalFormState } = useGlobalState();
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext<OppfolgingsplanFormFields>();
+  const { control } = useFormContext<OppfolgingsplanFormFields>();
+
+  const tidligereTilretteleggingBeskrivelse = useController({
+    name: "tidligereTilretteleggingBeskrivelse",
+    control,
+    defaultValue:
+      globalFormState.oppfolgingsplanFormFields
+        .tidligereTilretteleggingBeskrivelse,
+    rules: { required: "Feltet er påkrevd" },
+  });
+
+  const tilretteleggingIDennePerioden = useController({
+    name: "tilretteleggingIDennePerioden",
+    control,
+    defaultValue:
+      globalFormState.oppfolgingsplanFormFields.tilretteleggingIDennePerioden,
+    rules: { required: "Feltet er påkrevd" },
+  });
+
+  const muligheterForTilrettelegging = useController({
+    name: "muligheterForTilrettelegging",
+    control,
+    defaultValue:
+      globalFormState.oppfolgingsplanFormFields.muligheterForTilrettelegging,
+  });
 
   return (
     <div>
@@ -27,27 +48,17 @@ export const Tilrettelegging = () => {
             fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingBeskrivelse
           }
           description="Beskriv hva dere har forsøkt av tilrettelegging så langt i sykefraværet. Hva har fungert, og hva har ikke fungert?"
-          {...register("tidligereTilretteleggingBeskrivelse", {
-            required: "Feltet er påkrevd",
-          })}
-          defaultValue={
-            globalFormState.oppfolgingsplanFormFields
-              .tidligereTilretteleggingBeskrivelse
-          }
-          error={errors.tidligereTilretteleggingBeskrivelse?.message}
+          {...tidligereTilretteleggingBeskrivelse.field}
+          value={tidligereTilretteleggingBeskrivelse.field.value ?? ""}
+          error={tidligereTilretteleggingBeskrivelse.fieldState.error?.message}
         />
         <Textarea
           id="plannedFacilitation"
           label={fieldTexts.oppfolgingsplanTexts.tilretteleggingIDennePerioden}
           description="Beskriv hva dere skal gjøre for at arbeidstakeren kan være i noe jobb"
-          {...register("tilretteleggingIDennePerioden", {
-            required: "Feltet er påkrevd",
-          })}
-          defaultValue={
-            globalFormState.oppfolgingsplanFormFields
-              .tilretteleggingIDennePerioden
-          }
-          error={errors.tilretteleggingIDennePerioden?.message}
+          {...tilretteleggingIDennePerioden.field}
+          value={tilretteleggingIDennePerioden.field.value ?? ""}
+          error={tilretteleggingIDennePerioden.fieldState.error?.message}
         />
         <Textarea
           id="otherFacilitationOptions"
@@ -55,11 +66,8 @@ export const Tilrettelegging = () => {
             fieldTexts.oppfolgingsplanTexts.muligheterForTilrettelegging,
           )}
           description="For eksempel involvering av bedriftshelsetjeneste, eller utføre andre typer arbeidsoppgaver"
-          {...register("muligheterForTilrettelegging")}
-          defaultValue={
-            globalFormState.oppfolgingsplanFormFields
-              .muligheterForTilrettelegging
-          }
+          {...muligheterForTilrettelegging.field}
+          value={muligheterForTilrettelegging.field.value ?? ""}
         />
       </Section>
     </div>

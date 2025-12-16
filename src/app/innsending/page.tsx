@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 import { Alert, BodyLong } from "@navikt/ds-react";

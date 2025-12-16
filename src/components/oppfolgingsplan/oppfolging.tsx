@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormContext } from "react-hook-form";
+import { useController, useFormContext } from "react-hook-form";
 import { Heading, Textarea } from "@navikt/ds-react";
 import { Evalueringsdato } from "@/components/datepicker/Evalueringsdato";
 import { Section } from "@/components/wrappers/Section";
@@ -9,10 +9,14 @@ import { OppfolgingsplanFormFields } from "@/types/FormType";
 
 export const Oppfolging = () => {
   const { globalFormState } = useGlobalState();
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext<OppfolgingsplanFormFields>();
+  const { control } = useFormContext<OppfolgingsplanFormFields>();
+
+  const oppfolging = useController({
+    name: "oppfolging",
+    control,
+    defaultValue: globalFormState.oppfolgingsplanFormFields.oppfolging,
+    rules: { required: "Feltet er påkrevd" },
+  });
 
   return (
     <div>
@@ -23,11 +27,9 @@ export const Oppfolging = () => {
         <Textarea
           id="followUp"
           label={fieldTexts.oppfolgingsplanTexts.oppfolging}
-          {...register("oppfolging", {
-            required: "Feltet er påkrevd",
-          })}
-          defaultValue={globalFormState.oppfolgingsplanFormFields.oppfolging}
-          error={errors.oppfolging?.message}
+          {...oppfolging.field}
+          value={oppfolging.field.value ?? ""}
+          error={oppfolging.fieldState.error?.message}
         />
         <Evalueringsdato
           id="evaluationDate"

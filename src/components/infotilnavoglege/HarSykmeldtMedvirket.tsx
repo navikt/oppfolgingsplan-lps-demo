@@ -1,4 +1,9 @@
-import { Controller, useFormContext } from "react-hook-form";
+import {
+  Controller,
+  useController,
+  useFormContext,
+  useWatch,
+} from "react-hook-form";
 import { Radio, RadioGroup, Textarea } from "@navikt/ds-react";
 import { useGlobalState } from "@/state/appState";
 import { fieldTexts } from "@/text/fieldTexts";
@@ -6,14 +11,12 @@ import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 
 export const HarSykmeldtMedvirket = () => {
   const { globalFormState } = useGlobalState();
-  const {
-    register,
-    control,
-    formState: { errors },
-    watch,
-  } = useFormContext<InfoTilNavOgLegeFormFields>();
+  const { control } = useFormContext<InfoTilNavOgLegeFormFields>();
 
-  const sykmeldtHarMedvirketValue = watch("sykmeldtHarMedvirket");
+  const sykmeldtHarMedvirketValue = useWatch({
+    control,
+    name: "sykmeldtHarMedvirket",
+  });
 
   const sykmeldtHarIkkeMedvirket = () => {
     if (
@@ -27,6 +30,22 @@ export const HarSykmeldtMedvirket = () => {
     }
     return sykmeldtHarMedvirketValue === false;
   };
+
+  const sykmeldtHarIkkeMedvirketBegrunnelse = useController({
+    name: "sykmeldtHarIkkeMedvirketBegrunnelse",
+    control,
+    defaultValue:
+      globalFormState.infoTilNavOgLegeFormFields
+        .sykmeldtHarIkkeMedvirketBegrunnelse,
+    rules: {
+      validate: (value) => {
+        if (sykmeldtHarIkkeMedvirket() && !value) {
+          return "Feltet er påkrevd";
+        }
+        return true;
+      },
+    },
+  });
 
   return (
     <>
@@ -44,18 +63,18 @@ export const HarSykmeldtMedvirket = () => {
           },
         }}
         control={control}
-        render={({ field: { onChange, onBlur, value, ref } }) => (
+        render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
           <RadioGroup
             id="employeeHasContributedToPlan"
             legend={fieldTexts.kommunikasjonTexts.harSykmeldtMedvirket}
             onBlur={onBlur}
-            onChange={onChange}
-            error={errors.sykmeldtHarMedvirket?.message}
+            onChange={(val) => onChange(val === "true")}
+            error={fieldState.error?.message}
             ref={ref}
-            value={value}
+            value={value === null || value === undefined ? "" : String(value)}
           >
-            <Radio value={true}>Ja</Radio>
-            <Radio value={false}>Nei</Radio>
+            <Radio value="true">Ja</Radio>
+            <Radio value="false">Nei</Radio>
           </RadioGroup>
         )}
       />
@@ -66,14 +85,9 @@ export const HarSykmeldtMedvirket = () => {
           label={
             fieldTexts.kommunikasjonTexts.sykmeldtHarIkkeMedvirketBegrunnelse
           }
-          {...register("sykmeldtHarIkkeMedvirketBegrunnelse", {
-            required: "Feltet er påkrevd",
-          })}
-          defaultValue={
-            globalFormState.infoTilNavOgLegeFormFields
-              .sykmeldtHarIkkeMedvirketBegrunnelse
-          }
-          error={errors.sykmeldtHarIkkeMedvirketBegrunnelse?.message}
+          {...sykmeldtHarIkkeMedvirketBegrunnelse.field}
+          value={sykmeldtHarIkkeMedvirketBegrunnelse.field.value ?? ""}
+          error={sykmeldtHarIkkeMedvirketBegrunnelse.fieldState.error?.message}
         />
       )}
     </>

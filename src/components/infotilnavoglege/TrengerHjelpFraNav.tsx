@@ -1,5 +1,10 @@
 import React from "react";
-import { Controller, useFormContext } from "react-hook-form";
+import {
+  Controller,
+  useController,
+  useFormContext,
+  useWatch,
+} from "react-hook-form";
 import { Radio, RadioGroup, Textarea } from "@navikt/ds-react";
 import { useGlobalState } from "@/state/appState";
 import { fieldTexts } from "@/text/fieldTexts";
@@ -8,33 +13,58 @@ import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 export const TrengerHjelpFraNav = () => {
   const { globalFormState } = useGlobalState();
 
-  const {
-    register,
-    control,
-    watch,
-    formState: { errors },
-  } = useFormContext<InfoTilNavOgLegeFormFields>();
+  const { control } = useFormContext<InfoTilNavOgLegeFormFields>();
 
-  const mottakerValue = watch("mottaker");
-  const trengerHjelpFraNavValue = watch("trengerHjelpFraNav");
+  const mottakerValue = useWatch({ control, name: "mottaker" });
+  const trengerHjelpFraNavValue = useWatch({
+    control,
+    name: "trengerHjelpFraNav",
+  });
 
   const hasSelectedSendTilNAV = () => {
-    if (mottakerValue === null || mottakerValue === undefined) {
-      return globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes(
-        "NAV",
-      );
+    if (
+      mottakerValue &&
+      Array.isArray(mottakerValue) &&
+      mottakerValue.length > 0
+    ) {
+      return mottakerValue.includes("NAV");
     }
-    return mottakerValue?.includes("NAV");
+    return (
+      globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes("NAV") ??
+      false
+    );
   };
 
   const hasSelectedTrengerHjelpFraNAV = () => {
-    if (trengerHjelpFraNavValue === null) {
-      return (
-        globalFormState.infoTilNavOgLegeFormFields.trengerHjelpFraNav === true
-      );
+    if (
+      trengerHjelpFraNavValue !== null &&
+      trengerHjelpFraNavValue !== undefined
+    ) {
+      return trengerHjelpFraNavValue === true;
     }
-    return trengerHjelpFraNavValue === true;
+    return (
+      globalFormState.infoTilNavOgLegeFormFields.trengerHjelpFraNav === true
+    );
   };
+
+  const trengerHjelpFraNavBeskrivelse = useController({
+    name: "trengerHjelpFraNavBeskrivelse",
+    control,
+    defaultValue:
+      globalFormState.infoTilNavOgLegeFormFields.trengerHjelpFraNavBeskrivelse,
+    rules: {
+      validate: (value) => {
+        if (
+          hasSelectedSendTilNAV() &&
+          hasSelectedTrengerHjelpFraNAV() &&
+          !value
+        ) {
+          return "Feltet er påkrevd";
+        }
+        return true;
+      },
+    },
+  });
 
   if (hasSelectedSendTilNAV()) {
     return (
@@ -53,19 +83,19 @@ export const TrengerHjelpFraNav = () => {
             },
           }}
           control={control}
-          render={({ field: { onChange, onBlur, value, ref } }) => (
+          render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
             <RadioGroup
               id="needsHelpFromNav"
               legend={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}
               description="For eksempel om dere ønsker et dialogmøte i regi av NAV, eller har behov for hjelpemidler"
               onBlur={onBlur}
-              onChange={onChange}
-              error={errors.trengerHjelpFraNav?.message}
+              onChange={(val) => onChange(val === "true")}
+              error={fieldState.error?.message}
               ref={ref}
-              value={value}
+              value={value === null || value === undefined ? "" : String(value)}
             >
-              <Radio value={true}>Ja</Radio>
-              <Radio value={false}>Nei</Radio>
+              <Radio value="true">Ja</Radio>
+              <Radio value="false">Nei</Radio>
             </RadioGroup>
           )}
         />
@@ -76,17 +106,13 @@ export const TrengerHjelpFraNav = () => {
             label={
               fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAVBeskrivelse
             }
-            {...register("trengerHjelpFraNavBeskrivelse", {
-              required: "Feltet er påkrevd",
-            })}
-            defaultValue={
-              globalFormState.infoTilNavOgLegeFormFields
-                .trengerHjelpFraNavBeskrivelse
-            }
-            error={errors.trengerHjelpFraNavBeskrivelse?.message}
+            {...trengerHjelpFraNavBeskrivelse.field}
+            value={trengerHjelpFraNavBeskrivelse.field.value ?? ""}
+            error={trengerHjelpFraNavBeskrivelse.fieldState.error?.message}
           />
         )}
       </>
     );
   }
+  return null;
 };
