@@ -1,9 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from "next";
+const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["@navikt/ds-react"],
     turbopackFileSystemCacheForDev: true,
   },
+  reactCompiler: true,
   reactStrictMode: true,
   output: "standalone",
   basePath: "/oppfolgingsplan-lps",
