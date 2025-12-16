@@ -14,15 +14,11 @@ export const Navbar = ({ activeStep }: Props) => {
       orientation="horizontal"
       className="mb-8 mt-8 hidden md:flex"
     >
-      <Link href={`/`}>
-        <Stepper.Step>Oppfølgingsplan</Stepper.Step>
-      </Link>
-      <Link href={`/infotilnavoglege`}>
-        <Stepper.Step>Informasjon til NAV og lege</Stepper.Step>
-      </Link>
-      <Link href={`/innsending`}>
-        <Stepper.Step>Innsending</Stepper.Step>
-      </Link>
+      <Stepper.Step href="/">Oppfølgingsplan</Stepper.Step>
+      <Stepper.Step href="/infotilnavoglege">
+        Informasjon til NAV og lege
+      </Stepper.Step>
+      <Stepper.Step href="/innsending">Innsending</Stepper.Step>
     </Stepper>
   );
 };
