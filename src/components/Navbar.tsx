@@ -14,13 +14,13 @@ export const Navbar = ({ activeStep }: Props) => {
       orientation="horizontal"
       className="mb-8 mt-8 hidden md:flex"
     >
-      <Link href={`/`} passHref={true} legacyBehavior>
+      <Link href={`/`}>
         <Stepper.Step>Oppfølgingsplan</Stepper.Step>
       </Link>
-      <Link href={`/infotilnavoglege`} passHref={true} legacyBehavior>
+      <Link href={`/infotilnavoglege`}>
         <Stepper.Step>Informasjon til NAV og lege</Stepper.Step>
       </Link>
-      <Link href={`/innsending`} passHref={true} legacyBehavior>
+      <Link href={`/innsending`}>
         <Stepper.Step>Innsending</Stepper.Step>
       </Link>
     </Stepper>
