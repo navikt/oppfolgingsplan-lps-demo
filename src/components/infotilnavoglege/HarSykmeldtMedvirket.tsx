@@ -1,12 +1,11 @@
 import { Controller, useFormContext } from "react-hook-form";
 import { Radio, RadioGroup, Textarea } from "@navikt/ds-react";
 import { fieldTexts } from "@/text/fieldTexts";
-import React from "react";
 import { useGlobalState } from "@/state/appState";
 import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 
 export const HarSykmeldtMedvirket = () => {
-  const { globalFormState, globalFormStateDispatch } = useGlobalState();
+  const { globalFormState } = useGlobalState();
   const {
     register,
     control,

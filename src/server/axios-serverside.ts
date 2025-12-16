@@ -21,9 +21,9 @@ export const get = async <ResponseData>(url: string, token: string): Promise<Res
       withCredentials: true,
     });
     return response.data;
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Nei!")
-    logger.error(error.message);
+    logger.error(error instanceof Error ? error.message : String(error));
     throw error;
   }
 };
@@ -39,8 +39,8 @@ export const post = async <ResponseData>(
       withCredentials: true,
     });
     return response.data;
-  } catch (error: any) {
-    logger.error(error.message);
+  } catch (error: unknown) {
+    logger.error(error instanceof Error ? error.message : String(error));
     throw error;
   }
 };

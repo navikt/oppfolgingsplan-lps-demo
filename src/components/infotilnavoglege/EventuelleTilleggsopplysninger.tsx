@@ -1,7 +1,6 @@
 import { optionalText } from "@/text/textUtils";
 import { fieldTexts } from "@/text/fieldTexts";
 import { Textarea } from "@navikt/ds-react";
-import React from "react";
 import { useGlobalState } from "@/state/appState";
 import { useFormContext } from "react-hook-form";
 import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
@@ -9,10 +8,7 @@ import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 export const EventuelleTilleggsopplysninger = () => {
   const { globalFormState } = useGlobalState();
 
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext<InfoTilNavOgLegeFormFields>();
+  const { register } = useFormContext<InfoTilNavOgLegeFormFields>();
 
   return (
     <Textarea
