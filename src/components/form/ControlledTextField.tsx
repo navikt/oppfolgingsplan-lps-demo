@@ -1,4 +1,8 @@
-import { useController, useFormContext } from "react-hook-form";
+import {
+  RegisterOptions,
+  useController,
+  useFormContext,
+} from "react-hook-form";
 import { TextField, TextFieldProps } from "@navikt/ds-react";
 
 interface ControlledTextFieldProps extends Omit<
@@ -7,7 +11,7 @@ interface ControlledTextFieldProps extends Omit<
 > {
   name: string;
   defaultValue?: string;
-  rules?: Parameters<typeof useController>[0]["rules"];
+  rules?: RegisterOptions;
 }
 
 export const ControlledTextField = ({

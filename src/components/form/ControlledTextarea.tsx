@@ -1,4 +1,8 @@
-import { useController, useFormContext } from "react-hook-form";
+import {
+  RegisterOptions,
+  useController,
+  useFormContext,
+} from "react-hook-form";
 import { Textarea, TextareaProps } from "@navikt/ds-react";
 
 interface ControlledTextareaProps extends Omit<
@@ -7,7 +11,7 @@ interface ControlledTextareaProps extends Omit<
 > {
   name: string;
   defaultValue?: string;
-  rules?: Parameters<typeof useController>[0]["rules"];
+  rules?: RegisterOptions;
 }
 
 export const ControlledTextarea = ({
