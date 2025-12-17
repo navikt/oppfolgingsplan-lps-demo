@@ -1,22 +1,12 @@
-import React from "react";
-import { useController, useFormContext } from "react-hook-form";
-import { Heading, Textarea } from "@navikt/ds-react";
+import { Heading } from "@navikt/ds-react";
 import { Evalueringsdato } from "@/components/datepicker/Evalueringsdato";
+import { ControlledTextarea } from "@/components/form/ControlledTextarea";
 import { Section } from "@/components/wrappers/Section";
 import { useGlobalState } from "@/state/appState";
 import { fieldTexts } from "@/text/fieldTexts";
-import { OppfolgingsplanFormFields } from "@/types/FormType";
 
 export const Oppfolging = () => {
   const { globalFormState } = useGlobalState();
-  const { control } = useFormContext<OppfolgingsplanFormFields>();
-
-  const oppfolging = useController({
-    name: "oppfolging",
-    control,
-    defaultValue: globalFormState.oppfolgingsplanFormFields.oppfolging,
-    rules: { required: "Feltet er påkrevd" },
-  });
 
   return (
     <div>
@@ -24,12 +14,11 @@ export const Oppfolging = () => {
         Oppfølging
       </Heading>
       <Section>
-        <Textarea
-          id="followUp"
+        <ControlledTextarea
+          name="oppfolging"
           label={fieldTexts.oppfolgingsplanTexts.oppfolging}
-          {...oppfolging.field}
-          value={oppfolging.field.value ?? ""}
-          error={oppfolging.fieldState.error?.message}
+          defaultValue={globalFormState.oppfolgingsplanFormFields.oppfolging}
+          rules={{ required: "Feltet er påkrevd" }}
         />
         <Evalueringsdato
           id="evaluationDate"
