@@ -1,18 +1,12 @@
-import React from "react";
-import {
-  Controller,
-  useController,
-  useFormContext,
-  useWatch,
-} from "react-hook-form";
-import { Radio, RadioGroup, Textarea } from "@navikt/ds-react";
+import { useFormContext, useWatch } from "react-hook-form";
+import { ControlledBooleanRadioGroup } from "@/components/form/ControlledBooleanRadioGroup";
+import { ControlledTextarea } from "@/components/form/ControlledTextarea";
 import { useGlobalState } from "@/state/appState";
 import { fieldTexts } from "@/text/fieldTexts";
 import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 
 export const TrengerHjelpFraNav = () => {
   const { globalFormState } = useGlobalState();
-
   const { control } = useFormContext<InfoTilNavOgLegeFormFields>();
 
   const mottakerValue = useWatch({ control, name: "mottaker" });
@@ -21,98 +15,54 @@ export const TrengerHjelpFraNav = () => {
     name: "trengerHjelpFraNav",
   });
 
-  const hasSelectedSendTilNAV = () => {
-    if (
-      mottakerValue &&
+  const hasSelectedSendTilNAV =
+    (mottakerValue &&
       Array.isArray(mottakerValue) &&
-      mottakerValue.length > 0
-    ) {
-      return mottakerValue.includes("NAV");
-    }
-    return (
-      globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes("NAV") ??
-      false
-    );
-  };
+      mottakerValue.includes("NAV")) ||
+    (!mottakerValue &&
+      globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes("NAV"));
 
-  const hasSelectedTrengerHjelpFraNAV = () => {
-    if (
-      trengerHjelpFraNavValue !== null &&
-      trengerHjelpFraNavValue !== undefined
-    ) {
-      return trengerHjelpFraNavValue === true;
-    }
-    return (
-      globalFormState.infoTilNavOgLegeFormFields.trengerHjelpFraNav === true
-    );
-  };
+  const hasSelectedTrengerHjelpFraNAV =
+    trengerHjelpFraNavValue === true ||
+    (trengerHjelpFraNavValue === undefined &&
+      globalFormState.infoTilNavOgLegeFormFields.trengerHjelpFraNav === true);
 
-  const trengerHjelpFraNavBeskrivelse = useController({
-    name: "trengerHjelpFraNavBeskrivelse",
-    control,
-    defaultValue:
-      globalFormState.infoTilNavOgLegeFormFields.trengerHjelpFraNavBeskrivelse,
-    rules: {
-      validate: (value) => {
-        if (
-          hasSelectedSendTilNAV() &&
-          hasSelectedTrengerHjelpFraNAV() &&
-          !value
-        ) {
-          return "Feltet er påkrevd";
+  if (!hasSelectedSendTilNAV) {
+    return null;
+  }
+
+  return (
+    <>
+      <ControlledBooleanRadioGroup
+        name="trengerHjelpFraNav"
+        legend={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}
+        description="For eksempel om dere ønsker et dialogmøte i regi av NAV, eller har behov for hjelpemidler"
+        defaultValue={
+          globalFormState.infoTilNavOgLegeFormFields.trengerHjelpFraNav
         }
-        return true;
-      },
-    },
-  });
+        rules={{
+          validate: (value) =>
+            value != null ||
+            "Du må oppgi om dere trenger hjelp fra NAV eller ikke",
+        }}
+      />
 
-  if (hasSelectedSendTilNAV()) {
-    return (
-      <>
-        <Controller
-          name="trengerHjelpFraNav"
+      {hasSelectedTrengerHjelpFraNAV && (
+        <ControlledTextarea
+          name="trengerHjelpFraNavBeskrivelse"
+          label={
+            fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAVBeskrivelse
+          }
           defaultValue={
-            globalFormState.infoTilNavOgLegeFormFields.trengerHjelpFraNav
+            globalFormState.infoTilNavOgLegeFormFields
+              .trengerHjelpFraNavBeskrivelse
           }
           rules={{
-            validate: (value: boolean | null) => {
-              if (value == null) {
-                return "Du må oppgi om dere trenger hjelp fra NAV eller ikke";
-              }
-              return true;
-            },
+            validate: (value) =>
+              !hasSelectedTrengerHjelpFraNAV || !!value || "Feltet er påkrevd",
           }}
-          control={control}
-          render={({ field: { onChange, onBlur, value, ref }, fieldState }) => (
-            <RadioGroup
-              id="needsHelpFromNav"
-              legend={fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAV}
-              description="For eksempel om dere ønsker et dialogmøte i regi av NAV, eller har behov for hjelpemidler"
-              onBlur={onBlur}
-              onChange={(val) => onChange(val === "true")}
-              error={fieldState.error?.message}
-              ref={ref}
-              value={value === null || value === undefined ? "" : String(value)}
-            >
-              <Radio value="true">Ja</Radio>
-              <Radio value="false">Nei</Radio>
-            </RadioGroup>
-          )}
         />
-
-        {hasSelectedTrengerHjelpFraNAV() && (
-          <Textarea
-            id="needsHelpFromNavDescription"
-            label={
-              fieldTexts.kommunikasjonTexts.trengerDereHjelpFraNAVBeskrivelse
-            }
-            {...trengerHjelpFraNavBeskrivelse.field}
-            value={trengerHjelpFraNavBeskrivelse.field.value ?? ""}
-            error={trengerHjelpFraNavBeskrivelse.fieldState.error?.message}
-          />
-        )}
-      </>
-    );
-  }
-  return null;
+      )}
+    </>
+  );
 };
