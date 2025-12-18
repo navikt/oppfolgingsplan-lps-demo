@@ -1,42 +1,31 @@
-import { Textarea } from "@navikt/ds-react";
-import { optionalText } from "@/text/textUtils";
-import { fieldTexts } from "@/text/fieldTexts";
-import React from "react";
+import { useFormContext, useWatch } from "react-hook-form";
+import { ControlledTextarea } from "@/components/form/ControlledTextarea";
 import { useGlobalState } from "@/state/appState";
-import { useFormContext } from "react-hook-form";
+import { fieldTexts } from "@/text/fieldTexts";
+import { optionalText } from "@/text/textUtils";
 import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 
 export const BeskjedTilLege = () => {
   const { globalFormState } = useGlobalState();
+  const { control } = useFormContext<InfoTilNavOgLegeFormFields>();
+  const mottakerValue = useWatch({ control, name: "mottaker" });
 
-  const {
-    register,
-    watch,
-    formState: { errors },
-  } = useFormContext<InfoTilNavOgLegeFormFields>();
+  const hasSelectedSendTilLege =
+    mottakerValue &&
+    Array.isArray(mottakerValue) &&
+    mottakerValue.includes("LEGE");
 
-  const mottakerValue = watch("mottaker");
-
-  const hasSelectedSendTilLege = () => {
-    if (mottakerValue === null || mottakerValue === undefined) {
-      return globalFormState.infoTilNavOgLegeFormFields.mottaker?.includes(
-        "LEGE",
-      );
-    }
-    return mottakerValue?.includes("LEGE");
-  };
-
-  if (hasSelectedSendTilLege()) {
-    return (
-      <Textarea
-        id="messageToGeneralPractitioner"
-        label={optionalText(fieldTexts.kommunikasjonTexts.beskjedTilFastlege)}
-        {...register("beskjedTilFastlege")}
-        defaultValue={
-          globalFormState.infoTilNavOgLegeFormFields.beskjedTilFastlege
-        }
-      />
-    );
+  if (!hasSelectedSendTilLege) {
+    return null;
   }
-  return null;
+
+  return (
+    <ControlledTextarea
+      name="beskjedTilFastlege"
+      label={optionalText(fieldTexts.kommunikasjonTexts.beskjedTilFastlege)}
+      defaultValue={
+        globalFormState.infoTilNavOgLegeFormFields.beskjedTilFastlege
+      }
+    />
+  );
 };

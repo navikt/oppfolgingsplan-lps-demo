@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { get, post } from "@/server/axios-serverside";
 import { FollowUpPlanDTO } from "@/dto/FollowUpPlanDTO";
+import { get, post } from "@/server/axios-serverside";
 
 export async function POST(request: NextRequest) {
   const basicUser = process.env.username;

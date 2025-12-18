@@ -1,6 +1,6 @@
-import "./globals.css";
-import { FormStateProvider } from "@/state/appState";
 import { LpsHeader } from "@/components/lpsheader/LpsHeader";
+import { FormStateProvider } from "@/state/appState";
+import "./globals.css";
 
 export default function RootLayout({
   children,

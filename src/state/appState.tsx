@@ -1,9 +1,16 @@
 "use client";
 
-import {createContext, Dispatch, ReactNode, SetStateAction, useContext, useState,} from "react";
-import {InnsendingFormFields} from "@/types/FormType";
-import {defaultFormValues} from "@/state/defaultFormValues";
-import {FollowUpPlanDTO} from "@/dto/FollowUpPlanDTO";
+import {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useContext,
+  useState,
+} from "react";
+import { FollowUpPlanDTO } from "@/dto/FollowUpPlanDTO";
+import { defaultFormValues } from "@/state/defaultFormValues";
+import { InnsendingFormFields } from "@/types/FormType";
 
 export const AppStateContext = createContext<FormContext>({
   globalFormState: defaultFormValues,
@@ -54,34 +61,33 @@ export function globalStateToFollowUpPlanDTO(
     employeeIdentificationNumber: "01898299631",
     typicalWorkday: oppfolgingsplanFormFields.typiskArbeidshverdag,
     tasksThatCanStillBeDone:
-    oppfolgingsplanFormFields.arbeidsoppgaverSomKanUtfores,
+      oppfolgingsplanFormFields.arbeidsoppgaverSomKanUtfores,
     tasksThatCanNotBeDone:
-    oppfolgingsplanFormFields.arbeidsoppgaverSomIkkeKanUtfores,
+      oppfolgingsplanFormFields.arbeidsoppgaverSomIkkeKanUtfores,
     previousFacilitation:
-    oppfolgingsplanFormFields.tidligereTilretteleggingBeskrivelse,
+      oppfolgingsplanFormFields.tidligereTilretteleggingBeskrivelse,
     plannedFacilitation:
-    oppfolgingsplanFormFields.tilretteleggingIDennePerioden,
+      oppfolgingsplanFormFields.tilretteleggingIDennePerioden,
     otherFacilitationOptions:
-    oppfolgingsplanFormFields.muligheterForTilrettelegging,
+      oppfolgingsplanFormFields.muligheterForTilrettelegging,
     followUp: oppfolgingsplanFormFields.oppfolging,
-    evaluationDate: oppfolgingsplanFormFields.evalueringsdato!!.toISOString(),
+    evaluationDate: oppfolgingsplanFormFields.evalueringsdato!.toISOString(),
     sendPlanToNav: infoTilNavOgLegeFormFields.mottaker.includes("NAV"),
     needsHelpFromNav: infoTilNavOgLegeFormFields.trengerHjelpFraNav,
     needsHelpFromNavDescription:
-    infoTilNavOgLegeFormFields.trengerHjelpFraNavBeskrivelse,
+      infoTilNavOgLegeFormFields.trengerHjelpFraNavBeskrivelse,
     sendPlanToGeneralPractitioner:
-        infoTilNavOgLegeFormFields.mottaker.includes("LEGE"),
+      infoTilNavOgLegeFormFields.mottaker.includes("LEGE"),
     messageToGeneralPractitioner: infoTilNavOgLegeFormFields.beskjedTilFastlege,
     additionalInformation: infoTilNavOgLegeFormFields.utfyllendeOpplysninger,
     contactPersonFullName: infoTilNavOgLegeFormFields.kontaktpersonNavn,
     contactPersonPhoneNumber:
-    infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer,
-    contactPersonEmail:
-    infoTilNavOgLegeFormFields.kontaktpersonEpost,
+      infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer,
+    contactPersonEmail: infoTilNavOgLegeFormFields.kontaktpersonEpost,
     employeeHasContributedToPlan:
-        infoTilNavOgLegeFormFields.sykmeldtHarMedvirket!!,
+      infoTilNavOgLegeFormFields.sykmeldtHarMedvirket!,
     employeeHasNotContributedToPlanDescription:
-    infoTilNavOgLegeFormFields.sykmeldtHarIkkeMedvirketBegrunnelse,
-    lpsName: "Svele"
+      infoTilNavOgLegeFormFields.sykmeldtHarIkkeMedvirketBegrunnelse,
+    lpsName: "Svele",
   };
 }

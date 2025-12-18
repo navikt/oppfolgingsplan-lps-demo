@@ -1,4 +1,4 @@
-FROM gcr.io/distroless/nodejs22-debian12@sha256:35c86c2d05ab83c58c02721cc7df586a7d4aedd9c18c5bd30181c21f1b94102c
+FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:24-slim
 WORKDIR /app
 
 COPY package.json /app/
