@@ -1,6 +1,6 @@
 import axios from "axios";
-import { logger } from "@navikt/next-logger";
 import axiosBetterStacktrace from "axios-better-stacktrace";
+import { logger } from "@navikt/next-logger";
 
 axiosBetterStacktrace(axios);
 export const AUTHORIZATION_HEADER = "Authorization";
@@ -14,16 +14,19 @@ const defaultRequestHeaders = (token: string): Record<string, string> => {
 
   return headers;
 };
-export const get = async <ResponseData>(url: string, token: string): Promise<ResponseData> => {
+export const get = async <ResponseData>(
+  url: string,
+  token: string,
+): Promise<ResponseData> => {
   try {
     const response = await axios.get(encodeURI(url), {
       headers: defaultRequestHeaders(token),
       withCredentials: true,
     });
     return response.data;
-  } catch (error: any) {
-    logger.error("Nei!")
-    logger.error(error.message);
+  } catch (error: unknown) {
+    logger.error("Nei!");
+    logger.error(error instanceof Error ? error.message : String(error));
     throw error;
   }
 };
@@ -39,8 +42,8 @@ export const post = async <ResponseData>(
       withCredentials: true,
     });
     return response.data;
-  } catch (error: any) {
-    logger.error(error.message);
+  } catch (error: unknown) {
+    logger.error(error instanceof Error ? error.message : String(error));
     throw error;
   }
 };

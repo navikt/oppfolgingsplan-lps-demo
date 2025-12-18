@@ -8,10 +8,10 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        print: { raw: 'print' },
-        screen: { raw: 'screen' },
+        print: { raw: "print" },
+        screen: { raw: "screen" },
       },
     },
   },
   plugins: [],
-}
+};

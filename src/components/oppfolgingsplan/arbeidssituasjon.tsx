@@ -1,17 +1,11 @@
-import { Heading, Textarea } from "@navikt/ds-react";
-import { fieldTexts } from "@/text/fieldTexts";
-import React from "react";
-import { OppfolgingsplanFormFields } from "@/types/FormType";
-import { useGlobalState } from "@/state/appState";
+import { Heading } from "@navikt/ds-react";
+import { ControlledTextarea } from "@/components/form/ControlledTextarea";
 import { Section } from "@/components/wrappers/Section";
-import { useFormContext } from "react-hook-form";
+import { useGlobalState } from "@/state/appState";
+import { fieldTexts } from "@/text/fieldTexts";
 
 export const Arbeidssituasjon = () => {
   const { globalFormState } = useGlobalState();
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext<OppfolgingsplanFormFields>();
 
   return (
     <div>
@@ -20,31 +14,25 @@ export const Arbeidssituasjon = () => {
       </Heading>
 
       <Section>
-        <Textarea
-          id="typicalWorkday"
+        <ControlledTextarea
+          name="typiskArbeidshverdag"
           label={fieldTexts.oppfolgingsplanTexts.typiskArbeidshverdag}
-          {...register("typiskArbeidshverdag", {
-            required: "Feltet er påkrevd",
-          })}
           defaultValue={
             globalFormState.oppfolgingsplanFormFields.typiskArbeidshverdag
           }
-          error={errors.typiskArbeidshverdag?.message}
+          rules={{ required: "Feltet er påkrevd" }}
         />
-        <Textarea
-          id="tasksThatCanStillBeDone"
+        <ControlledTextarea
+          name="arbeidsoppgaverSomKanUtfores"
           label={fieldTexts.oppfolgingsplanTexts.arbeidsoppgaverSomKanUtfores}
-          {...register("arbeidsoppgaverSomKanUtfores", {
-            required: "Feltet er påkrevd",
-          })}
           defaultValue={
             globalFormState.oppfolgingsplanFormFields
               .arbeidsoppgaverSomKanUtfores
           }
-          error={errors.arbeidsoppgaverSomKanUtfores?.message}
+          rules={{ required: "Feltet er påkrevd" }}
         />
-        <Textarea
-          id="tasksThatCanNotBeDone"
+        <ControlledTextarea
+          name="arbeidsoppgaverSomIkkeKanUtfores"
           label={
             fieldTexts.oppfolgingsplanTexts.arbeidsoppgaverSomIkkeKanUtfores
           }
@@ -52,10 +40,7 @@ export const Arbeidssituasjon = () => {
             globalFormState.oppfolgingsplanFormFields
               .arbeidsoppgaverSomIkkeKanUtfores
           }
-          {...register("arbeidsoppgaverSomIkkeKanUtfores", {
-            required: "Feltet er påkrevd",
-          })}
-          error={errors.arbeidsoppgaverSomIkkeKanUtfores?.message}
+          rules={{ required: "Feltet er påkrevd" }}
         />
       </Section>
     </div>

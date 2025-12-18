@@ -1,24 +1,15 @@
-import { optionalText } from "@/text/textUtils";
-import { fieldTexts } from "@/text/fieldTexts";
-import { Textarea } from "@navikt/ds-react";
-import React from "react";
+import { ControlledTextarea } from "@/components/form/ControlledTextarea";
 import { useGlobalState } from "@/state/appState";
-import { useFormContext } from "react-hook-form";
-import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
+import { fieldTexts } from "@/text/fieldTexts";
+import { optionalText } from "@/text/textUtils";
 
 export const EventuelleTilleggsopplysninger = () => {
   const { globalFormState } = useGlobalState();
 
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext<InfoTilNavOgLegeFormFields>();
-
   return (
-    <Textarea
-      id="additionalInformation"
+    <ControlledTextarea
+      name="utfyllendeOpplysninger"
       label={optionalText(fieldTexts.kommunikasjonTexts.utfyllendeOpplysninger)}
-      {...register("utfyllendeOpplysninger")}
       defaultValue={
         globalFormState.infoTilNavOgLegeFormFields.utfyllendeOpplysninger
       }

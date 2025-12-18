@@ -12,17 +12,17 @@ export const Navbar = ({ activeStep }: Props) => {
       aria-labelledby="stepper-heading"
       activeStep={activeStep}
       orientation="horizontal"
-      className="hidden md:flex mb-8 mt-8"
+      className="mb-8 mt-8 hidden md:flex"
     >
-      <Link href={`/`} passHref={true} legacyBehavior>
-        <Stepper.Step>Oppfølgingsplan</Stepper.Step>
-      </Link>
-      <Link href={`/infotilnavoglege`} passHref={true} legacyBehavior>
-        <Stepper.Step>Informasjon til NAV og lege</Stepper.Step>
-      </Link>
-      <Link href={`/innsending`} passHref={true} legacyBehavior>
-        <Stepper.Step>Innsending</Stepper.Step>
-      </Link>
+      <Stepper.Step as={Link} href="/">
+        Oppfølgingsplan
+      </Stepper.Step>
+      <Stepper.Step as={Link} href="/infotilnavoglege">
+        Informasjon til NAV og lege
+      </Stepper.Step>
+      <Stepper.Step as={Link} href="/innsending">
+        Innsending
+      </Stepper.Step>
     </Stepper>
   );
 };
