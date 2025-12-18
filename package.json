@@ -14,7 +14,7 @@
   "dependencies": {
     "@navikt/ds-css": "^7.35.2",
     "@navikt/ds-react": "^7.35.2",
-    "@navikt/next-logger": "^4.4.1",
+    "@navikt/next-logger": "^4.4.4",
     "axios": "^1.13.2",
     "axios-better-stacktrace": "^2.1.7",
     "babel-plugin-react-compiler": "^1.0.0",
