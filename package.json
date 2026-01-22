@@ -19,7 +19,7 @@
     "axios-better-stacktrace": "^2.1.7",
     "babel-plugin-react-compiler": "^1.0.0",
     "dayjs": "^1.11.19",
-    "next": "^16.0.10",
+    "next": "^16.1.2",
     "postcss-import": "^16.1.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
