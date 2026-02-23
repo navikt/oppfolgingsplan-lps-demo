@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "test": "echo 'No tests configured yet'",
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",
