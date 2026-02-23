@@ -1,10 +1,12 @@
-import { Controller, RegisterOptions, useFormContext } from "react-hook-form";
-import { Radio, RadioGroup, RadioGroupProps } from "@navikt/ds-react";
+import { Radio, RadioGroup, type RadioGroupProps } from "@navikt/ds-react";
+import {
+  Controller,
+  type RegisterOptions,
+  useFormContext,
+} from "react-hook-form";
 
-interface ControlledBooleanRadioGroupProps extends Omit<
-  RadioGroupProps,
-  "name" | "value" | "onChange" | "children"
-> {
+interface ControlledBooleanRadioGroupProps
+  extends Omit<RadioGroupProps, "name" | "value" | "onChange" | "children"> {
   name: string;
   defaultValue?: boolean | null;
   rules?: RegisterOptions;

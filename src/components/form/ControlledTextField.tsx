@@ -1,14 +1,12 @@
+import { TextField, type TextFieldProps } from "@navikt/ds-react";
 import {
-  RegisterOptions,
+  type RegisterOptions,
   useController,
   useFormContext,
 } from "react-hook-form";
-import { TextField, TextFieldProps } from "@navikt/ds-react";
 
-interface ControlledTextFieldProps extends Omit<
-  TextFieldProps,
-  "name" | "value" | "onChange" | "onBlur"
-> {
+interface ControlledTextFieldProps
+  extends Omit<TextFieldProps, "name" | "value" | "onChange" | "onBlur"> {
   name: string;
   defaultValue?: string;
   rules?: RegisterOptions;
