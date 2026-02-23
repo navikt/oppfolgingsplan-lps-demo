@@ -1,1 +1,0 @@
-pnpm dlx @biomejs/biome check --write .
