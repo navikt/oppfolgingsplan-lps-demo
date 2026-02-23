@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
-import { FollowUpPlanDTO } from "@/dto/FollowUpPlanDTO";
+import { type NextRequest, NextResponse } from "next/server";
+import type { FollowUpPlanDTO } from "@/dto/FollowUpPlanDTO";
 import { get, post } from "@/server/axios-serverside";
 
 export async function POST(request: NextRequest) {

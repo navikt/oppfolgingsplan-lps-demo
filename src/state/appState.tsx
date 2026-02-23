@@ -1,16 +1,16 @@
 "use client";
 
 import {
-  Dispatch,
-  ReactNode,
-  SetStateAction,
   createContext,
+  type Dispatch,
+  type ReactNode,
+  type SetStateAction,
   useContext,
   useState,
 } from "react";
-import { FollowUpPlanDTO } from "@/dto/FollowUpPlanDTO";
+import type { FollowUpPlanDTO } from "@/dto/FollowUpPlanDTO";
 import { defaultFormValues } from "@/state/defaultFormValues";
-import { InnsendingFormFields } from "@/types/FormType";
+import type { InnsendingFormFields } from "@/types/FormType";
 
 export const AppStateContext = createContext<FormContext>({
   globalFormState: defaultFormValues,

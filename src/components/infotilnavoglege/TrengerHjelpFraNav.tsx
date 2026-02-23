@@ -3,7 +3,7 @@ import { ControlledBooleanRadioGroup } from "@/components/form/ControlledBoolean
 import { ControlledTextarea } from "@/components/form/ControlledTextarea";
 import { useGlobalState } from "@/state/appState";
 import { fieldTexts } from "@/text/fieldTexts";
-import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
+import type { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 
 export const TrengerHjelpFraNav = () => {
   const { globalFormState } = useGlobalState();

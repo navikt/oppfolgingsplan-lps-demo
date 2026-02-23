@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { BodyLong, GuidePanel, Heading } from "@navikt/ds-react";
 
 export default function Page() {
