@@ -3,16 +3,27 @@ node = "24"
 pnpm = "10"
 
 [tasks.install]
+description = "Install dependencies (cached)"
 run = "pnpm install"
-
-[tasks.dev]
-run = "pnpm dev"
+sources = ["package.json", "pnpm-lock.yaml"]
+outputs = ["node_modules/.modules.yaml"]
 
 [tasks.build]
-run = "pnpm build"
+description = "Create production build for Next.js app"
+depends = ["install"]
+run = "pnpm run build"
+
+[tasks.dev]
+description = "Start Next.js app in development mode"
+depends = ["install"]
+run = "pnpm run dev"
 
 [tasks.lint]
-run = "pnpm lint"
+description = "Run linter"
+depends = ["install"]
+run = "pnpm run lint"
 
 [tasks.test]
-run = "pnpm test"
+description = "Run tests"
+depends = ["install"]
+run = "pnpm run test"
