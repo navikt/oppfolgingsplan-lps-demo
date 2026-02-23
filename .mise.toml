@@ -5,13 +5,8 @@ pnpm = "10"
 [env]
 NPM_AUTH_TOKEN = { value = "{{ exec(command='gh auth token', cache_key='NPM_AUTH_TOKEN', cache_duration='1h') | trim }}", tools = true, redact = true }
 
-[tasks.token]
-description = "Ensure npm auth token is available (env or gh auth token)"
-run = "if [ -n \"$NPM_AUTH_TOKEN\" ]; then echo \"NPM_AUTH_TOKEN is already set\"; elif command -v gh >/dev/null 2>&1 && gh auth token >/dev/null 2>&1; then export NPM_AUTH_TOKEN=\"$(gh auth token)\"; echo \"NPM_AUTH_TOKEN resolved from gh auth token\"; else echo \"NPM_AUTH_TOKEN is missing. Run: gh auth login\"; exit 1; fi"
-
 [tasks.install]
 description = "Install dependencies (cached)"
-depends = ["token"]
 run = "pnpm install"
 sources = ["package.json", "pnpm-lock.yaml"]
 outputs = ["node_modules/.modules.yaml"]
