@@ -2,9 +2,9 @@
   "$schema": "https://raw.githubusercontent.com/evilmartians/lefthook/master/schema.json",
   "pre-commit": {
     "commands": {
-      "biome": {
+      "prettier": {
         "glob": "*.{js,jsx,ts,tsx,json,css,md,yml,yaml}",
-        "run": "pnpm dlx @biomejs/biome check --write {staged_files}",
+        "run": "pnpm prettier --write {staged_files}",
         "stage_fixed": true
       }
     }
