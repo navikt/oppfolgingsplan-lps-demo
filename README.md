@@ -2,10 +2,16 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Authenticate GitHub CLI first (used to resolve `NPM_AUTH_TOKEN` for GitHub Packages if not already set):
+
+```bash
+gh auth login
+```
+
 First, run the development server:
 
 ```bash
-pnpm install
+mise run install
 pnpm dev
 ```
 
