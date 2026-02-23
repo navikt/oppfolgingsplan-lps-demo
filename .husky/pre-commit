@@ -1,1 +1,1 @@
-npx lint-staged
+pnpm dlx @biomejs/biome check --write .

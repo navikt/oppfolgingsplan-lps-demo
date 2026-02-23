@@ -1,0 +1,4 @@
+if git diff --cached --quiet; then
+  echo "Empty commit is not allowed."
+  exit 1
+fi
