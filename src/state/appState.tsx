@@ -71,7 +71,8 @@ export function globalStateToFollowUpPlanDTO(
     otherFacilitationOptions:
       oppfolgingsplanFormFields.muligheterForTilrettelegging,
     followUp: oppfolgingsplanFormFields.oppfolging,
-    evaluationDate: oppfolgingsplanFormFields.evalueringsdato!.toISOString(),
+    evaluationDate:
+      oppfolgingsplanFormFields.evalueringsdato?.toISOString() ?? "",
     sendPlanToNav: infoTilNavOgLegeFormFields.mottaker.includes("NAV"),
     needsHelpFromNav: infoTilNavOgLegeFormFields.trengerHjelpFraNav,
     needsHelpFromNavDescription:
@@ -85,7 +86,7 @@ export function globalStateToFollowUpPlanDTO(
       infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer,
     contactPersonEmail: infoTilNavOgLegeFormFields.kontaktpersonEpost,
     employeeHasContributedToPlan:
-      infoTilNavOgLegeFormFields.sykmeldtHarMedvirket!,
+      infoTilNavOgLegeFormFields.sykmeldtHarMedvirket ?? false,
     employeeHasNotContributedToPlanDescription:
       infoTilNavOgLegeFormFields.sykmeldtHarIkkeMedvirketBegrunnelse,
     lpsName: "Svele",
