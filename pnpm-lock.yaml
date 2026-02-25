@@ -55,8 +55,8 @@ importers:
         specifier: 2.3.14
         version: 2.3.14
       '@types/node':
-        specifier: ^24.10.1
-        version: 24.10.4
+        specifier: ^25.2.3
+        version: 25.2.3
       '@types/react':
         specifier: ^19.2.7
         version: 19.2.7
@@ -363,9 +363,6 @@ packages:
       '@types/react': ^17.0.30 || ^18 || ^19
       react: ^17 || ^18 || ^19
       react-dom: ^17 || ^18 || ^19
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
 
   '@navikt/ds-tokens@7.36.0':
     resolution: {integrity: sha512-qGLDJfnqQJoSHz03lsxqXkbl4MqN/d9W532TKyGcXswsYSeTEj425weFUvPwTh2w29dM4ncGmomijZAUjFYH/w==, tarball: https://npm.pkg.github.com/download/@navikt/ds-tokens/7.36.0/ad3ab2a9f2179c5a4703738de33233af54336dc2}
@@ -464,8 +461,8 @@ packages:
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
 
-  '@types/node@24.10.4':
-    resolution: {integrity: sha512-vnDVpYPMzs4wunl27jHrfmwojOGKya0xyM3sH+UE5iv5uPS6vX7UIoh6m+vQc5LGBq52HBKPIn/zcSZVzeDEZg==}
+  '@types/node@25.2.3':
+    resolution: {integrity: sha512-m0jEgYlYz+mDJZ2+F4v8D1AyQb+QzsNqRuI7xg1VQX/KlKS0qT9r1Mo16yo5F/MtifXFgaofIFsdFMox2SxIbQ==}
 
   '@types/react-dom@19.2.3':
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
@@ -1452,13 +1449,12 @@ snapshots:
       '@floating-ui/react-dom': 2.1.6(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@navikt/aksel-icons': 7.36.0
       '@navikt/ds-tokens': 7.36.0
+      '@types/react': 19.2.7
       clsx: 2.1.1
       date-fns: 4.1.0
       react: 19.2.3
       react-day-picker: 9.7.0(react@19.2.3)
       react-dom: 19.2.3(react@19.2.3)
-    optionalDependencies:
-      '@types/react': 19.2.7
 
   '@navikt/ds-tokens@7.36.0': {}
 
@@ -1524,7 +1520,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@types/node@24.10.4':
+  '@types/node@25.2.3':
     dependencies:
       undici-types: 7.16.0
 
