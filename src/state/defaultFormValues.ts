@@ -1,4 +1,4 @@
-import { InnsendingFormFields } from "@/types/FormType";
+import type { InnsendingFormFields } from "@/types/FormType";
 
 export const defaultFormValues: InnsendingFormFields = {
   oppfolgingsplanFormFields: {

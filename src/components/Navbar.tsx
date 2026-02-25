@@ -1,6 +1,6 @@
 "use client";
-import Link from "next/link";
 import { Stepper } from "@navikt/ds-react";
+import Link from "next/link";
 
 interface Props {
   activeStep: number;

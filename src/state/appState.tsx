@@ -1,16 +1,16 @@
 "use client";
 
 import {
-  Dispatch,
-  ReactNode,
-  SetStateAction,
   createContext,
+  type Dispatch,
+  type ReactNode,
+  type SetStateAction,
   useContext,
   useState,
 } from "react";
-import { FollowUpPlanDTO } from "@/dto/FollowUpPlanDTO";
+import type { FollowUpPlanDTO } from "@/dto/FollowUpPlanDTO";
 import { defaultFormValues } from "@/state/defaultFormValues";
-import { InnsendingFormFields } from "@/types/FormType";
+import type { InnsendingFormFields } from "@/types/FormType";
 
 export const AppStateContext = createContext<FormContext>({
   globalFormState: defaultFormValues,
@@ -71,7 +71,8 @@ export function globalStateToFollowUpPlanDTO(
     otherFacilitationOptions:
       oppfolgingsplanFormFields.muligheterForTilrettelegging,
     followUp: oppfolgingsplanFormFields.oppfolging,
-    evaluationDate: oppfolgingsplanFormFields.evalueringsdato!.toISOString(),
+    evaluationDate:
+      oppfolgingsplanFormFields.evalueringsdato?.toISOString() ?? "",
     sendPlanToNav: infoTilNavOgLegeFormFields.mottaker.includes("NAV"),
     needsHelpFromNav: infoTilNavOgLegeFormFields.trengerHjelpFraNav,
     needsHelpFromNavDescription:
@@ -85,7 +86,7 @@ export function globalStateToFollowUpPlanDTO(
       infoTilNavOgLegeFormFields.kontaktpersonTelefonnummer,
     contactPersonEmail: infoTilNavOgLegeFormFields.kontaktpersonEpost,
     employeeHasContributedToPlan:
-      infoTilNavOgLegeFormFields.sykmeldtHarMedvirket!,
+      infoTilNavOgLegeFormFields.sykmeldtHarMedvirket ?? false,
     employeeHasNotContributedToPlanDescription:
       infoTilNavOgLegeFormFields.sykmeldtHarIkkeMedvirketBegrunnelse,
     lpsName: "Svele",

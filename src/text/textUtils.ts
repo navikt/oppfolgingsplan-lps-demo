@@ -1,5 +1,5 @@
 export const optionalText = (text: string) => {
-  return text + " (valgfritt)";
+  return `${text} (valgfritt)`;
 };
 
 export const booleanToJaNei = (val?: boolean | null) => {

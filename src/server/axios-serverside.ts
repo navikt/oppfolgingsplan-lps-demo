@@ -1,6 +1,6 @@
+import { logger } from "@navikt/next-logger";
 import axios from "axios";
 import axiosBetterStacktrace from "axios-better-stacktrace";
-import { logger } from "@navikt/next-logger";
 
 axiosBetterStacktrace(axios);
 export const AUTHORIZATION_HEADER = "Authorization";

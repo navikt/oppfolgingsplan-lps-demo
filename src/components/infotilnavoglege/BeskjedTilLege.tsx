@@ -3,7 +3,7 @@ import { ControlledTextarea } from "@/components/form/ControlledTextarea";
 import { useGlobalState } from "@/state/appState";
 import { fieldTexts } from "@/text/fieldTexts";
 import { optionalText } from "@/text/textUtils";
-import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
+import type { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 
 export const BeskjedTilLege = () => {
   const { globalFormState } = useGlobalState();

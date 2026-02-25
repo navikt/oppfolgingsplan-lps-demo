@@ -7,7 +7,7 @@ import { Arbeidssituasjon } from "@/components/oppfolgingsplan/arbeidssituasjon"
 import { Oppfolging } from "@/components/oppfolgingsplan/oppfolging";
 import { Tilrettelegging } from "@/components/oppfolgingsplan/tilrettelegging";
 import { useGlobalState } from "@/state/appState";
-import { OppfolgingsplanFormFields } from "@/types/FormType";
+import type { OppfolgingsplanFormFields } from "@/types/FormType";
 
 export default function Home() {
   const router = useRouter();

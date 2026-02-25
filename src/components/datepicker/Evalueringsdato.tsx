@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react";
-import { useController } from "react-hook-form";
 import { DatePicker, useDatepicker } from "@navikt/ds-react";
+import type { ReactNode } from "react";
+import { useController } from "react-hook-form";
 import { toDate } from "@/utils/dateUtils";
 
 export interface Props {

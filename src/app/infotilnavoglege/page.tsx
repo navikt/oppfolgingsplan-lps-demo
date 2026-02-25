@@ -9,7 +9,7 @@ import { Kontaktperson } from "@/components/infotilnavoglege/Kontaktperson";
 import { Mottaker } from "@/components/infotilnavoglege/Mottaker";
 import { TrengerHjelpFraNav } from "@/components/infotilnavoglege/TrengerHjelpFraNav";
 import { useGlobalState } from "@/state/appState";
-import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
+import type { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 
 export default function Page() {
   const router = useRouter();
