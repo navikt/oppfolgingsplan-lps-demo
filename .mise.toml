@@ -18,21 +18,22 @@ description = "Start Next.js app in development mode"
 depends = ["install"]
 run = "pnpm run dev"
 
-[tasks.format]
-description = "Format codebase"
-depends = ["install"]
-run = "pnpm run format"
-
-[tasks.format-fix]
-description = "Format codebase and fix issues"
-depends = ["install"]
-run = "pnpm run format:check"
-
 [tasks.lint]
-description = "Run linter"
+description = "Run linter with fixing enabled"
 depends = ["install"]
-run = "pnpm run lint"
+run = "pnpm run lint:fix"
 
-[tasks.ci]
-description = "Full CI validation (lint + tests + build)"
-depends = ["lint", "build"]
+[tasks.format]
+description = "Run formatter with fixing enabled"
+depends = ["install"]
+run = "pnpm run format:fix"
+
+[tasks.check]
+description = "Run lint and formatter checks"
+depends = ["install"]
+run = "pnpm run check:fix"
+
+[tasks.verify]
+description = "Verify code quality and build"
+depends = ["install"]
+run = "mise run check && mise run build"
