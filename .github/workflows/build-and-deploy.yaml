@@ -24,14 +24,14 @@ jobs:
       - name: Build application
         run: pnpm run build
       - name: cache workspace
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306
         with:
           path: ${{ github.workspace }}
           key: ${{ github.sha }}
 
       - name: Build and push docker image
         if: ${{ github.actor != 'dependabot[bot]' }}
-        uses: nais/docker-build-push@87f920b0411b987d9a1fd4113aa384e1e3b54f2c
+        uses: nais/docker-build-push@078e460885ed0424b60d45ce9220b4be1748be9d
         id: docker-build-push
         with:
           team: team-esyfo
