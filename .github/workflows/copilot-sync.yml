@@ -8,6 +8,8 @@ jobs:
     uses: navikt/copilot-kitchen/.github/workflows/copilot-sync.yml@main
     with:
       collections: "common,frontend"
+    secrets:
+      APP_PRIVATE_KEY: ${{ secrets.AUTOMERGE_APP_PRIVATE_KEY }}
     permissions:
       contents: write
       pull-requests: write
