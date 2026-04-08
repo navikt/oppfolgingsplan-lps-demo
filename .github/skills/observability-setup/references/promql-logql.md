@@ -1,5 +1,3 @@
-<!-- Managed by esyfo-cli. Do not edit manually. Changes will be overwritten.
-     For repo-specific customizations, create your own files without this header. -->
 # PromQL, LogQL og dashboards
 
 Denne referansen samler vanlige queries for Grafana, Prometheus og Loki. Tilpass metric-navn, labels og tidsvinduer til applikasjonen du jobber med.
