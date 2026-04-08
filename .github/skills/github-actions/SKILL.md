@@ -1,8 +1,7 @@
 ---
+name: github-actions
 description: GitHub Actions CI/CD-standarder — SHA-pinning, Nais deploy, sikkerhet og Team eSyfos gjenbrukbare workflows
 ---
-<!-- Managed by esyfo-cli. Do not edit manually. Changes will be overwritten.
-     For repo-specific customizations, create your own files without this header. -->
 # GitHub Actions — Team eSyfo
 
 Standarder for CI/CD-workflows med GitHub Actions på Nais.

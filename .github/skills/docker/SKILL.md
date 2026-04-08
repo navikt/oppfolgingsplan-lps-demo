@@ -1,8 +1,7 @@
 ---
+name: docker
 description: Dockerfile-standarder for Nav — Chainguard base images, multi-stage builds og sikkerhet
 ---
-<!-- Managed by esyfo-cli. Do not edit manually. Changes will be overwritten.
-     For repo-specific customizations, create your own files without this header. -->
 # Docker — Nav
 
 Standarder for Dockerfile i Nav: Chainguard base images, multi-stage builds og sikkerhetspraksis.

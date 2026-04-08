@@ -1,5 +1,3 @@
-<!-- Managed by esyfo-cli. Do not edit manually. Changes will be overwritten.
-     For repo-specific customizations, create your own files without this header. -->
 # Projects V2 felthåndtering
 
 ## Automatisk prosjekttilknytning via templates
