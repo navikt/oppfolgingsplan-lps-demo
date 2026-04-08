@@ -1,6 +1,6 @@
 {
   "source": "navikt/copilot-kitchen",
-  "source_sha": "d03a29ef0cc46571aaeed05d30055f871df5a393",
+  "source_sha": "c7ba905fb88e533bf932f0210a8eba8aa350bd55",
   "files": [
     ".github/ISSUE_TEMPLATE/bug.yml",
     ".github/ISSUE_TEMPLATE/config.yml",
