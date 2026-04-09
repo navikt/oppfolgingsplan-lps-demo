@@ -19,7 +19,7 @@
     "@navikt/aksel-icons": "^7.35.3",
     "@navikt/ds-css": "^7.35.3",
     "@navikt/ds-react": "^7.35.3",
-    "@navikt/next-logger": "^4.5.1",
+    "@navikt/next-logger": "^5.0.0",
     "axios": "^1.15.0",
     "axios-better-stacktrace": "^2.1.7",
     "babel-plugin-react-compiler": "^1.0.0",
