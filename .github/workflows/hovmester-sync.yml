@@ -15,5 +15,5 @@ jobs:
       collections: "hovmester,frontend"
       github_project: "navikt/157"
       automerge_app_id: "2906300"
-      secrets:
-        APP_PRIVATE_KEY: ${{ secrets.AUTOMERGE_APP_PRIVATE_KEY }}
+    secrets:
+      APP_PRIVATE_KEY: ${{ secrets.AUTOMERGE_APP_PRIVATE_KEY }}
