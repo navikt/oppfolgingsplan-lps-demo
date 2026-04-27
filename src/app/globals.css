@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-@import '@navikt/ds-css';
+@import "tailwindcss";
+@import "@navikt/ds-css";
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
