@@ -16,7 +16,6 @@ export default function RootLayout({
       </head>
       <body className="bg-bg-subtle">
         <LpsHeader />
-        {/** biome-ignore lint/a11y/useSemanticElements: role main is correct here */}
         <main
           id="maincontent"
           // biome-ignore lint/a11y/noRedundantRoles: As expected, main role is needed for assistive technologies to skip header and nav when navigating to main content
