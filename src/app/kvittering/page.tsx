@@ -1,5 +1,5 @@
 "use client";
-import { BodyLong, GuidePanel, Heading } from "@navikt/ds-react";
+import { BodyLong, GuidePanel, Heading, Link } from "@navikt/ds-react";
 
 export default function Page() {
   return (
@@ -16,9 +16,9 @@ export default function Page() {
 
         <BodyLong spacing>
           Dersom du har noen spørsmål så send oss gjerne en e-post på:{" "}
-          <a href="mailto:team-esyfo@nav.no?Subject=Oppfølgingsplan">
+          <Link href="mailto:team-esyfo@nav.no?Subject=Oppfølgingsplan">
             team-esyfo@nav.no
-          </a>
+          </Link>
         </BodyLong>
       </GuidePanel>
     </div>
