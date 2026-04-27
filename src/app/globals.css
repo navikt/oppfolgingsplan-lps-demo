@@ -18,3 +18,9 @@
     border-color: var(--color-gray-200, currentcolor);
   }
 }
+
+/* Override Aksel v8 Stepper label max-width to prevent text wrapping */
+.aksel-stepper[data-orientation="horizontal"] .aksel-stepper__content {
+  max-width: none;
+  white-space: nowrap;
+}
