@@ -14,7 +14,7 @@ export default function RootLayout({
         <meta name="description" content="Oppfølgingsplan" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="bg-bg-subtle">
+      <body className="bg-ax-bg-neutral-soft">
         <LpsHeader />
         <main
           id="maincontent"

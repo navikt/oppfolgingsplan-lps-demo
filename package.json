@@ -16,9 +16,9 @@
     "prepare": "lefthook install --reset-hooks-path"
   },
   "dependencies": {
-    "@navikt/aksel-icons": "^7.35.3",
-    "@navikt/ds-css": "^7.35.3",
-    "@navikt/ds-react": "^7.35.3",
+    "@navikt/aksel-icons": "^8.0.0",
+    "@navikt/ds-css": "^8.0.0",
+    "@navikt/ds-react": "^8.0.0",
     "@navikt/next-logger": "^5.0.0",
     "axios": "^1.15.2",
     "axios-better-stacktrace": "^2.1.7",

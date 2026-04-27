@@ -7,7 +7,7 @@ import { booleanToJaNei } from "@/text/textUtils";
 export const InfoTilNavOgLegeSummary = () => {
   const { globalFormState } = useGlobalState();
   return (
-    <VStack gap="4">
+    <VStack gap="space-16">
       <SummaryField
         fieldName={fieldTexts.kommunikasjonTexts.mottaker}
         fieldValue={globalFormState.infoTilNavOgLegeFormFields.mottaker.toString()}
