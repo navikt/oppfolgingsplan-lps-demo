@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/evilmartians/lefthook/master/schema.json",
+  "pre-commit": {
+    "commands": {
+      "check": {
+        "glob": "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}",
+        "run": "pnpm exec biome check --write --error-on-warnings --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}",
+        "stage_fixed": true
+      }
+    }
+  },
+  "pre-push": {
+    "commands": {
+      "typecheck": {
+        "run": "pnpm exec tsc --noEmit"
+      }
+    }
+  },
+  "commit-msg": {
+    "commands": {
+      "empty-commit-guard": {
+        "run": "git diff --cached --quiet && (echo \"Empty commit is not allowed.\"; exit 1) || true"
+      }
+    }
+  }
+}

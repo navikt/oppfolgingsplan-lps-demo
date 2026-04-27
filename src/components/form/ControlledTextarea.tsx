@@ -1,14 +1,12 @@
+import { Textarea, type TextareaProps } from "@navikt/ds-react";
 import {
-  RegisterOptions,
+  type RegisterOptions,
   useController,
   useFormContext,
 } from "react-hook-form";
-import { Textarea, TextareaProps } from "@navikt/ds-react";
 
-interface ControlledTextareaProps extends Omit<
-  TextareaProps,
-  "name" | "value" | "onChange" | "onBlur"
-> {
+interface ControlledTextareaProps
+  extends Omit<TextareaProps, "name" | "value" | "onChange" | "onBlur"> {
   name: string;
   defaultValue?: string;
   rules?: RegisterOptions;

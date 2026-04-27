@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
 import { Button, Heading } from "@navikt/ds-react";
+import type { ReactNode } from "react";
 import { Navbar } from "@/components/Navbar";
 import styles from "./contentpage.module.css";
 

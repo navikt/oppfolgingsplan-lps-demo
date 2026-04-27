@@ -1,7 +1,7 @@
 "use client";
+import { Alert, BodyLong } from "@navikt/ds-react";
 import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
-import { Alert, BodyLong } from "@navikt/ds-react";
 import { ContentPage, Step } from "@/components/ContentPage";
 import { FormSummary } from "@/components/summary/FormSummary";
 import { globalStateToFollowUpPlanDTO, useGlobalState } from "@/state/appState";

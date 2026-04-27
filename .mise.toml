@@ -1,2 +1,39 @@
 [tools]
 node = "24"
+pnpm = "10"
+
+[tasks.install]
+description = "Install dependencies (cached)"
+run = "pnpm install"
+sources = ["package.json", "pnpm-lock.yaml"]
+outputs = ["node_modules/.modules.yaml"]
+
+[tasks.build]
+description = "Create production build for Next.js app"
+depends = ["install"]
+run = "pnpm run build"
+
+[tasks.dev]
+description = "Start Next.js app in development mode"
+depends = ["install"]
+run = "pnpm run dev"
+
+[tasks.lint]
+description = "Run linter with fixing enabled"
+depends = ["install"]
+run = "pnpm run lint:fix"
+
+[tasks.format]
+description = "Run formatter with fixing enabled"
+depends = ["install"]
+run = "pnpm run format:fix"
+
+[tasks.check]
+description = "Run lint and formatter checks"
+depends = ["install"]
+run = "pnpm run check:fix"
+
+[tasks.verify]
+description = "Verify code quality and build"
+depends = ["install"]
+run = "mise run check && mise run build"

@@ -1,15 +1,13 @@
-import React from "react";
-import { Controller, useFormContext } from "react-hook-form";
 import { Checkbox, CheckboxGroup } from "@navikt/ds-react";
+import { Controller, useFormContext } from "react-hook-form";
 import { useGlobalState } from "@/state/appState";
 import { fieldTexts } from "@/text/fieldTexts";
-import { InfoTilNavOgLegeFormFields } from "@/types/FormType";
+import type { InfoTilNavOgLegeFormFields } from "@/types/FormType";
 
 export const Mottaker = () => {
   const { globalFormState } = useGlobalState();
 
-  const { control, formState } = useFormContext<InfoTilNavOgLegeFormFields>();
-  const { errors } = formState;
+  const { control } = useFormContext<InfoTilNavOgLegeFormFields>();
 
   return (
     <Controller
