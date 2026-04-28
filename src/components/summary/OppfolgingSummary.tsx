@@ -8,12 +8,11 @@ export const OppfolgingSummary = () => {
   const { globalFormState } = useGlobalState();
 
   return (
-    <VStack gap="4">
+    <VStack gap="space-16">
       <SummaryField
         fieldName={fieldTexts.oppfolgingsplanTexts.oppfolging}
         fieldValue={globalFormState.oppfolgingsplanFormFields.oppfolging}
       />
-
       <SummaryField
         fieldName={fieldTexts.oppfolgingsplanTexts.evalueringsdato}
         fieldValue={getLongDateFormat(

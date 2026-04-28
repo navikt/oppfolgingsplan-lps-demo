@@ -6,7 +6,7 @@ import { fieldTexts } from "@/text/fieldTexts";
 export const TilretteleggingSummary = () => {
   const { globalFormState } = useGlobalState();
   return (
-    <VStack gap="4">
+    <VStack gap="space-16">
       <SummaryField
         fieldName={
           fieldTexts.oppfolgingsplanTexts.tidligereTilretteleggingBeskrivelse

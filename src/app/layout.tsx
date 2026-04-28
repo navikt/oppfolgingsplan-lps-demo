@@ -14,9 +14,8 @@ export default function RootLayout({
         <meta name="description" content="Oppfølgingsplan" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="bg-bg-subtle">
+      <body className="bg-[var(--ax-bg-neutral-soft)]">
         <LpsHeader />
-        {/** biome-ignore lint/a11y/useSemanticElements: role main is correct here */}
         <main
           id="maincontent"
           // biome-ignore lint/a11y/noRedundantRoles: As expected, main role is needed for assistive technologies to skip header and nav when navigating to main content

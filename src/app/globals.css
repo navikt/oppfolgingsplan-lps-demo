@@ -1,5 +1,7 @@
-@import "tailwindcss/base";
+@import "tailwindcss";
 @import "@navikt/ds-css";
 
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+/* Override Aksel v8 Stepper label to prevent text wrapping */
+.aksel-stepper[data-orientation="horizontal"] .aksel-stepper__content {
+  white-space: nowrap;
+}
