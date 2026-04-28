@@ -10,7 +10,7 @@ export const Navbar = ({ activeStep }: Props) => {
   return (
     <Box marginBlock="space-8" className="hidden md:block">
       <Stepper
-        aria-labelledby="stepper-heading"
+        aria-label="Steg i oppfølgingsplanen"
         activeStep={activeStep}
         orientation="horizontal"
       >
