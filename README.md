@@ -1,30 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Oppfølgingsplan Lps demofrontendapp
 
-## Getting Started
+[![Build and deploy](https://github.com/navikt/oppfolgingsplan-lps-demo/actions/workflows/build-and-deploy.yaml/badge.svg)](https://github.com/navikt/oppfolgingsplan-lps-demo/actions/workflows/build-and-deploy.yaml) [![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)](https://nextjs.org/) [![Biome](https://img.shields.io/badge/Biome-2.4.13-60A5FA?logo=biome&logoColor=white)](https://biomejs.dev/) [![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Aksel](https://img.shields.io/badge/Aksel-v8-1F66FF?logo=nav&logoColor=white)](https://aksel.nav.no/)
 
-First, run the development server:
+Dette repoet er et showcase for LPS-leverandører som vil forstå hvordan oppfølgingsplaner kan sendes til NAV i praksis.
 
-```bash
-mise dev
+## Miljø
+
+🎬 [Demo](https://demo.ekstern.dev.nav.no/oppfolgingsplan-lps)
+
+## Formålet med appen
+
+Appen er en referanseimplementasjon for LPS-leverandører. Den viser dataflyten for oppfølgingsplaner fra behandlerens utfylling i et LPS-system til innsending til NAV via [lps-oppfolgingsplan-mottak](https://github.com/navikt/lps-oppfolgingsplan-mottak).
+
+Målet er å gjøre det enklere å forstå hvilke data som sendes, hvordan innsendingen fungerer i praksis, og hva en integrasjon mot NAV innebærer. Appen er en demo, ikke en produksjonsapp.
+
+```mermaid
+graph LR
+    A[Behandler fyller ut<br>oppfølgingsplan i LPS] --> B[LPS Demo<br>referansefrontend]
+    B -->|POST oppfølgingsplan| C[lps-oppfolgingsplan-mottak]
+    C --> D[NAV]
 ```
 
-Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
+## Backend-API
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Appen kommuniserer med:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+**[lps-oppfolgingsplan-mottak](https://github.com/navikt/lps-oppfolgingsplan-mottak)** — mottar innsendte oppfølgingsplaner fra LPS-systemer
 
-## Learn More
+## Utvikling (kjøre lokalt)
 
-To learn more about Next.js, take a look at the following resources:
+For å komme i gang med å bygge og kjøre appen, se vår [Wiki for frontendapper](https://navikt.github.io/team-esyfo/utvikling/frontend/).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Når appen er startet, åpne http://localhost:3000/oppfolgingsplan-lps
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## For Nav-ansatte
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Interne henvendelser kan sendes via Slack i kanalen [#esyfo](https://nav-it.slack.com/archives/C012X796B4L).
