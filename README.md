@@ -1,30 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# oppfolgingsplan-lps-demo
 
-## Getting Started
+[![Build and deploy](https://github.com/navikt/oppfolgingsplan-lps-demo/actions/workflows/build-and-deploy.yaml/badge.svg)](https://github.com/navikt/oppfolgingsplan-lps-demo/actions/workflows/build-and-deploy.yaml)
 
-First, run the development server:
+Demo-applikasjon som viser hvordan en oppfølgingsplan sendes inn fra et lege-/praksiskonsultasjonssystem (LPS) til NAV. Appen simulerer flyten der behandlere fyller ut en oppfølgingsplan med arbeidssituasjon, tilrettelegging og oppfølgingsinfo, og sender den videre.
+
+## Formål
+
+Appen er en interaktiv demo for **team-esyfo** som viser LPS-integrasjonen for oppfølgingsplaner. Den er ikke en produksjonsapp, men brukes til å demonstrere og teste innsendingsflyten mot [lps-oppfolgingsplan-mottak](https://github.com/navikt/lps-oppfolgingsplan-mottak).
+
+## Teknologier
+
+| Kategori | Teknologi |
+|---|---|
+| Rammeverk | [Next.js](https://nextjs.org/) 16 (App Router, standalone output) |
+| Språk | [TypeScript](https://www.typescriptlang.org/) 6 |
+| UI-bibliotek | [NAV Aksel Design System](https://aksel.nav.no/) (`@navikt/ds-react` v8) |
+| Skjema | [React Hook Form](https://react-hook-form.com/) |
+| Styling | [Tailwind CSS](https://tailwindcss.com/) 4 + Aksel tokens |
+| Linter/Formatter | [Biome](https://biomejs.dev/) |
+| Git hooks | [Lefthook](https://github.com/evilmartians/lefthook) |
+| Logging | [@navikt/next-logger](https://github.com/navikt/next-logger) (Pino) |
+| HTTP-klient | [Axios](https://axios-http.com/) |
+| Plattform | [NAIS](https://doc.nais.io/) (Kubernetes på GCP) |
+
+## Kom i gang
+
+### Forutsetninger
+
+- [Node.js](https://nodejs.org/) 24
+- [pnpm](https://pnpm.io/) 10
+
+### Utvikling
 
 ```bash
-mise dev
+pnpm install
+pnpm run dev
 ```
 
-Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
+Åpne [http://localhost:3000/oppfolgingsplan-lps](http://localhost:3000/oppfolgingsplan-lps) i nettleseren.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Kommandoer
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Kommando | Beskrivelse |
+|---|---|
+| `pnpm run dev` | Start utviklingsserver |
+| `pnpm run build` | Bygg for produksjon |
+| `pnpm run lint` | Kjør Biome linter |
+| `pnpm run format` | Sjekk formatering |
+| `pnpm run check` | Kjør lint + format |
 
-## Learn More
+## Backend-referanser
 
-To learn more about Next.js, take a look at the following resources:
+Appen kommuniserer med:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **[lps-oppfolgingsplan-mottak](https://github.com/navikt/lps-oppfolgingsplan-mottak)** — mottar innsendte oppfølgingsplaner fra LPS-systemer
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Arkitektur
 
-## Deploy on Vercel
+```mermaid
+graph LR
+    A[LPS Demo<br>Next.js] -->|POST oppfølgingsplan| B[lps-oppfolgingsplan-mottak]
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Miljø
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| Miljø | URL |
+|---|---|
+| Demo (dev-gcp) | https://demo.ekstern.dev.nav.no/oppfolgingsplan-lps |
+
+## Kontakt
+
+- **Team**: [team-esyfo](https://github.com/orgs/navikt/teams/team-esyfo)
+- **Slack**: #team-esyfo
