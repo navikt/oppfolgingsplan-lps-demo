@@ -105,8 +105,8 @@ export function DashboardGrid(): JSX.Element {
 Bruk Aksel `Button` for standard handlinger.
 
 **Nyttige props**
-- `variant`: `primary`, `secondary`, `tertiary`, `danger`
-- `size`
+- `variant`: `primary`, `secondary`, `tertiary`
+- `size`: `medium` (default), `small`, `xsmall` — merk: `large` finnes ikke
 - `loading`
 - `icon`, `iconPosition`
 
@@ -119,7 +119,7 @@ export function SubmitRow(): JSX.Element {
       <Button variant="primary">Submit</Button>
       <Button variant="secondary">Preview</Button>
       <Button variant="tertiary">Back</Button>
-      <Button variant="danger">Delete</Button>
+      <Button data-color="danger">Delete</Button>
     </HStack>
   );
 }
@@ -370,24 +370,31 @@ export function ResponsiveCopy(): JSX.Element {
 }
 ```
 
-## Alert
+## LocalAlert
 
-Bruk `Alert` for statusmeldinger og tydelige tilbakemeldinger.
+> Alert er deprecated (nov 2025). Bruk `LocalAlert`, `GlobalAlert`, `InlineMessage` eller `InfoCard`.
+
+Bruk `LocalAlert` for statusmeldinger og tydelige tilbakemeldinger.
+
+**Nyttige byggesteiner**
+- `LocalAlert`
+- `LocalAlert.Header`, `LocalAlert.Title`
+- `LocalAlert.Content`
 
 **Nyttige props**
-- `variant`: `error`, `warning`, `info`, `success`
-- `size`
-- `inline`
-- `closeButton`
+- `status`: `info`, `success`, `warning`, `error`
 
 ```tsx
-import { Alert } from "@navikt/ds-react";
+import { LocalAlert } from "@navikt/ds-react";
 
 export function SaveConfirmation(): JSX.Element {
   return (
-    <Alert variant="success">
-      Your changes were saved successfully.
-    </Alert>
+    <LocalAlert status="success">
+      <LocalAlert.Header>
+        <LocalAlert.Title>Lagret</LocalAlert.Title>
+      </LocalAlert.Header>
+      <LocalAlert.Content>Endringene dine er lagret.</LocalAlert.Content>
+    </LocalAlert>
   );
 }
 ```
@@ -417,6 +424,67 @@ export function CopyBlock(): JSX.Element {
 }
 ```
 
+## Loader og Skeleton
+
+Bruk `Loader` for aktive ventesituasjoner og `Skeleton` for innhold som laster med kjent form.
+
+**Nyttige props**
+- `Loader`: `size` (`xsmall`, `small`, `medium`, `large`, `xlarge`, `2xlarge`, `3xlarge`), `title`, `variant`
+- `Skeleton`: `variant` (`rectangle`, `circle`, `text`), `width`, `height`
+
+```tsx
+import { BodyShort, Loader, Skeleton, VStack } from "@navikt/ds-react";
+
+export function CardLoading(): JSX.Element {
+  return (
+    <VStack gap="space-8">
+      <Skeleton variant="rectangle" width="100%" height="40px" />
+      <Skeleton variant="text" width="80%" />
+      <Skeleton variant="text" width="60%" />
+    </VStack>
+  );
+}
+
+export function PageLoader(): JSX.Element {
+  return (
+    <VStack justify="center" align="center" marginBlock="space-40">
+      <Loader size="3xlarge" title="Laster" />
+      <BodyShort aria-live="polite">Loading data…</BodyShort>
+    </VStack>
+  );
+}
+```
+
+## ExpansionCard
+
+Bruk `ExpansionCard` når innhold kan foldes ut for å redusere kognitiv belastning på siden. Støtter `data-color` for semantisk farging.
+
+**Nyttige byggesteiner**
+- `ExpansionCard`
+- `ExpansionCard.Header`, `ExpansionCard.Title`, `ExpansionCard.Description`
+- `ExpansionCard.Content`
+
+```tsx
+import { BodyLong, ExpansionCard, HStack } from "@navikt/ds-react";
+
+export function PaymentDetails(): JSX.Element {
+  return (
+    <ExpansionCard aria-label="Utbetalingsdetaljer" data-color="accent" size="small">
+      <ExpansionCard.Header>
+        <ExpansionCard.Title as="h4">
+          <HStack align="center" wrap={false} justify="space-between">
+            Utbetaling mars 2026
+          </HStack>
+        </ExpansionCard.Title>
+      </ExpansionCard.Header>
+      <ExpansionCard.Content>
+        <BodyLong>Detaljer om beløp og trekk.</BodyLong>
+      </ExpansionCard.Content>
+    </ExpansionCard>
+  );
+}
+```
+
 ## ErrorSummary
 
 Bruk `ErrorSummary` øverst i skjema når du må samle flere valideringsfeil.
@@ -440,4 +508,4 @@ export function FormErrors(): JSX.Element {
 - `VStack`/`HStack` når du trenger rytme og rekkefølge
 - `HGrid` når layouten faktisk er todelt eller flerkolonne
 - `Dialog` når fokus skal flyttes inn i et kontrollert overlay
-- `Alert` og `ErrorSummary` for eksplisitt state-håndtering
+- `LocalAlert` og `ErrorSummary` for eksplisitt state-håndtering
