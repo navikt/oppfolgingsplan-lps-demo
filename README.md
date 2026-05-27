@@ -23,9 +23,7 @@ graph LR
 
 ## Backend-API
 
-Appen kommuniserer med:
-
-**[lps-oppfolgingsplan-mottak](https://github.com/navikt/lps-oppfolgingsplan-mottak)** — mottar innsendte oppfølgingsplaner fra LPS-systemer
+Appen kommuniserer med **[lps-oppfolgingsplan-mottak](https://github.com/navikt/lps-oppfolgingsplan-mottak)** — mottar innsendte oppfølgingsplaner fra LPS-systemer
 
 ## Utvikling (kjøre lokalt)
 
