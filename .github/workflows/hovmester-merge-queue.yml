@@ -1,0 +1,55 @@
+name: Verify hovmester sync for merge queue
+
+on:
+  merge_group:
+    types: [checks_requested]
+
+jobs:
+  verify-hovmester-sync:
+    name: verify-hovmester-sync
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: read
+      pull-requests: read
+    steps:
+      - name: Verify PR-level hovmester sync check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REF_NAME: ${{ github.ref_name }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mapfile -t pr_numbers < <(grep -Eo 'pr-[0-9]+' <<<"$REF_NAME" | sed 's/pr-//' | sort -u)
+          if [ "${#pr_numbers[@]}" -eq 0 ]; then
+            echo "::error::Could not determine PR number from merge queue ref: $REF_NAME"
+            exit 1
+          fi
+
+          for pr_number in "${pr_numbers[@]}"; do
+            echo "Checking verify-hovmester-sync for PR #${pr_number}"
+
+            head_sha=$(gh pr view "$pr_number" --repo "$REPO" --json headRefOid --jq '.headRefOid')
+            if [ -z "$head_sha" ]; then
+              echo "::error::Could not determine head SHA for PR #${pr_number}"
+              exit 1
+            fi
+
+            matching_run_id=$(gh api --method GET "repos/${REPO}/actions/workflows/hovmester-verify.yml/runs" \
+              -f head_sha="$head_sha" \
+              -f event=pull_request_target \
+              -f status=success \
+              --jq '.workflow_runs[]
+                | select(.head_sha != null and .status == "completed" and .conclusion == "success")
+                | .id' \
+              | head -n 1)
+
+            if [ -z "$matching_run_id" ]; then
+              echo "::error::PR #${pr_number} is missing a successful verify-hovmester-sync run from .github/workflows/hovmester-verify.yml"
+              exit 1
+            fi
+          done
+
+          echo "All PR-level verify-hovmester-sync checks are successful."

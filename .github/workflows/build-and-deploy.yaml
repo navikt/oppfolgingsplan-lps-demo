@@ -10,6 +10,7 @@ jobs:
   build:
     name: build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     permissions:
       contents: "read"
@@ -30,7 +31,7 @@ jobs:
           key: ${{ github.sha }}
 
       - name: Build and push docker image
-        if: ${{ github.actor != 'dependabot[bot]' }}
+        if: ${{ github.actor != 'dependabot[bot]' && (github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref_name == 'main')) }}
         uses: nais/docker-build-push@be85229e81c0293c265c646c084f05317fb6e0d2
         id: docker-build-push
         with:
@@ -40,15 +41,52 @@ jobs:
     outputs:
       image: ${{ steps.docker-build-push.outputs.image }}
 
+  merge-gate:
+    name: Merge gate
+    needs: build
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      - name: Check required jobs
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          results=(
+            "build=${{ needs.build.result }}"
+          )
+          printf '%s\n' "${results[@]}"
+
+          for r in "${results[@]}"; do
+            status="${r#*=}"
+            case "$status" in
+              success|skipped) ;;
+              cancelled)
+                echo "::error::Required job was cancelled: $r"
+                exit 1
+                ;;
+              *)
+                echo "::error::Required job failed: $r"
+                exit 1
+                ;;
+            esac
+          done
+
   deploy-demo:
     name: Deploy to demo dev-gcp
-    if: ${{ github.actor != 'dependabot[bot]' }}
+    if: ${{ github.actor != 'dependabot[bot]' && (github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref_name == 'main')) }}
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: deploy-${{ github.ref }}
+      cancel-in-progress: true
     permissions:
       id-token: write
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       - uses: nais/deploy/actions/deploy@2f28259ff29ea37915f5a0c9e2a8e3542c429df7
         env:
           CLUSTER: dev-gcp
