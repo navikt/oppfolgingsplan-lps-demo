@@ -7,6 +7,17 @@ on:
   workflow_dispatch:
 
 jobs:
+  verify-hovmester-sync-merge-group:
+    name: verify-hovmester-sync
+    if: github.event_name == 'merge_group'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      - name: Report hovmester sync as not applicable
+        shell: bash
+        run: echo "verify-hovmester-sync is not applicable for merge queue; reporting success on merge_group."
+
   build:
     name: build
     runs-on: ubuntu-latest
