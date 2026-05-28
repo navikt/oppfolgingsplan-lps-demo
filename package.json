@@ -20,7 +20,7 @@
     "@navikt/ds-css": "^8.11.0",
     "@navikt/ds-react": "^8.11.0",
     "@navikt/next-logger": "^5.0.0",
-    "axios": "^1.15.2",
+    "axios": "^1.16.1",
     "axios-better-stacktrace": "^2.1.7",
     "babel-plugin-react-compiler": "^1.0.0",
     "date-fns": "^4.2.1",
