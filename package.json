@@ -23,7 +23,7 @@
     "axios": "^1.16.1",
     "axios-better-stacktrace": "^2.1.7",
     "babel-plugin-react-compiler": "^1.0.0",
-    "date-fns": "^4.3.0",
+    "date-fns": "^4.4.0",
     "dayjs": "^1.11.21",
     "next": "^16.2.6",
     "react": "^19.2.6",
