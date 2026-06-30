@@ -21,11 +21,11 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0(next@16.2.9(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(pino@10.3.1)
       axios:
-        specifier: ^1.18.0
-        version: 1.18.0
+        specifier: ^1.18.1
+        version: 1.18.1
       axios-better-stacktrace:
         specifier: ^2.1.7
-        version: 2.1.7(axios@1.18.0)
+        version: 2.1.7(axios@1.18.1)
       babel-plugin-react-compiler:
         specifier: ^1.0.0
         version: 1.0.0
@@ -568,8 +568,8 @@ packages:
     peerDependencies:
       axios: '*'
 
-  axios@1.18.0:
-    resolution: {integrity: sha512-E32NzpYKp++W7XRe52rHiXV2ehxmh3wbdgO7MHeFM+vqxLBYHzt0ElkiImtOBxtOmyp0yoC8C6uESVV84Y2/hw==}
+  axios@1.18.1:
+    resolution: {integrity: sha512-3nTvFlvpn9Zu/RkHUqtc7/+al4UpRW5az71ap5zccp6e8RAYEzhMTecX8Dz1wWDYrPpUoB1HAQEGEAEvUr7S9g==}
 
   babel-plugin-react-compiler@1.0.0:
     resolution: {integrity: sha512-Ixm8tFfoKKIPYdCCKYTsqv+Fd4IJ0DQqMyEimo+pxUOMUR9cVPlwTrFt9Avu+3cb6Zp3mAzl+t1MrG2fxxKsxw==}
@@ -1402,11 +1402,11 @@ snapshots:
 
   atomic-sleep@1.0.0: {}
 
-  axios-better-stacktrace@2.1.7(axios@1.18.0):
+  axios-better-stacktrace@2.1.7(axios@1.18.1):
     dependencies:
-      axios: 1.18.0
+      axios: 1.18.1
 
-  axios@1.18.0:
+  axios@1.18.1:
     dependencies:
       follow-redirects: 1.16.0
       form-data: 4.0.6
