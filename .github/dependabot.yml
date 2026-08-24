@@ -39,3 +39,7 @@ updates:
           - "react-dom"
           - "@types/react"
           - "@types/react-dom"
+    ignore:
+      - dependency-name: "next"
+        versions: ["16.3.1"]
+
