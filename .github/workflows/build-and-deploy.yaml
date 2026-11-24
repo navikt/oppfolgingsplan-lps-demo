@@ -4,6 +4,10 @@ on:
   push:
   merge_group:
     types: [checks_requested]
+  schedule:
+    # Daily rebuild picks up the latest patched Chainguard base image.
+    - cron: "10 5 * * *"
+      timezone: "Europe/Oslo"
   workflow_dispatch:
 
 jobs:
@@ -31,7 +35,7 @@ jobs:
           key: ${{ github.sha }}
 
       - name: Build and push docker image
-        if: ${{ github.actor != 'dependabot[bot]' && (github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref_name == 'main')) }}
+        if: ${{ github.actor != 'dependabot[bot]' && (github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' || (github.event_name == 'push' && github.ref_name == 'main')) }}
         uses: nais/docker-build-push@588f76a6f45aeb1e75d5e8417ec6ef6d79b2b39f
         id: docker-build-push
         with:
@@ -76,7 +80,7 @@ jobs:
 
   deploy-demo:
     name: Deploy to demo dev-gcp
-    if: ${{ github.actor != 'dependabot[bot]' && (github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref_name == 'main')) }}
+    if: ${{ github.actor != 'dependabot[bot]' && (github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' || (github.event_name == 'push' && github.ref_name == 'main')) }}
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 15
