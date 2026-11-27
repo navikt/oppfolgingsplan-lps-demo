@@ -1,0 +1,23 @@
+name: Dependabot automerge
+
+# Pilot of Dependabot automerge v2 (navikt/teamesyfo-github-actions-workflows#296).
+# Only manual runs during the pilot. The schedule is added, and the pin moved to
+# main, after the pilot has passed and #296 is merged. See
+# https://github.com/navikt/teamesyfo-github-actions-workflows/blob/trygg-dependabot-automerge/docs/dependabot-automerge.md
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  automerge:
+    permissions:
+      actions: read
+      checks: read
+      contents: read
+      pull-requests: write
+      statuses: read
+    uses: navikt/teamesyfo-github-actions-workflows/.github/workflows/dependabot-automerge-v2.yaml@f5beba8b40911f7c09db4617458b72f03da5e5c3 # trygg-dependabot-automerge (#296)
+    secrets:
+      AUTOMERGE_APP_PRIVATE_KEY: ${{ secrets.AUTOMERGE_APP_PRIVATE_KEY }}
