@@ -23,6 +23,16 @@ merge decision.
 
 ## Gather evidence
 
+Work in this order, so that the most important evidence comes first:
+
+1. The release notes, changelog and migration guide for the versions in the
+   update.
+2. This repository's use of the affected APIs, configuration and build
+   plugins.
+3. The check runs for the head commit.
+4. Upstream source code, only to confirm or rule out a specific break that
+   you suspect in this repository.
+
 - For a major update, read the release notes, the changelog and the migration
   guide for every version between the old and the new one. Find the upstream
   repository from the package or POM metadata. Try these routes in this order
@@ -72,8 +82,26 @@ merge decision.
 - List what a human must verify, and say clearly when you could not read the
   upstream notes or determine the impact.
 
-Write this in the review itself, not only in your reasoning, for example as a
-review comment on the changed version line, so that a human can check it.
+Always post this summary as one review comment on the changed version line,
+also when you post findings as separate comments. Use this structure:
+
+```markdown
+**<dependency> <old version> → <new version>** (<module or workspace>)
+
+**Sources read:** <repository, tag and file for each source>
+**Sources not read:** <source and reason, or "none">
+
+**Must change:** <change, file:line or "no usage found" with the search, and
+whether this pull request handles it; or "none" with the changes considered
+and the searches run>
+**Should change:** <suggestion with file:line, or "none">
+**Tests:** <tests that cover the affected code, or "none found">; <completed
+checks and their results, or "no completed checks read">
+**Human must verify:** <what a human must check>
+```
+
+If you cannot finish the evidence work, still post the full summary. Put what
+you did not check under "Human must verify".
 
 ## Common checks
 
