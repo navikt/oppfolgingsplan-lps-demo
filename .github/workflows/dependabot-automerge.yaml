@@ -18,6 +18,6 @@ jobs:
       contents: read
       pull-requests: write
       statuses: read
-    uses: navikt/teamesyfo-github-actions-workflows/.github/workflows/dependabot-automerge-v2.yaml@354a9bc44e1867624575ad7d724e3597d8899258 # trygg-dependabot-automerge (#296)
+    uses: navikt/teamesyfo-github-actions-workflows/.github/workflows/dependabot-automerge-v2.yaml@84aa855b3c75f551ff6ffda15ca2d4c05e5923a1 # trygg-dependabot-automerge (#296)
     secrets:
       AUTOMERGE_APP_PRIVATE_KEY: ${{ secrets.AUTOMERGE_APP_PRIVATE_KEY }}
